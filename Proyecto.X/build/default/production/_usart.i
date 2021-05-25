@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "_usart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,39 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
-# 16 "newmain.c"
+# 1 "_usart.c" 2
+# 18 "_usart.c"
+#pragma config FOSC = INTRC_NOCLKOUT
+
+
+#pragma config WDTE = OFF
+
+#pragma config PWRTE = ON
+#pragma config MCLRE = OFF
+
+
+#pragma config CP = OFF
+
+#pragma config CPD = OFF
+
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+
+#pragma config FCMEN = OFF
+
+#pragma config LVP = ON
+
+
+
+#pragma config BOR4V = BOR40V
+
+#pragma config WRT = OFF
+
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,43 +2519,71 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 16 "newmain.c" 2
-# 27 "newmain.c"
-#pragma config FOSC = INTRC_NOCLKOUT
+# 48 "_usart.c" 2
 
-
-#pragma config WDTE = OFF
-
-#pragma config PWRTE = ON
-#pragma config MCLRE = OFF
-
-
-#pragma config CP = OFF
-
-#pragma config CPD = OFF
-
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-
-#pragma config FCMEN = OFF
-
-#pragma config LVP = OFF
-
-
-
-#pragma config BOR4V = BOR40V
-
-#pragma config WRT = OFF
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\string.h" 1 3
 
 
 
 
-void setup();
-void config_reloj();
-void config_io();
-void config_int_enable();
-void config_iocb();
-void IOCB_interrupt();
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\string.h" 2 3
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 7 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\string.h" 2 3
+
+
+
+
+
+
+
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 49 "_usart.c" 2
+# 58 "_usart.c"
+void setup(void);
+void showString(char *var);
+
+
+
+
+const char data = 97;
+int flag = 1;
+char texto[11];
+unsigned char opcion=0;
 
 
 
@@ -2533,32 +2592,67 @@ void IOCB_interrupt();
 void main(void) {
 
     setup();
+    strcpy(texto,"hola mundo! ");
 
-    while(1){
+
+    while(1)
+    {
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+        if (PIR1bits.TXIF){
+
+            if(flag){
+                showString("Que accion desea ejecutar?");
+                showString("(1)Desplegar cadena de caracteres");
+                showString("(2)Cambiar PORTA");
+                showString("(3)Cambiar PORTB");
+                flag = 0;
+            }
+            if(opcion==49){
+                showString(texto);
+                flag = 1;
+                opcion = 0;
+            }
+            if(opcion==50){
+                showString("Ingrese el caracter a mostrar en PORTA");
+
+                flag = 1;
+                opcion = 0;
+
+                while(!opcion){
+
+                }
+
+                PORTA = opcion;
+                opcion = 0;
+
+
+            }
+            if (opcion==51){
+                showString("Ingrese el caracter a mostrar en PORTB");
+
+                flag = 1;
+                opcion = 0;
+
+                while(!opcion){
+
+                }
+
+                PORTB = opcion;
+                opcion = 0;
+            }
+
+
+        }
     }
 
-    return;
 }
-
-void setup(){
-
-    config_reloj();
-    config_io();
-    config_int_enable();
-    config_iocb();
-
-    return;
-};
-
-
-
-
-
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
-    if(INTCONbits.RBIF){
-        IOCB_interrupt();
+    if (PIR1bits.RCIF){
+        opcion = RCREG;
+
     }
 
 }
@@ -2566,77 +2660,53 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 
 
-void IOCB_interrupt(){
-
-    if (PORTBbits.RB0 == 0){
-        PORTA = 2;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        PORTA = 0;
-    }
-    if(PORTBbits.RB1 == 0) {
-        PORTA = 1;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        PORTA = 0;
-    }
-    if(PORTBbits.RB2 == 0) {
-        PORTA = 8;
-    }
+void setup(){
 
 
-    INTCONbits.RBIF = 0;
-
-    return;
-}
-
-
-
-void config_reloj(){
-
-    OSCCONbits.IRCF2 =1 ;
-    OSCCONbits.IRCF1 =1 ;
-    OSCCONbits.IRCF0 =1 ;
+    OSCCONbits.IRCF2 = 1;
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF0 = 1;
     OSCCONbits.SCS = 1;
 
-    return;
-}
-
-void config_io(){
 
     ANSELH = 0x00;
     ANSEL = 0x00;
 
-    TRISB = 0x07;
-
     TRISA = 0x00;
-
-
-    OPTION_REGbits.nRBPU = 0 ;
-    WPUB = 0x07;
-
+    TRISB = 0x00;
     PORTA = 0x00;
-    PORTB = 0x07;
+    PORTB = 0x00;
 
-
-
-    return;
-}
-
-void config_int_enable(){
 
     INTCONbits.GIE = 1;
-
-    INTCONbits.RBIE = 1;
-    INTCONbits.RBIF = 0;
-
-    return;
-}
+    INTCONbits.PEIE = 1;
+    PIE1bits.RCIE = 1;
+    PIR1bits.RCIF = 0;
 
 
-void config_iocb(){
 
-    IOCB = 0x07;
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
 
-    INTCONbits.RBIF = 0;
+    BAUDCTLbits.BRG16 = 1;
 
-    return;
+    SPBRG = 207;
+    SPBRGH = 0;
+
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+    RCSTAbits.CREN = 1;
+
+    TXSTAbits.TXEN = 1;
+
+ }
+
+
+void showString(char *var){
+    int i;
+
+    for (i = 0; i < strlen(var); i++) {
+        TXREG = var[i];
+    }
+    TXREG = 13;
 }
