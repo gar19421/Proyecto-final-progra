@@ -26,7 +26,7 @@
 
 #pragma config FCMEN = OFF
 
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 
 
@@ -2592,7 +2592,7 @@ unsigned char opcion=0;
 void main(void) {
 
     setup();
-    strcpy(texto,"hola mundo! ");
+    strcpy(texto,"\rhola mundo!\r");
 
 
     while(1)
@@ -2603,9 +2603,9 @@ void main(void) {
 
             if(flag){
                 showString("Que accion desea ejecutar?");
-                showString("(1)Desplegar cadena de caracteres");
-                showString("(2)Cambiar PORTA");
-                showString("(3)Cambiar PORTB");
+                showString("\r(1)Desplegar cadena de caracteres");
+                showString("\r(2)Cambiar PORTA");
+                showString("\r(3)Cambiar PORTB");
                 flag = 0;
             }
             if(opcion==49){
@@ -2614,7 +2614,7 @@ void main(void) {
                 opcion = 0;
             }
             if(opcion==50){
-                showString("Ingrese el caracter a mostrar en PORTA");
+                showString("\rIngrese el caracter a mostrar en PORTA\r");
 
                 flag = 1;
                 opcion = 0;
@@ -2629,7 +2629,7 @@ void main(void) {
 
             }
             if (opcion==51){
-                showString("Ingrese el caracter a mostrar en PORTB");
+                showString("\rIngrese el caracter a mostrar en PORTB\r");
 
                 flag = 1;
                 opcion = 0;
@@ -2707,6 +2707,7 @@ void showString(char *var){
 
     for (i = 0; i < strlen(var); i++) {
         TXREG = var[i];
+        _delay((unsigned long)((5)*(8000000/4000.0)));
     }
-    TXREG = 13;
+
 }

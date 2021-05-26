@@ -172,7 +172,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [p x FCMEN  =  OFF       ]
 "36
-[p x LVP  =  ON          ]
+[p x LVP  =  OFF          ]
 "40
 [p x BOR4V  =  BOR40V    ]
 "42
@@ -443,7 +443,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;_usart.c: 75:     setup();
 [e ( _setup ..  ]
 "76
-[; ;_usart.c: 76:     strcpy(texto,"hola mundo! ");
+[; ;_usart.c: 76:     strcpy(texto,"\rhola mundo!\r");
 [e ( _strcpy (2 , &U _texto :s 1C ]
 "79
 [; ;_usart.c: 79:     while(1)
@@ -466,13 +466,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;_usart.c: 86:                 showString("Que accion desea ejecutar?");
 [e ( _showString (1 :s 2C ]
 "87
-[; ;_usart.c: 87:                 showString("(1)Desplegar cadena de caracteres");
+[; ;_usart.c: 87:                 showString("\r(1)Desplegar cadena de caracteres");
 [e ( _showString (1 :s 3C ]
 "88
-[; ;_usart.c: 88:                 showString("(2)Cambiar PORTA");
+[; ;_usart.c: 88:                 showString("\r(2)Cambiar PORTA");
 [e ( _showString (1 :s 4C ]
 "89
-[; ;_usart.c: 89:                 showString("(3)Cambiar PORTB");
+[; ;_usart.c: 89:                 showString("\r(3)Cambiar PORTB");
 [e ( _showString (1 :s 5C ]
 "90
 [; ;_usart.c: 90:                 flag = 0;
@@ -503,7 +503,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _opcion `i -> 50 `i 145  ]
 {
 "98
-[; ;_usart.c: 98:                 showString("Ingrese el caracter a mostrar en PORTA");
+[; ;_usart.c: 98:                 showString("\rIngrese el caracter a mostrar en PORTA\r");
 [e ( _showString (1 :s 6C ]
 "100
 [; ;_usart.c: 100:                 flag = 1;
@@ -539,7 +539,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _opcion `i -> 51 `i 149  ]
 {
 "113
-[; ;_usart.c: 113:                 showString("Ingrese el caracter a mostrar en PORTB");
+[; ;_usart.c: 113:                 showString("\rIngrese el caracter a mostrar en PORTB\r");
 [e ( _showString (1 :s 7C ]
 "115
 [; ;_usart.c: 115:                 flag = 1;
@@ -706,24 +706,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;_usart.c: 190:         TXREG = var[i];
 [e = _TXREG -> *U + _var * -> _i `x -> -> # *U _var `i `x `uc ]
 "191
-[; ;_usart.c: 191:     }
+[; ;_usart.c: 191:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"192
+[; ;_usart.c: 192:     }
 }
 [e ++ _i -> 1 `i ]
 [e :U 160 ]
 [e $ < -> _i `ui ( _strlen (1 -> _var `*Cuc 157  ]
 [e :U 158 ]
 }
-"192
-[; ;_usart.c: 192:     TXREG = 13;
-[e = _TXREG -> -> 13 `i `uc ]
-"193
-[; ;_usart.c: 193: }
+"194
+[; ;_usart.c: 194: }
 [e :UE 156 ]
 }
-[a 3C 40 49 41 68 101 115 112 108 101 103 97 114 32 99 97 100 101 110 97 32 100 101 32 99 97 114 97 99 116 101 114 101 115 0 ]
-[a 5C 40 51 41 67 97 109 98 105 97 114 32 80 79 82 84 66 0 ]
-[a 7C 73 110 103 114 101 115 101 32 101 108 32 99 97 114 97 99 116 101 114 32 97 32 109 111 115 116 114 97 114 32 101 110 32 80 79 82 84 66 0 ]
-[a 4C 40 50 41 67 97 109 98 105 97 114 32 80 79 82 84 65 0 ]
-[a 6C 73 110 103 114 101 115 101 32 101 108 32 99 97 114 97 99 116 101 114 32 97 32 109 111 115 116 114 97 114 32 101 110 32 80 79 82 84 65 0 ]
+[a 3C 13 40 49 41 68 101 115 112 108 101 103 97 114 32 99 97 100 101 110 97 32 100 101 32 99 97 114 97 99 116 101 114 101 115 0 ]
+[a 5C 13 40 51 41 67 97 109 98 105 97 114 32 80 79 82 84 66 0 ]
+[a 4C 13 40 50 41 67 97 109 98 105 97 114 32 80 79 82 84 65 0 ]
 [a 2C 81 117 101 32 97 99 99 105 111 110 32 100 101 115 101 97 32 101 106 101 99 117 116 97 114 63 0 ]
-[a 1C 104 111 108 97 32 109 117 110 100 111 33 32 0 ]
+[a 7C 13 73 110 103 114 101 115 101 32 101 108 32 99 97 114 97 99 116 101 114 32 97 32 109 111 115 116 114 97 114 32 101 110 32 80 79 82 84 66 13 0 ]
+[a 6C 13 73 110 103 114 101 115 101 32 101 108 32 99 97 114 97 99 116 101 114 32 97 32 109 111 115 116 114 97 114 32 101 110 32 80 79 82 84 65 13 0 ]
+[a 1C 13 104 111 108 97 32 109 117 110 100 111 33 13 0 ]

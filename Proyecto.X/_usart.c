@@ -33,7 +33,7 @@
                                 //Internal/External Switchover mode is disabled
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enabled bit 
                                 //(Fail-Safe Clock Monitor is disabled)
-#pragma config LVP = ON         //Low Voltage Programming Enable bit(RB3/PGM pin 
+#pragma config LVP = OFF         //Low Voltage Programming Enable bit(RB3/PGM pin 
                                 //has PGM function, low voltage programming 
                                 //enabled)
 // CONFIG2
@@ -73,7 +73,7 @@ unsigned char opcion=0; // opcion ingresada por el usuario
 void main(void) {
     
     setup(); //Configuración
-    strcpy(texto,"hola mundo! ");
+    strcpy(texto,"\rhola mundo!\r");
     
       
     while(1)//loop forever
@@ -84,9 +84,9 @@ void main(void) {
              
             if(flag){ // si la bandera esta encendida mostrara el menu
                 showString("Que accion desea ejecutar?");
-                showString("(1)Desplegar cadena de caracteres");
-                showString("(2)Cambiar PORTA");
-                showString("(3)Cambiar PORTB");
+                showString("\r(1)Desplegar cadena de caracteres");
+                showString("\r(2)Cambiar PORTA");
+                showString("\r(3)Cambiar PORTB");
                 flag = 0;
             }
             if(opcion==49){ // cuando seleccione opcion 1 mostrara el texto 
@@ -95,7 +95,7 @@ void main(void) {
                 opcion = 0;
             }
             if(opcion==50){ // opcion 2, modificar caracter porta
-                showString("Ingrese el caracter a mostrar en PORTA");
+                showString("\rIngrese el caracter a mostrar en PORTA\r");
                 
                 flag = 1;
                 opcion = 0;
@@ -110,7 +110,7 @@ void main(void) {
                 
             }
             if (opcion==51){ //opcion 3 modificar caracter portb
-                showString("Ingrese el caracter a mostrar en PORTB");
+                showString("\rIngrese el caracter a mostrar en PORTB\r");
                 
                 flag = 1;
                 opcion = 0;
@@ -188,8 +188,9 @@ void showString(char *var){ //subrutina de formacion de cadena de caracteres
        
     for (i = 0; i < strlen(var); i++) { //bucle en donde lee el array de char y
         TXREG = var[i]; //lo mueve a la consola
+        __delay_ms(5);
     }
-    TXREG = 13;
+    
 }
 
 
