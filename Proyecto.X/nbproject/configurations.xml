@@ -15,6 +15,7 @@
       <itemPath>_servos.c</itemPath>
       <itemPath>_motordc.c</itemPath>
       <itemPath>_usart.c</itemPath>
+      <itemPath>proyecto_final.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -182,6 +183,8 @@
         </XC8-CO>
         <XC8-config-global>
         </XC8-config-global>
+      </item>
+      <item path="_usart.c" ex="true" overriding="false">
       </item>
     </conf>
   </confs>

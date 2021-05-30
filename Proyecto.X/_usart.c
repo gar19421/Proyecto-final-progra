@@ -73,7 +73,7 @@ unsigned char opcion=0; // opcion ingresada por el usuario
 void main(void) {
     
     setup(); //Configuración
-    strcpy(texto,"\rhola mundo!\r");
+    strcpy(texto,"hola mundo!");
     
       
     while(1)//loop forever
@@ -84,9 +84,9 @@ void main(void) {
              
             if(flag){ // si la bandera esta encendida mostrara el menu
                 showString("Que accion desea ejecutar?");
-                showString("\r(1)Desplegar cadena de caracteres");
-                showString("\r(2)Cambiar PORTA");
-                showString("\r(3)Cambiar PORTB");
+                showString("(1)Desplegar cadena de caracteres");
+                showString("(2)Cambiar PORTA");
+                showString("(3)Cambiar PORTB");
                 flag = 0;
             }
             if(opcion==49){ // cuando seleccione opcion 1 mostrara el texto 
@@ -95,7 +95,7 @@ void main(void) {
                 opcion = 0;
             }
             if(opcion==50){ // opcion 2, modificar caracter porta
-                showString("\rIngrese el caracter a mostrar en PORTA\r");
+                showString("Ingrese el caracter a mostrar en PORTA");
                 
                 flag = 1;
                 opcion = 0;
@@ -110,7 +110,7 @@ void main(void) {
                 
             }
             if (opcion==51){ //opcion 3 modificar caracter portb
-                showString("\rIngrese el caracter a mostrar en PORTB\r");
+                showString("Ingrese el caracter a mostrar en PORTB");
                 
                 flag = 1;
                 opcion = 0;
@@ -191,6 +191,10 @@ void showString(char *var){ //subrutina de formacion de cadena de caracteres
         __delay_ms(5);
     }
     
+    TXREG = 13;
+    __delay_ms(5);
+    TXREG = 11;
+   
 }
 
 

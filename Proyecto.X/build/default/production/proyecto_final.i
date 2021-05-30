@@ -1,4 +1,4 @@
-# 1 "_usart.c"
+# 1 "proyecto_final.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,39 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "_usart.c" 2
-# 18 "_usart.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-
-
-#pragma config WDTE = OFF
-
-#pragma config PWRTE = ON
-#pragma config MCLRE = OFF
-
-
-#pragma config CP = OFF
-
-#pragma config CPD = OFF
-
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-
-#pragma config FCMEN = OFF
-
-#pragma config LVP = OFF
-
-
-
-#pragma config BOR4V = BOR40V
-
-#pragma config WRT = OFF
-
-
-
-
-
-
+# 1 "proyecto_final.c" 2
+# 17 "proyecto_final.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2519,7 +2488,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 48 "_usart.c" 2
+# 17 "proyecto_final.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\string.h" 1 3
 
@@ -2572,18 +2541,62 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 49 "_usart.c" 2
-# 58 "_usart.c"
-void setup(void);
+# 18 "proyecto_final.c" 2
+# 31 "proyecto_final.c"
+#pragma config FOSC = INTRC_NOCLKOUT
+
+
+#pragma config WDTE = OFF
+
+#pragma config PWRTE = ON
+#pragma config MCLRE = OFF
+
+
+#pragma config CP = OFF
+
+#pragma config CPD = OFF
+
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+
+#pragma config FCMEN = OFF
+
+#pragma config LVP = OFF
+
+
+
+#pragma config BOR4V = BOR40V
+
+#pragma config WRT = OFF
+
+
+
+
+
+void setup();
+void config_reloj();
+void config_io();
+void config_int_enable();
+void config_iocb();
+void IOCB_interrupt();
 void showString(char *var);
+void writeToEEPROM(int data, int address);
 
 
 
 
+
+int flag2=0;
 const char data = 97;
 int flag = 1;
 char texto[11];
 unsigned char opcion=0;
+
+int RB3_old;
+int eepromVal = 0;
+
+int addressEEPROM = 0x10;
+int parpadear = 0;
 
 
 
@@ -2592,29 +2605,46 @@ unsigned char opcion=0;
 void main(void) {
 
     setup();
-    strcpy(texto,"\rhola mundo!\r");
 
 
+
+
+
+    ADCON0bits.GO = 1;
     while(1)
     {
-        _delay((unsigned long)((200)*(8000000/4000.0)));
+
+
+
+        if(ADCON0bits.GO == 0){
+            if (ADCON0bits.CHS == 5){
+                ADCON0bits.CHS = 6;}
+            else {
+                ADCON0bits.CHS = 5;}
+
+            _delay((unsigned long)((50)*(8000000/4000000.0)));
+            ADCON0bits.GO = 1;
+        }
+
+
+
+
+
 
         if (PIR1bits.TXIF){
 
             if(flag){
+                showString("Bienvenido a nuestro programa terricola");
                 showString("Que accion desea ejecutar?");
-                showString("\r(1)Desplegar cadena de caracteres");
-                showString("\r(2)Cambiar PORTA");
-                showString("\r(3)Cambiar PORTB");
+                showString("(1)Controlar Brazo");
+                showString("(2)Controlar Carro");
+                showString("(3)Controlar LEDs");
+                showString("(4)Mostrar potenciometro");
                 flag = 0;
             }
             if(opcion==49){
-                showString(texto);
-                flag = 1;
-                opcion = 0;
-            }
-            if(opcion==50){
-                showString("\rIngrese el caracter a mostrar en PORTA\r");
+                showString("Elija la posicion del servo 1 (abajo)");
+                showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
 
                 flag = 1;
                 opcion = 0;
@@ -2623,13 +2653,74 @@ void main(void) {
 
                 }
 
-                PORTA = opcion;
+                if(opcion==49){
+                    PORTD = (0);
+                    CCPR1L = (PORTD>>1) + 128;
+                    CCP1CONbits.DC1B1 = PORTDbits.RD0;
+                    CCP1CONbits.DC1B0 = ADRESL>>7;
+                }
+                if(opcion==50){
+                    PORTD = (128);
+                    CCPR1L = (PORTD>>1) + 128;
+                    CCP1CONbits.DC1B1 = PORTDbits.RD0;
+                    CCP1CONbits.DC1B0 = ADRESL>>7;
+                }
+                if(opcion==51){
+                    PORTD = (255);
+                    CCPR1L = (PORTD>>1) + 128;
+                    CCP1CONbits.DC1B1 = PORTDbits.RD0;
+                    CCP1CONbits.DC1B0 = ADRESL>>7;
+                }
+
+                showString("Elija la posicion del servo 2 (arriba)");
+                showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
+
+                flag = 1;
+                opcion = 0;
+
+                while(!opcion){
+
+                }
+
+                if(opcion==49){
+                    PORTD = (0);
+                    CCPR2L = (PORTD>>1) + 128;
+                    CCP2CONbits.DC2B1 = PORTDbits.RD0;
+                    CCP2CONbits.DC2B0 = ADRESL>>7;
+                }
+                if(opcion==50){
+                    PORTD = (128);
+                    CCPR2L = (PORTD>>1) + 128;
+                    CCP2CONbits.DC2B1 = PORTDbits.RD0;
+                    CCP2CONbits.DC2B0 = ADRESL>>7;
+                }
+                if(opcion==51){
+                    PORTD = (255);
+                    CCPR2L = (PORTD>>1) + 128;
+                    CCP2CONbits.DC2B1 = PORTDbits.RD0;
+                    CCP2CONbits.DC2B0 = ADRESL>>7;
+                }
+
+
+                opcion = 0;
+            }
+            if(opcion==50){
+                showString("Ingrese el caracter a mostrar en PORTA");
+
+                flag = 1;
+                opcion = 0;
+
+                while(!opcion){
+
+                }
+
+
                 opcion = 0;
 
 
             }
             if (opcion==51){
-                showString("\rIngrese el caracter a mostrar en PORTB\r");
+                showString("Ingrese el caracter a mostrar en PORTB");
 
                 flag = 1;
                 opcion = 0;
@@ -2638,50 +2729,238 @@ void main(void) {
 
                 }
 
-                PORTB = opcion;
+
                 opcion = 0;
             }
 
+            if (opcion==52){
+                showString("Ingrese el caracter a mostrar en PORTB");
+
+                flag = 1;
+                opcion = 0;
+
+                while(!opcion){
+
+                }
+
+
+                opcion = 0;
+            }
 
         }
+
+
+
+
+
+        if (PORTBbits.RB4 == 0){
+            RB3_old = 1;
+        }
+        if(PORTBbits.RB4 == 1 && RB3_old==1){
+            eepromVal = eepromVal + 1;
+
+            writeToEEPROM(eepromVal,addressEEPROM);
+
+            if(addressEEPROM == 0x15){
+                addressEEPROM = 0x10;
+            }else{
+                addressEEPROM = addressEEPROM + 1;
+            }
+
+            RB3_old = 0;
+        }
+
+
+
     }
 
+    return;
 }
 
+void setup(){
+
+    config_reloj();
+    config_io();
+    config_int_enable();
+    config_iocb();
+
+    return;
+};
+
+
+void writeToEEPROM(int data, int address){
+    EEADR = address;
+    EEDAT = data;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.WREN = 1;
+
+
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+
+    EECON1bits.WR = 1;
+
+
+    EECON1bits.WREN = 0;
+    INTCONbits.GIE = 1;
+
+    return;
+}
+# 312 "proyecto_final.c"
 void __attribute__((picinterrupt(("")))) isr(void){
+
+    if(INTCONbits.RBIF){
+        IOCB_interrupt();
+    }
 
     if (PIR1bits.RCIF){
         opcion = RCREG;
 
     }
 
+    if (PIR1bits.ADIF){
+
+        if(ADCON0bits.CHS == 5) {
+            PORTD = ADRESH;
+            CCPR1L = (PORTD>>1) + 128;
+            CCP1CONbits.DC1B1 = PORTDbits.RD0;
+            CCP1CONbits.DC1B0 = ADRESL>>7;}
+
+        else{
+            PORTD = ADRESH;
+            CCPR2L = (PORTD>>1) + 128;
+            CCP2CONbits.DC2B1 = PORTDbits.RD0;
+            CCP2CONbits.DC2B0 = ADRESL>>7;}
+
+        PIR1bits.ADIF = 0;
+    }
 }
 
 
 
 
-void setup(){
+void IOCB_interrupt(){
+
+    if (PORTBbits.RB0 == 0){
+        if (flag2){
+            PORTA = 10;
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTA = 8;
+        }
+        else {
+            PORTA = 2;
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTA = 0;
+        }
+    }
+    if(PORTBbits.RB1 == 0) {
+        if (flag2){
+            PORTA = 9;
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTA = 8;
+        }
+        else {
+            PORTA = 1;
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTA = 0;
+        }
+    }
+    if(PORTBbits.RB2 == 0) {
+        PORTA = 8;
+        flag2 = 1;
+        PORTAbits.RA4 = 1;
+        PORTAbits.RA5 = 1;
+    }
+    if(PORTBbits.RB3 == 0) {
 
 
-    OSCCONbits.IRCF2 = 1;
-    OSCCONbits.IRCF1 = 1;
-    OSCCONbits.IRCF0 = 1;
+       PORTA = 4;
+       flag2 = 1;
+       PORTAbits.RA6 = 1;
+       PORTAbits.RA7 = 1;
+
+    }
+
+    if(PORTBbits.RB3 == 1 && PORTBbits.RB2 == 1) {
+        PORTA = 0;
+        flag2 = 0;
+
+    }
+
+    INTCONbits.RBIF = 0;
+
+    return;
+}
+
+
+
+void config_reloj(){
+
+    OSCCONbits.IRCF2 =1 ;
+    OSCCONbits.IRCF1 =1 ;
+    OSCCONbits.IRCF0 =1 ;
     OSCCONbits.SCS = 1;
+
+    return;
+}
+
+void config_io(){
 
 
     ANSELH = 0x00;
-    ANSEL = 0x00;
+    ANSEL = 0X70;
 
+    TRISB = 0xFF;
     TRISA = 0x00;
-    TRISB = 0x00;
+
+    TRISE = 0x03;
+    TRISD = 0x00;
+    TRISC = 0xB9;
+
+    OPTION_REGbits.nRBPU = 0 ;
+    WPUB = 0xFF;
+
     PORTA = 0x00;
-    PORTB = 0x00;
+    PORTB = 0x0F;
+
+    PORTE = 0x00;
+    PORTD = 0x00;
+    PORTC = 0x00;
 
 
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIE1bits.RCIE = 1;
-    PIR1bits.RCIF = 0;
+
+
+    ADCON1bits.ADFM = 0;
+    ADCON1bits.VCFG0 = 0;
+    ADCON1bits.VCFG1 = 0;
+
+    ADCON0bits.ADCS = 0b10;
+    ADCON0bits.CHS = 5;
+    _delay((unsigned long)((50)*(8000000/4000000.0)));
+    ADCON0bits.ADON = 1;
+
+
+    PR2 = 250;
+    CCP1CONbits.P1M = 0;
+    CCP1CONbits.CCP1M = 0b00001100;
+    CCP2CONbits.CCP2M = 0b00001100;
+
+    CCPR1L = 0x0F;
+    CCPR2L = 0x0F;
+    CCP1CONbits.DC1B = 0;
+    CCP2CONbits.DC2B1 = 0;
+    CCP2CONbits.DC2B0 = 0;
+
+    PIR1bits.TMR2IF = 0;
+    T2CONbits.T2CKPS1 = 1;
+    T2CONbits.T2CKPS0 = 1;
+    T2CONbits.TMR2ON = 1;
+
+    while (!PIR1bits.TMR2IF);
+    PIR1bits.TMR2IF = 0;
+
+
 
 
 
@@ -2699,7 +2978,38 @@ void setup(){
 
     TXSTAbits.TXEN = 1;
 
- }
+
+
+    return;
+}
+
+void config_int_enable(){
+
+    INTCONbits.GIE = 1;
+
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
+
+    INTCONbits.PEIE = 1;
+    PIE1bits.ADIE = 1;
+    PIR1bits.ADIF = 0;
+
+
+    PIE1bits.RCIE = 1;
+    PIR1bits.RCIF = 0;
+
+    return;
+}
+
+
+void config_iocb(){
+
+    IOCB = 0x0F;
+
+    INTCONbits.RBIF = 0;
+
+    return;
+}
 
 
 void showString(char *var){
@@ -2709,5 +3019,9 @@ void showString(char *var){
         TXREG = var[i];
         _delay((unsigned long)((5)*(8000000/4000.0)));
     }
+
+    TXREG = 13;
+    _delay((unsigned long)((5)*(8000000/4000.0)));
+    TXREG = 11;
 
 }

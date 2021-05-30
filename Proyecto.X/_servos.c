@@ -81,15 +81,15 @@ void __interrupt() isr(void){
     
     if (PIR1bits.ADIF){
         if(ADCON0bits.CHS == 0) { //Verifica el canal en l que se encuentra
-            PORTB = ADRESH;
-            CCPR1L = (PORTB>>1) + 128; //Swift y ajuste de señal
-            CCP1CONbits.DC1B1 = PORTBbits.RB0;
+            PORTD = ADRESH;
+            CCPR1L = (PORTD>>1) + 128; //Swift y ajuste de señal
+            CCP1CONbits.DC1B1 = PORTDbits.RD0;
             CCP1CONbits.DC1B0 = ADRESL>>7;}
         
         else{
-            PORTB = ADRESH;
-            CCPR2L = (PORTB>>1) + 128;//Swift y ajuste de señal
-            CCP2CONbits.DC2B1 = PORTBbits.RB0;
+            PORTD = ADRESH;
+            CCPR2L = (PORTD>>1) + 128;//Swift y ajuste de señal
+            CCP2CONbits.DC2B1 = PORTDbits.RD0;
             CCP2CONbits.DC2B0 = ADRESL>>7;}
         
         PIR1bits.ADIF = 0; //Se limpia la bandera de ADC
@@ -110,14 +110,14 @@ void setup(){
     
     //Configurar entradas y salidas
     ANSELH = 0x00;//Pines digitales
-    ANSEL = 0x03; //Primeros dos pines con entradas analógicas
+    ANSEL = 0X70; //Primeros dos pines con entradas analógicas
     
-    TRISA = 0x03; //Para entrada de los potenciometros
-    TRISB = 0x00;
+    TRISE = 0x03; //Para entrada de los potenciometros
+    TRISD = 0x00;
     TRISC = 0x00; //Para servos
                
-    PORTA = 0x00; //Se limpian los puertos    
-    PORTB = 0x00;
+    PORTE = 0x00; //Se limpian los puertos    
+    PORTD = 0x00;
     PORTC = 0x00;
     
     //Configurar ADC
