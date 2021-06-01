@@ -2705,13 +2705,48 @@ void main(void) {
                 opcion = 0;
             }
             if(opcion==50){
-                showString("Ingrese el caracter a mostrar en PORTA");
+                showString("Elija la acción que desea realizar)");
+                showString("1.Forward 2.Forback 3.turn rigth 4.turn left");
 
                 flag = 1;
                 opcion = 0;
 
                 while(!opcion){
 
+                }
+
+                if(opcion==49){
+                    PORTA = 8;
+                    PORTAbits.RA4 = 1;
+                    PORTAbits.RA5 = 1;
+                    flag =1;
+                }
+                if(opcion==50){
+
+                    PORTA = 4;
+                    PORTAbits.RA6 = 1;
+                    PORTAbits.RA7 = 1;
+                    flag =2;
+                }
+                if(opcion==51){
+                    PORTA = 9;
+                    _delay((unsigned long)((250)*(8000000/4000.0)));
+                    if(flag ==1){
+                        PORTA = 8;
+                    }
+                    if(flag ==2){
+                        PORTA = 4;
+                    }
+                }
+                if(opcion==52){
+                    PORTA = 10;
+                    _delay((unsigned long)((250)*(8000000/4000.0)));
+                    if(flag ==1){
+                        PORTA = 8;
+                    }
+                    if(flag ==2){
+                        PORTA = 4;
+                    }
                 }
 
 
@@ -2807,7 +2842,7 @@ void writeToEEPROM(int data, int address){
 
     return;
 }
-# 312 "proyecto_final.c"
+# 347 "proyecto_final.c"
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if(INTCONbits.RBIF){
@@ -2845,11 +2880,14 @@ void IOCB_interrupt(){
     if (PORTBbits.RB0 == 0){
         if (flag2){
             PORTA = 10;
+            PORTAbits.RA4 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 8;
+
         }
         else {
             PORTA = 2;
+            PORTAbits.RA4 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 0;
         }
@@ -2857,11 +2895,13 @@ void IOCB_interrupt(){
     if(PORTBbits.RB1 == 0) {
         if (flag2){
             PORTA = 9;
+            PORTAbits.RA5 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 8;
         }
         else {
             PORTA = 1;
+            PORTAbits.RA5 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 0;
         }

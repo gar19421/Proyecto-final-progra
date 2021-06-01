@@ -190,16 +190,51 @@ void main(void) {
                 opcion = 0;
             }
             if(opcion==50){ // opcion 2, modificar caracter porta
-                showString("Ingrese el caracter a mostrar en PORTA");
+                showString("Elija la acción que desea realizar)");
+                showString("1.Forward 2.Forback 3.turn rigth 4.turn left");
                 
                 flag = 1;
                 opcion = 0;
                 
-                while(!opcion){ // hasta que ingrese un valor para el porta 
-                                //se mantiene en espera
+                while(!opcion){
+                    
                 }
                 
-                //PORTA = opcion;
+                if(opcion==49){
+                    PORTA = 8; 
+                    PORTAbits.RA4 = 1;
+                    PORTAbits.RA5 = 1;
+                    flag =1;
+                }
+                if(opcion==50){
+                    
+                    PORTA = 4; 
+                    PORTAbits.RA6 = 1;
+                    PORTAbits.RA7 = 1;
+                    flag =2;
+                }
+                if(opcion==51){
+                    PORTA = 9;
+                    __delay_ms(250);
+                    if(flag ==1){
+                        PORTA = 8;
+                    }
+                    if(flag ==2){
+                        PORTA = 4;
+                    }
+                }
+                if(opcion==52){
+                    PORTA = 10;
+                    __delay_ms(250);
+                    if(flag ==1){
+                        PORTA = 8;
+                    }
+                    if(flag ==2){
+                        PORTA = 4;
+                    }
+                }
+                
+                
                 opcion = 0;
                 
                 
@@ -346,11 +381,14 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
     if (PORTBbits.RB0 == 0){ 
         if (flag2){
             PORTA = 10;
+            PORTAbits.RA4 = 1;
             __delay_ms(250);
             PORTA = 8;
+            
         }
         else {
             PORTA = 2;
+            PORTAbits.RA4 = 1;
             __delay_ms(250);
             PORTA = 0;
         }
@@ -358,11 +396,13 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
     if(PORTBbits.RB1 == 0) {
         if (flag2){
             PORTA = 9;
+            PORTAbits.RA5 = 1;
             __delay_ms(250);
             PORTA = 8;
         }
         else {
             PORTA = 1;
+            PORTAbits.RA5 = 1;
             __delay_ms(250);
             PORTA = 0;
         }
