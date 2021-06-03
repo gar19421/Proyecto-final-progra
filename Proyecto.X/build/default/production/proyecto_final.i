@@ -2591,6 +2591,7 @@ const char data = 97;
 int flag = 1;
 char texto[11];
 unsigned char opcion=0;
+unsigned char valor_pot;
 
 int RB3_old;
 int eepromVal = 0;
@@ -2634,153 +2635,136 @@ void main(void) {
         if (PIR1bits.TXIF){
 
             if(flag){
-                showString("Bienvenido a nuestro programa terricola");
-                showString("Que accion desea ejecutar?");
-                showString("(1)Controlar Brazo");
-                showString("(2)Controlar Carro");
-                showString("(3)Controlar LEDs");
-                showString("(4)Mostrar potenciometro");
+                showString("Ingrese 1 si desea ingresar a modo control USART");
                 flag = 0;
             }
-            if(opcion==49){
-                showString("Elija la posicion del servo 1 (abajo)");
-                showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
 
-                flag = 1;
-                opcion = 0;
+                if(opcion == 49){
+                    flag = 1;
+                    opcion = 0;
+                    while(opcion != 53){
 
-                while(!opcion){
+                        if(flag){
+                            showString("Bienvenido a nuestro programa");
+                            showString("Que accion desea ejecutar?");
+                            showString("(1)Controlar Brazo");
+                            showString("(2)Controlar Carro");
+                            showString("(3)Controlar LEDs");
+                            showString("(4)Mostrar potenciometro");
+                            showString("(5)Salir de control por USART");
+                            flag = 0;
+                        }
+                        if(opcion==49){
+                            showString("Elija la posicion del servo 1 (abajo)");
+                            showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
 
-                }
+                            flag = 1;
+                            opcion = 0;
 
-                if(opcion==49){
-                    PORTD = (0);
-                    CCPR1L = (PORTD>>1) + 128;
-                    CCP1CONbits.DC1B1 = PORTDbits.RD0;
-                    CCP1CONbits.DC1B0 = ADRESL>>7;
-                }
-                if(opcion==50){
-                    PORTD = (128);
-                    CCPR1L = (PORTD>>1) + 128;
-                    CCP1CONbits.DC1B1 = PORTDbits.RD0;
-                    CCP1CONbits.DC1B0 = ADRESL>>7;
-                }
-                if(opcion==51){
-                    PORTD = (255);
-                    CCPR1L = (PORTD>>1) + 128;
-                    CCP1CONbits.DC1B1 = PORTDbits.RD0;
-                    CCP1CONbits.DC1B0 = ADRESL>>7;
-                }
+                            while(!opcion){
 
-                showString("Elija la posicion del servo 2 (arriba)");
-                showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
+                            }
 
-                flag = 1;
-                opcion = 0;
+                            if(opcion==49){
+                                PORTD = (0);
+                                CCPR1L = (PORTD>>1) + 128;
+                                CCP1CONbits.DC1B1 = PORTDbits.RD0;
+                                CCP1CONbits.DC1B0 = ADRESL>>7;
+                            }
+                            if(opcion==50){
+                                PORTD = (128);
+                                CCPR1L = (PORTD>>1) + 128;
+                                CCP1CONbits.DC1B1 = PORTDbits.RD0;
+                                CCP1CONbits.DC1B0 = ADRESL>>7;
+                            }
+                            if(opcion==51){
+                                PORTD = (255);
+                                CCPR1L = (PORTD>>1) + 128;
+                                CCP1CONbits.DC1B1 = PORTDbits.RD0;
+                                CCP1CONbits.DC1B0 = ADRESL>>7;
+                            }
 
-                while(!opcion){
+                            showString("Elija la posicion del servo 2 (arriba)");
+                            showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
 
-                }
+                            flag = 1;
+                            opcion = 0;
 
-                if(opcion==49){
-                    PORTD = (0);
-                    CCPR2L = (PORTD>>1) + 128;
-                    CCP2CONbits.DC2B1 = PORTDbits.RD0;
-                    CCP2CONbits.DC2B0 = ADRESL>>7;
-                }
-                if(opcion==50){
-                    PORTD = (128);
-                    CCPR2L = (PORTD>>1) + 128;
-                    CCP2CONbits.DC2B1 = PORTDbits.RD0;
-                    CCP2CONbits.DC2B0 = ADRESL>>7;
-                }
-                if(opcion==51){
-                    PORTD = (255);
-                    CCPR2L = (PORTD>>1) + 128;
-                    CCP2CONbits.DC2B1 = PORTDbits.RD0;
-                    CCP2CONbits.DC2B0 = ADRESL>>7;
-                }
+                            while(!opcion){
+
+                            }
+
+                            if(opcion==49){
+                                PORTD = (0);
+                                CCPR2L = (PORTD>>1) + 128;
+                                CCP2CONbits.DC2B1 = PORTDbits.RD0;
+                                CCP2CONbits.DC2B0 = ADRESL>>7;
+                            }
+                            if(opcion==50){
+                                PORTD = (128);
+                                CCPR2L = (PORTD>>1) + 128;
+                                CCP2CONbits.DC2B1 = PORTDbits.RD0;
+                                CCP2CONbits.DC2B0 = ADRESL>>7;
+                            }
+                            if(opcion==51){
+                                PORTD = (255);
+                                CCPR2L = (PORTD>>1) + 128;
+                                CCP2CONbits.DC2B1 = PORTDbits.RD0;
+                                CCP2CONbits.DC2B0 = ADRESL>>7;
+                            }
 
 
-                opcion = 0;
-            }
-            if(opcion==50){
-                showString("Elija la acción que desea realizar)");
-                showString("1.Forward 2.Forback 3.turn rigth 4.turn left");
+                            opcion = 0;
+                        }
+                        if(opcion==50){
+                            showString("Elija la acción que desea realizar para mover el carro");
 
-                flag = 1;
-                opcion = 0;
 
-                while(!opcion){
+                            flag = 1;
+                            opcion = 0;
 
-                }
+                            while(!opcion){
 
-                if(opcion==49){
-                    PORTA = 8;
-                    PORTAbits.RA4 = 1;
-                    PORTAbits.RA5 = 1;
-                    flag =1;
-                }
-                if(opcion==50){
+                            }
 
-                    PORTA = 4;
-                    PORTAbits.RA6 = 1;
-                    PORTAbits.RA7 = 1;
-                    flag =2;
-                }
-                if(opcion==51){
-                    PORTA = 9;
-                    _delay((unsigned long)((250)*(8000000/4000.0)));
-                    if(flag ==1){
-                        PORTA = 8;
+
+
+
+                            opcion = 0;
+
+
+                        }
+                        if (opcion==51){
+                            showString("Ingrese el caracter a mostrar en PORTB");
+
+                            flag = 1;
+                            opcion = 0;
+
+                            while(!opcion){
+
+                            }
+
+
+                            opcion = 0;
+                        }
+
+                        if (opcion==52){
+                            flag = 1;
+# 248 "proyecto_final.c"
+                            opcion = 0;
+                        }
+
+
                     }
-                    if(flag ==2){
-                        PORTA = 4;
+
+                    if(opcion==53){
+                       showString("Ingrese 1 si desea ingresar a modo control USART");
+                       flag = 0;
                     }
-                }
-                if(opcion==52){
-                    PORTA = 10;
-                    _delay((unsigned long)((250)*(8000000/4000.0)));
-                    if(flag ==1){
-                        PORTA = 8;
-                    }
-                    if(flag ==2){
-                        PORTA = 4;
-                    }
-                }
-
-
-                opcion = 0;
-
-
-            }
-            if (opcion==51){
-                showString("Ingrese el caracter a mostrar en PORTB");
-
-                flag = 1;
-                opcion = 0;
-
-                while(!opcion){
 
                 }
 
 
-                opcion = 0;
-            }
-
-            if (opcion==52){
-                showString("Ingrese el caracter a mostrar en PORTB");
-
-                flag = 1;
-                opcion = 0;
-
-                while(!opcion){
-
-                }
-
-
-                opcion = 0;
-            }
 
         }
 
@@ -2842,7 +2826,7 @@ void writeToEEPROM(int data, int address){
 
     return;
 }
-# 347 "proyecto_final.c"
+# 340 "proyecto_final.c"
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if(INTCONbits.RBIF){
@@ -2861,6 +2845,9 @@ void __attribute__((picinterrupt(("")))) isr(void){
             CCPR1L = (PORTD>>1) + 128;
             CCP1CONbits.DC1B1 = PORTDbits.RD0;
             CCP1CONbits.DC1B0 = ADRESL>>7;}
+        if(ADCON0bits.CHS == 7){
+            valor_pot = ADRESH;
+        }
 
         else{
             PORTD = ADRESH;
@@ -2880,14 +2867,12 @@ void IOCB_interrupt(){
     if (PORTBbits.RB0 == 0){
         if (flag2){
             PORTA = 10;
-            PORTAbits.RA4 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 8;
 
         }
         else {
             PORTA = 2;
-            PORTAbits.RA4 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 0;
         }
@@ -2895,13 +2880,11 @@ void IOCB_interrupt(){
     if(PORTBbits.RB1 == 0) {
         if (flag2){
             PORTA = 9;
-            PORTAbits.RA5 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 8;
         }
         else {
             PORTA = 1;
-            PORTAbits.RA5 = 1;
             _delay((unsigned long)((250)*(8000000/4000.0)));
             PORTA = 0;
         }
@@ -2954,7 +2937,7 @@ void config_io(){
     TRISB = 0xFF;
     TRISA = 0x00;
 
-    TRISE = 0x03;
+    TRISE = 0x07;
     TRISD = 0x00;
     TRISC = 0xB9;
 

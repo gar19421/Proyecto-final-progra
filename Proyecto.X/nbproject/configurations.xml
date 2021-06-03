@@ -16,6 +16,7 @@
       <itemPath>_motordc.c</itemPath>
       <itemPath>_usart.c</itemPath>
       <itemPath>proyecto_final.c</itemPath>
+      <itemPath>proyecto2.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -185,6 +186,16 @@
         </XC8-config-global>
       </item>
       <item path="_usart.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-CO>
+        </XC8-CO>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="proyecto2.c" ex="true" overriding="false">
       </item>
     </conf>
   </confs>
