@@ -502,14 +502,14 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
              
             PORTA = 10;
             PORTAbits.RA4 = 1;
-            __delay_ms(600);
+            __delay_ms(700);
             PORTA = 8;
             
         }
         else {
             PORTA = 2;
             PORTAbits.RA4 = 1;
-            __delay_ms(600);
+            __delay_ms(700);
             PORTA = 0;
         }
     }
@@ -517,13 +517,13 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
         if (flag2){
             PORTA = 9;
             PORTAbits.RA5 = 1;
-            __delay_ms(600);
+            __delay_ms(700);
             PORTA = 8;
         }
         else {
             PORTA = 1;
             PORTAbits.RA5 = 1;
-            __delay_ms(600);
+            __delay_ms(700);
             PORTA = 0;
         }
     }

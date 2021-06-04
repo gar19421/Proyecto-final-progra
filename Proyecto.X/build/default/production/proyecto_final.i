@@ -3017,14 +3017,14 @@ void IOCB_interrupt(){
 
             PORTA = 10;
             PORTAbits.RA4 = 1;
-            _delay((unsigned long)((600)*(8000000/4000.0)));
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
             PORTA = 8;
 
         }
         else {
             PORTA = 2;
             PORTAbits.RA4 = 1;
-            _delay((unsigned long)((600)*(8000000/4000.0)));
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
             PORTA = 0;
         }
     }
@@ -3032,13 +3032,13 @@ void IOCB_interrupt(){
         if (flag2){
             PORTA = 9;
             PORTAbits.RA5 = 1;
-            _delay((unsigned long)((600)*(8000000/4000.0)));
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
             PORTA = 8;
         }
         else {
             PORTA = 1;
             PORTAbits.RA5 = 1;
-            _delay((unsigned long)((600)*(8000000/4000.0)));
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
             PORTA = 0;
         }
     }

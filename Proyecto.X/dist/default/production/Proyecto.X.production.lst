@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Jun 03 18:00:26 2021
+                                                                                               Thu Jun 03 19:04:04 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -4294,7 +4294,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4261  0760                     _isr:
   4262  0760                     i1l2220:
   4263                           
-  4264                           ;proyecto_final.c: 463:             _delay((unsigned long)((600)*(8000000/4000.0)));
+  4264                           ;proyecto_final.c: 463:             _delay((unsigned long)((1000)*(8000000/4000.0)));
   4265  0760  1C0B               	btfss	11,0	;volatile
   4266  0761  2F63               	goto	u223_21
   4267  0762  2F64               	goto	u223_20
@@ -4603,11 +4603,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4570  0EE3  1605               	bsf	5,4	;volatile
   4571                           
   4572                           ;proyecto_final.c: 505:         CCP1CONbits.DC1B1 = PORTDbits.RD0;
-  4573  0EE4  3007               	movlw	7
+  4573  0EE4  300B               	movlw	11
   4574  0EE5  00F8               	movwf	??_IOCB_interrupt+2
-  4575  0EE6  3017               	movlw	23
+  4575  0EE6  3026               	movlw	38
   4576  0EE7  00F7               	movwf	??_IOCB_interrupt+1
-  4577  0EE8  306A               	movlw	106
+  4577  0EE8  305D               	movlw	93
   4578  0EE9  00F6               	movwf	??_IOCB_interrupt
   4579  0EEA                     u251_27:
   4580  0EEA  0BF6               	decfsz	??_IOCB_interrupt,f
@@ -4616,7 +4616,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4583  0EED  2EEA               	goto	u251_27
   4584  0EEE  0BF8               	decfsz	??_IOCB_interrupt+2,f
   4585  0EEF  2EEA               	goto	u251_27
-  4586  0EF0  0000               	nop
+  4586  0EF0  2EF1               	nop2
   4587                           
   4588                           ;proyecto_final.c: 506:         CCP1CONbits.DC1B0 = ADRESL>>7;
   4589  0EF1  3008               	movlw	8
@@ -4637,11 +4637,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4604  0EF8  1605               	bsf	5,4	;volatile
   4605                           
   4606                           ;proyecto_final.c: 512:         if(leer == 0x17){
-  4607  0EF9  3007               	movlw	7
+  4607  0EF9  300B               	movlw	11
   4608  0EFA  00F8               	movwf	??_IOCB_interrupt+2
-  4609  0EFB  3017               	movlw	23
+  4609  0EFB  3026               	movlw	38
   4610  0EFC  00F7               	movwf	??_IOCB_interrupt+1
-  4611  0EFD  306A               	movlw	106
+  4611  0EFD  305D               	movlw	93
   4612  0EFE  00F6               	movwf	??_IOCB_interrupt
   4613  0EFF                     u252_27:
   4614  0EFF  0BF6               	decfsz	??_IOCB_interrupt,f
@@ -4650,7 +4650,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4617  0F02  2EFF               	goto	u252_27
   4618  0F03  0BF8               	decfsz	??_IOCB_interrupt+2,f
   4619  0F04  2EFF               	goto	u252_27
-  4620  0F05  0000               	nop
+  4620  0F05  2F06               	nop2
   4621  0F06                     i1l1796:
   4622                           
   4623                           ;proyecto_final.c: 513:                 leer = 0x10;
@@ -4688,11 +4688,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4655  0F15  1685               	bsf	5,5	;volatile
   4656                           
   4657                           ;proyecto_final.c: 520:         CCP2CONbits.DC2B0 = ADRESL>>7;
-  4658  0F16  3007               	movlw	7
+  4658  0F16  300B               	movlw	11
   4659  0F17  00F8               	movwf	??_IOCB_interrupt+2
-  4660  0F18  3017               	movlw	23
+  4660  0F18  3026               	movlw	38
   4661  0F19  00F7               	movwf	??_IOCB_interrupt+1
-  4662  0F1A  306A               	movlw	106
+  4662  0F1A  305D               	movlw	93
   4663  0F1B  00F6               	movwf	??_IOCB_interrupt
   4664  0F1C                     u253_27:
   4665  0F1C  0BF6               	decfsz	??_IOCB_interrupt,f
@@ -4701,7 +4701,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4668  0F1F  2F1C               	goto	u253_27
   4669  0F20  0BF8               	decfsz	??_IOCB_interrupt+2,f
   4670  0F21  2F1C               	goto	u253_27
-  4671  0F22  0000               	nop
+  4671  0F22  2F23               	nop2
   4672                           
   4673                           ;proyecto_final.c: 521: 
   4674  0F23  3008               	movlw	8
@@ -4722,11 +4722,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4689  0F2A  1685               	bsf	5,5	;volatile
   4690                           
   4691                           ;proyecto_final.c: 526: 
-  4692  0F2B  3007               	movlw	7
+  4692  0F2B  300B               	movlw	11
   4693  0F2C  00F8               	movwf	??_IOCB_interrupt+2
-  4694  0F2D  3017               	movlw	23
+  4694  0F2D  3026               	movlw	38
   4695  0F2E  00F7               	movwf	??_IOCB_interrupt+1
-  4696  0F2F  306A               	movlw	106
+  4696  0F2F  305D               	movlw	93
   4697  0F30  00F6               	movwf	??_IOCB_interrupt
   4698  0F31                     u254_27:
   4699  0F31  0BF6               	decfsz	??_IOCB_interrupt,f
@@ -4735,7 +4735,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   4702  0F34  2F31               	goto	u254_27
   4703  0F35  0BF8               	decfsz	??_IOCB_interrupt+2,f
   4704  0F36  2F31               	goto	u254_27
-  4705  0F37  0000               	nop
+  4705  0F37  2F38               	nop2
   4706  0F38                     i1l1810:
   4707                           
   4708                           ;proyecto_final.c: 527:     INTCONbits.RBIF = 0;
@@ -5101,7 +5101,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   5068  0CD7  008D               	movwf	13	;volatile
   5069  0CD8                     i1l1654:
   5070                           
-  5071                           ;proyecto_final.c: 448:             _delay((unsigned long)((600)*(8000000/4000.0)));
+  5071                           ;proyecto_final.c: 448:             _delay((unsigned long)((1000)*(8000000/4000.0)));
   5072  0CD8  1683               	bsf	3,5	;RP0=1, select bank3
   5073  0CD9  1703               	bsf	3,6	;RP1=1, select bank3
   5074  0CDA  138C               	bcf	12,7	;volsfr
@@ -5366,7 +5366,7 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Jun 03 18:00:26 2021
+Symbol Table                                                                                   Thu Jun 03 19:04:04 2021
 
                          pc 0002                ___awdiv@sign 0046                          fsr 0004  
        ___wmul@multiplicand 0042                         l212 0ED4                         l225 0ED4  
