@@ -17,29 +17,29 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"99 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+"110 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 [v _main main `(v  1 e 1 0 ]
-"389
+"430
 [v _dec_to_ascii dec_to_ascii `(i  1 e 2 0 ]
-"414
+"455
 [v _setup setup `(v  1 e 1 0 ]
-"425
+"467
 [v _writeToEEPROM writeToEEPROM `(v  1 e 1 0 ]
-"446
+"489
 [v _readFromEEPROM readFromEEPROM `(i  1 e 2 0 ]
-"461
+"503
 [v _isr isr `II(v  1 e 1 0 ]
-"498
+"540
 [v _IOCB_interrupt IOCB_interrupt `(v  1 e 1 0 ]
-"591
+"641
 [v _config_reloj config_reloj `(v  1 e 1 0 ]
-"601
+"651
 [v _config_io config_io `(v  1 e 1 0 ]
-"679
+"729
 [v _config_int_enable config_int_enable `(v  1 e 1 0 ]
-"698
+"748
 [v _config_iocb config_iocb `(v  1 e 1 0 ]
-"708
+"758
 [v _showString showString `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -342,56 +342,56 @@
 [v _EECON1bits EECON1bits `VES273  1 e 1 @396 ]
 "3544
 [v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
-"75 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-[v _flag2 flag2 `i  1 e 2 0 ]
-"77
+"82 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 [v _flag flag `i  1 e 2 0 ]
-"79
-[v _opcion opcion `uc  1 e 1 0 ]
-"80
-[v _temporal_posicion1 temporal_posicion1 `uc  1 e 1 0 ]
-"81
-[v _temporal_posicion2 temporal_posicion2 `uc  1 e 1 0 ]
-"82
-[v _leer leer `uc  1 e 1 0 ]
 "83
-[v _valor_pot valor_pot `i  1 e 2 0 ]
-"84
-[v _var_temp var_temp `i  1 e 2 0 ]
+[v _flag2 flag2 `i  1 e 2 0 ]
 "85
-[v _valor_centenas valor_centenas `i  1 e 2 0 ]
-"86
-[v _valor_decenas valor_decenas `i  1 e 2 0 ]
+[v _opcion opcion `uc  1 e 1 0 ]
 "87
-[v _valor_unidades valor_unidades `i  1 e 2 0 ]
+[v _temporal_posicion1 temporal_posicion1 `uc  1 e 1 0 ]
+"88
+[v _temporal_posicion2 temporal_posicion2 `uc  1 e 1 0 ]
 "89
-[v _RB3_old RB3_old `i  1 e 2 0 ]
-"90
-[v _eepromVal eepromVal `i  1 e 2 0 ]
+[v _leer leer `uc  1 e 1 0 ]
+"91
+[v _valor_pot valor_pot `i  1 e 2 0 ]
 "92
+[v _var_temp var_temp `i  1 e 2 0 ]
+"93
+[v _valor_centenas valor_centenas `i  1 e 2 0 ]
+"94
+[v _valor_decenas valor_decenas `i  1 e 2 0 ]
+"95
+[v _valor_unidades valor_unidades `i  1 e 2 0 ]
+"97
+[v _RB3_old RB3_old `i  1 e 2 0 ]
+"98
+[v _eepromVal eepromVal `i  1 e 2 0 ]
+"100
 [v _addressEEPROM addressEEPROM `i  1 e 2 0 ]
-"99
+"110
 [v _main main `(v  1 e 1 0 ]
 {
-"283
+"316
 [v main@i i `i  1 a 2 14 ]
-"386
+"426
 } 0
-"425
+"467
 [v _writeToEEPROM writeToEEPROM `(v  1 e 1 0 ]
 {
 [v writeToEEPROM@data data `i  1 p 2 0 ]
 [v writeToEEPROM@address address `i  1 p 2 2 ]
-"443
+"485
 } 0
-"708
+"758
 [v _showString showString `(v  1 e 1 0 ]
 {
-"709
+"759
 [v showString@i i `i  1 a 2 9 ]
-"708
+"758
 [v showString@var var `*.25uc  1 p 2 4 ]
-"720
+"770
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -402,36 +402,36 @@
 [v strlen@s s `*.25DCuc  1 p 2 0 ]
 "13
 } 0
-"414 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+"455 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"422
+"463
 } 0
-"591
+"641
 [v _config_reloj config_reloj `(v  1 e 1 0 ]
 {
-"599
+"649
 } 0
-"698
+"748
 [v _config_iocb config_iocb `(v  1 e 1 0 ]
 {
-"705
+"755
 } 0
-"601
+"651
 [v _config_io config_io `(v  1 e 1 0 ]
 {
-"677
+"727
 } 0
-"679
+"729
 [v _config_int_enable config_int_enable `(v  1 e 1 0 ]
 {
-"695
+"745
 } 0
-"389
+"430
 [v _dec_to_ascii dec_to_ascii `(i  1 e 2 0 ]
 {
 [v dec_to_ascii@val val `i  1 p 2 0 ]
-"412
+"453
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -456,22 +456,22 @@
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"461 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+"503 C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"493
+"535
 } 0
-"498
+"540
 [v _IOCB_interrupt IOCB_interrupt `(v  1 e 1 0 ]
 {
-"587
+"637
 } 0
-"446
+"489
 [v _readFromEEPROM readFromEEPROM `(i  1 e 2 0 ]
 {
-"450
+"493
 [v readFromEEPROM@data data `i  1 a 2 4 ]
-"446
+"489
 [v readFromEEPROM@address address `i  1 p 2 0 ]
-"454
+"497
 } 0

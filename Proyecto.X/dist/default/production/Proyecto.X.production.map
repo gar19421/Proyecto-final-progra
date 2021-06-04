@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Proyecto.X.production.sym \
   --cmf=dist/default/production\Proyecto.X.production.cmf -z -Q16F887 \
-  -oC:\Users\brand\AppData\Local\Temp\s90c.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\brand\AppData\Local\Temp\s7so.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Proyecto.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\brand\AppData\Local\Temp\s90c.o \
+  -pfunctab=ENTRY -k C:\Users\brand\AppData\Local\Temp\s7so.o \
   dist/default/production\Proyecto.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\brand\AppData\Local\Temp\s90c.o
+C:\Users\brand\AppData\Local\Temp\s7so.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -36,30 +36,31 @@ dist/default/production\Proyecto.X.production.o
                 cinit                                 F        F       2B        8       0
                 intentry                              4        4        8        8       0
                 config                             2007     2007        2        0       4
-                text14                              CD4      CD4       16     19A8       0
+                text14                              4E0      4E0       16        8       0
                 text13                              ED5      ED5      12B     1DAA       0
-                text12                              760      760       97      EC0       0
+                text12                              74D      74D       97      E9A       0
                 text11                              D8A      D8A       69     1B14       0
                 text10                              D0E      D0E       27     1A1C       0
                 text9                               E5C      E5C       79     1CB8       0
-                text8                               CAE      CAE       11     195C       0
+                text8                               CC4      CC4       11     1988       0
                 text7                               DF3      DF3       69     1BE6       0
-                text6                               CA8      CA8        6     1950       0
-                text5                               4F9      4F9        7        8       0
-                text4                               CBF      CBF       15     197E       0
+                text6                               CB7      CB7        6     196E       0
+                text5                               CBD      CBD        7     197A       0
+                text4                               CD5      CD5       15     19AA       0
                 text3                               CEA      CEA       24     19D4       0
                 text2                               D35      D35       55     1A6A       0
-                text1                               4E0      4E0       19        8       0
+                text1                               7E4      7E4       19      E9A       0
                 maintext                             3A       3A      4A6        8       0
-                cstackBANK0                          40       40       10       20       1
+                cstackBANK0                          35       35       10       20       1
                 cstackCOMMON                         70       70        D       70       1
-                clrtext                             7F7      7F7        8      EC0       0
-                dataBANK0                            50       50        4       20       1
-                bssBANK0                             20       20       20       20       1
+                clrtext                             4F6      4F6        8        8       0
+                dataBANK0                            45       45        4       20       1
+                bssBANK0                             20       20       15       20       1
                 dataCOMMON                           7D       7D        1       70       1
-                stringtext                          500      500      260        A       0
-                idataBANK0                          CA4      CA4        4     1948       0
-                idataCOMMON                         7FF      7FF        1      EC0       0
+                stringtext                          500      500      24D        A       0
+                strings                             800      800       12     1000       0
+                idataBANK0                          CB3      CB3        4     1966       0
+                idataCOMMON                         7FD      7FD        1      E9A       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -69,29 +70,30 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                 F        F       2B         0
                 intentry                              4        4        8         0
                 reset_vec                             0        0        3         0
-                text14                              CD4      CD4       16         0
+                text14                              4E0      4E0       16         0
                 text13                              ED5      ED5      12B         0
-                text12                              760      760       97         0
+                text12                              74D      74D       97         0
                 text11                              D8A      D8A       69         0
                 text10                              D0E      D0E       27         0
                 text9                               E5C      E5C       79         0
-                text8                               CAE      CAE       11         0
+                text8                               CC4      CC4       11         0
                 text7                               DF3      DF3       69         0
-                text6                               CA8      CA8        6         0
-                text5                               4F9      4F9        7         0
-                text4                               CBF      CBF       15         0
+                text6                               CB7      CB7        6         0
+                text5                               CBD      CBD        7         0
+                text4                               CD5      CD5       15         0
                 text3                               CEA      CEA       24         0
                 text2                               D35      D35       55         0
-                text1                               4E0      4E0       19         0
+                text1                               7E4      7E4       19         0
                 maintext                             3A       3A      4A6         0
-                clrtext                             7F7      7F7        8         0
-                idataBANK0                          CA4      CA4        4         0
-                idataCOMMON                         7FF      7FF        1         0
+                clrtext                             4F6      4F6        8         0
+                idataBANK0                          CB3      CB3        4         0
+                idataCOMMON                         7FD      7FD        1         0
 
         CLASS   STRCODE        
-                stringtext                          500      500      260         0
+                stringtext                          500      500      24D         0
 
         CLASS   STRING         
+                strings                             800      800       12         0
 
         CLASS   CONST          
 
@@ -102,9 +104,9 @@ TOTAL           Name                               Link     Load   Length     Sp
                 dataCOMMON                           7D       7D        1         1
 
         CLASS   BANK0          
-                cstackBANK0                          40       40       10         1
-                dataBANK0                            50       50        4         1
-                bssBANK0                             20       20       20         1
+                cstackBANK0                          35       35       10         1
+                dataBANK0                            45       45        4         1
+                bssBANK0                             20       20       15         1
 
         CLASS   BANK1          
 
@@ -137,16 +139,17 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  0004FC  000500         8       0  CODE        2
-                bssBANK0                       000020  000034  000054        20       1  BANK0       1
+                intentry                       000004  0004FA  0004FE         8       0  CODE        2
+                bssBANK0                       000020  000029  000049        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                stringtext                     000500  000260  000760         A       0  STRCODE     2
-                text12                         000760  0000A0  000800       EC0       0  CODE        2
-                idataBANK0                     000CA4  000004  000CA8      1948       0  CODE        2
-                text6                          000CA8  000006  000CAE      1950       0  CODE        2
-                text8                          000CAE  000011  000CBF      195C       0  CODE        2
-                text4                          000CBF  000015  000CD4      197E       0  CODE        2
-                text14                         000CD4  000016  000CEA      19A8       0  CODE        2
+                stringtext                     000500  00024D  00074D         A       0  STRCODE     2
+                text12                         00074D  0000B1  0007FE       E9A       0  CODE        2
+                strings                        000800  000012  000812      1000       0  STRING      2
+                idataBANK0                     000CB3  000004  000CB7      1966       0  CODE        2
+                text6                          000CB7  000006  000CBD      196E       0  CODE        2
+                text5                          000CBD  000007  000CC4      197A       0  CODE        2
+                text8                          000CC4  000011  000CD5      1988       0  CODE        2
+                text4                          000CD5  000015  000CEA      19AA       0  CODE        2
                 text3                          000CEA  000024  000D0E      19D4       0  CODE        2
                 text10                         000D0E  000027  000D35      1A1C       0  CODE        2
                 text2                          000D35  000055  000D8A      1A6A       0  CODE        2
@@ -159,22 +162,28 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0054-006F             1C           1
+        BANK0            0049-006F             27           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         0800-0CA3            4A4
+                         04FE-04FF              2
+                         07FE-07FF              2
+                         0812-0CB2            4A1
                          1000-1FFF            800
         CONST            0003-0003              1           2
-                         0800-0CA3            100
+                         04FE-04FF              2
+                         07FE-07FF              2
+                         0812-0CB2            100
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         0800-0CA3            100
+                         04FE-04FF              2
+                         07FE-07FF              2
+                         0812-0CB2            100
                          1000-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              0054-006F             1C           1
+        RAM              0049-006F             27           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
@@ -184,19 +193,23 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         0800-0CA3            4A4
+                         04FE-04FF              2
+                         07FE-07FF              2
+                         0812-0CB2            4A1
                          1000-1FFF           1000
         STRING           0003-0003              1           2
-                         0800-0CA3            100
+                         04FE-04FF              2
+                         07FE-07FF              2
+                         0812-0CB2            100
                          1000-1FFF            100
 
                                   Symbol Table
 
-?___awdiv                   cstackBANK0  0040
-?___wmul                    cstackBANK0  0040
-?_dec_to_ascii              cstackBANK0  0040
+?___awdiv                   cstackBANK0  0035
+?___wmul                    cstackBANK0  0035
+?_dec_to_ascii              cstackBANK0  0035
 ?_readFromEEPROM            cstackCOMMON 0070
-?_strlen                    cstackBANK0  0040
+?_strlen                    cstackBANK0  0035
 _ADCON0bits                 (abs)        001F
 _ADCON1bits                 (abs)        009F
 _ADRESH                     (abs)        001E
@@ -229,7 +242,7 @@ _PORTD                      (abs)        0008
 _PORTDbits                  (abs)        0008
 _PORTE                      (abs)        0009
 _PR2                        (abs)        0092
-_RB3_old                    bssBANK0     002F
+_RB3_old                    bssBANK0     0024
 _RCREG                      (abs)        001A
 _RCSTAbits                  (abs)        0018
 _SPBRG                      (abs)        0099
@@ -326,62 +339,62 @@ __S1                        (abs)        007E
 __S2                        (abs)        0000
 __S3                        (abs)        0000
 ___awdiv                    text11       0D8A
-___awdiv@counter            cstackBANK0  0045
-___awdiv@dividend           cstackBANK0  0042
-___awdiv@divisor            cstackBANK0  0040
-___awdiv@quotient           cstackBANK0  0047
-___awdiv@sign               cstackBANK0  0046
+___awdiv@counter            cstackBANK0  003A
+___awdiv@dividend           cstackBANK0  0037
+___awdiv@divisor            cstackBANK0  0035
+___awdiv@quotient           cstackBANK0  003C
+___awdiv@sign               cstackBANK0  003B
 ___int_sp                   stack        0000
 ___latbits                  (abs)        0002
 ___sp                       stack        0000
 ___stackhi                  (abs)        0000
 ___stacklo                  (abs)        0000
 ___wmul                     text10       0D0E
-___wmul@multiplicand        cstackBANK0  0042
-___wmul@multiplier          cstackBANK0  0040
-___wmul@product             cstackBANK0  0044
+___wmul@multiplicand        cstackBANK0  0037
+___wmul@multiplier          cstackBANK0  0035
+___wmul@product             cstackBANK0  0039
 __end_of_IOCB_interrupt     text13       1000
 __end_of___awdiv            text11       0DF3
 __end_of___wmul             text10       0D35
 __end_of__initialization    cinit        0036
-__end_of__stringtab         stringtext   0512
-__end_of_config_int_enable  text8        0CBF
+__end_of__stringtab         strings      0812
+__end_of_config_int_enable  text8        0CD5
 __end_of_config_io          text7        0E5C
-__end_of_config_iocb        text6        0CAE
-__end_of_config_reloj       text5        0500
-__end_of_data               stringtext   0513
+__end_of_config_iocb        text6        0CBD
+__end_of_config_reloj       text5        0CC4
 __end_of_dec_to_ascii       text9        0ED5
-__end_of_isr                text12       07F7
+__end_of_isr                text12       07E4
 __end_of_main               maintext     04E0
-__end_of_readFromEEPROM     text14       0CEA
-__end_of_setup              text4        0CD4
+__end_of_readFromEEPROM     text14       04F6
+__end_of_setup              text4        0CEA
 __end_of_showString         text2        0D8A
 __end_of_strlen             text3        0D0E
-__end_of_writeToEEPROM      text1        04F9
+__end_of_writeToEEPROM      text1        07FD
 __initialization            cinit        000F
 __pbssBANK0                 bssBANK0     0020
-__pcstackBANK0              cstackBANK0  0040
+__pcstackBANK0              cstackBANK0  0035
 __pcstackCOMMON             cstackCOMMON 0070
-__pdataBANK0                dataBANK0    0050
+__pdataBANK0                dataBANK0    0045
 __pdataCOMMON               dataCOMMON   007D
-__pidataBANK0               idataBANK0   0CA4
-__pidataCOMMON              idataCOMMON  07FF
+__pidataBANK0               idataBANK0   0CB3
+__pidataCOMMON              idataCOMMON  07FD
 __pintentry                 intentry     0004
 __pmaintext                 maintext     003A
+__pstrings                  strings      0800
 __pstringtext               stringtext   0500
-__ptext1                    text1        04E0
+__ptext1                    text1        07E4
 __ptext10                   text10       0D0E
 __ptext11                   text11       0D8A
-__ptext12                   text12       0760
+__ptext12                   text12       074D
 __ptext13                   text13       0ED5
-__ptext14                   text14       0CD4
+__ptext14                   text14       04E0
 __ptext2                    text2        0D35
 __ptext3                    text3        0CEA
-__ptext4                    text4        0CBF
-__ptext5                    text5        04F9
-__ptext6                    text6        0CA8
+__ptext4                    text4        0CD5
+__ptext5                    text5        0CBD
+__ptext6                    text6        0CB7
 __ptext7                    text7        0DF3
-__ptext8                    text8        0CAE
+__ptext8                    text8        0CC4
 __ptext9                    text9        0E5C
 __size_of_IOCB_interrupt    (abs)        0000
 __size_of___awdiv           (abs)        0000
@@ -398,36 +411,36 @@ __size_of_setup             (abs)        0000
 __size_of_showString        (abs)        0000
 __size_of_strlen            (abs)        0000
 __size_of_writeToEEPROM     (abs)        0000
-__stringbase                stringtext   0512
-__stringtab                 stringtext   0500
-_addressEEPROM              dataBANK0    0050
-_config_int_enable          text8        0CAE
+__stringbase                strings      0812
+__stringtab                 strings      0800
+_addressEEPROM              dataBANK0    0045
+_config_int_enable          text8        0CC4
 _config_io                  text7        0DF3
-_config_iocb                text6        0CA8
-_config_reloj               text5        04F9
+_config_iocb                text6        0CB7
+_config_reloj               text5        0CBD
 _dec_to_ascii               text9        0E5C
-_eepromVal                  bssBANK0     002D
-_flag                       dataBANK0    0052
-_flag2                      bssBANK0     003B
-_isr                        text12       0760
+_eepromVal                  bssBANK0     0022
+_flag                       dataBANK0    0047
+_flag2                      bssBANK0     0030
+_isr                        text12       074D
 _leer                       dataCOMMON   007D
 _main                       maintext     003A
-_opcion                     bssBANK0     003F
-_readFromEEPROM             text14       0CD4
-_setup                      text4        0CBF
+_opcion                     bssBANK0     0034
+_readFromEEPROM             text14       04E0
+_setup                      text4        0CD5
 _showString                 text2        0D35
 _strlen                     text3        0CEA
-_temporal_posicion1         bssBANK0     003E
-_temporal_posicion2         bssBANK0     003D
-_valor_centenas             bssBANK0     0035
-_valor_decenas              bssBANK0     0033
-_valor_pot                  bssBANK0     0039
-_valor_unidades             bssBANK0     0031
-_var_temp                   bssBANK0     0037
-_writeToEEPROM              text1        04E0
+_temporal_posicion1         bssBANK0     0033
+_temporal_posicion2         bssBANK0     0032
+_valor_centenas             bssBANK0     002A
+_valor_decenas              bssBANK0     0028
+_valor_pot                  bssBANK0     002E
+_valor_unidades             bssBANK0     0026
+_var_temp                   bssBANK0     002C
+_writeToEEPROM              text1        07E4
 btemp                       (abs)        007E
-clear_ram0                  clrtext      07F7
-dec_to_ascii@val            cstackBANK0  0040
+clear_ram0                  clrtext      04F6
+dec_to_ascii@val            cstackBANK0  0035
 end_of_initialization       cinit        0036
 interrupt_function          intentry     0004
 intlevel0                   functab      0000
@@ -436,19 +449,19 @@ intlevel2                   functab      0000
 intlevel3                   functab      0000
 intlevel4                   functab      0000
 intlevel5                   functab      0000
-main@i                      cstackBANK0  004E
+main@i                      cstackBANK0  0043
 readFromEEPROM@address      cstackCOMMON 0070
 readFromEEPROM@data         cstackCOMMON 0074
 reset_vec                   reset_vec    0000
 saved_w                     (abs)        007E
-showString@i                cstackBANK0  0049
-showString@var              cstackBANK0  0044
+showString@i                cstackBANK0  003E
+showString@var              cstackBANK0  0039
 start                       init         000C
 start_initialization        cinit        000F
-strlen@cp                   cstackBANK0  0042
-strlen@s                    cstackBANK0  0040
-writeToEEPROM@address       cstackBANK0  0042
-writeToEEPROM@data          cstackBANK0  0040
+strlen@cp                   cstackBANK0  0037
+strlen@s                    cstackBANK0  0035
+writeToEEPROM@address       cstackBANK0  0037
+writeToEEPROM@data          cstackBANK0  0035
 wtemp0                      (abs)        007E
 
 
@@ -456,7 +469,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 99 in file "proyecto_final.c"
+		line 110 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -490,7 +503,7 @@ Total ram usage:        5 bytes
 
  *************** function _writeToEEPROM *****************
  Defined at:
-		line 425 in file "proyecto_final.c"
+		line 467 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
   data            2    0[BANK0 ] int 
   address         2    2[BANK0 ] int 
@@ -521,7 +534,7 @@ Total ram usage:        4 bytes
 
  *************** function _showString *****************
  Defined at:
-		line 708 in file "proyecto_final.c"
+		line 758 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
   var             2    4[BANK0 ] PTR unsigned char 
 		 -> STR_18(49), STR_17(32), STR_16(69), STR_15(42), 
@@ -596,7 +609,7 @@ Total ram usage:        4 bytes
 
  *************** function _setup *****************
  Defined at:
-		line 414 in file "proyecto_final.c"
+		line 455 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -629,7 +642,7 @@ Total ram usage:        0 bytes
 
  *************** function _config_reloj *****************
  Defined at:
-		line 591 in file "proyecto_final.c"
+		line 641 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -659,7 +672,7 @@ Total ram usage:        0 bytes
 
  *************** function _config_iocb *****************
  Defined at:
-		line 698 in file "proyecto_final.c"
+		line 748 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -689,7 +702,7 @@ Total ram usage:        0 bytes
 
  *************** function _config_io *****************
  Defined at:
-		line 601 in file "proyecto_final.c"
+		line 651 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -719,7 +732,7 @@ Total ram usage:        1 bytes
 
  *************** function _config_int_enable *****************
  Defined at:
-		line 679 in file "proyecto_final.c"
+		line 729 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -749,7 +762,7 @@ Total ram usage:        0 bytes
 
  *************** function _dec_to_ascii *****************
  Defined at:
-		line 389 in file "proyecto_final.c"
+		line 430 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
   val             2    0[BANK0 ] int 
  Auto vars:     Size  Location     Type
@@ -843,7 +856,7 @@ Total ram usage:        9 bytes
 
  *************** function _isr *****************
  Defined at:
-		line 461 in file "proyecto_final.c"
+		line 503 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -873,7 +886,7 @@ Total ram usage:        4 bytes
 
  *************** function _IOCB_interrupt *****************
  Defined at:
-		line 498 in file "proyecto_final.c"
+		line 540 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -903,7 +916,7 @@ Total ram usage:        3 bytes
 
  *************** function _readFromEEPROM *****************
  Defined at:
-		line 446 in file "proyecto_final.c"
+		line 489 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
   address         2    0[COMMON] int 
  Auto vars:     Size  Location     Type
@@ -940,18 +953,18 @@ C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c estimated size: 39
 
 proyecto_final.c
-		_writeToEEPROM 		CODE           	04E0	0000	25
-		_readFromEEPROM		CODE           	0CD4	0000	22
-		_config_int_enable		CODE           	0CAE	0000	17
+		_writeToEEPROM 		CODE           	07E4	0000	25
+		_readFromEEPROM		CODE           	04E0	0000	22
+		_config_int_enable		CODE           	0CC4	0000	17
 		_showString    		CODE           	0D35	0000	85
 		_main          		CODE           	003A	0000	1190
 		_dec_to_ascii  		CODE           	0E5C	0000	121
 		_IOCB_interrupt		CODE           	0ED5	0000	299
-		_isr           		CODE           	0760	0000	151
-		_setup         		CODE           	0CBF	0000	21
+		_isr           		CODE           	074D	0000	151
+		_setup         		CODE           	0CD5	0000	21
 		_config_io     		CODE           	0DF3	0000	105
-		_config_iocb   		CODE           	0CA8	0000	6
-		_config_reloj  		CODE           	04F9	0000	7
+		_config_iocb   		CODE           	0CB7	0000	6
+		_config_reloj  		CODE           	0CBD	0000	7
 
 proyecto_final.c estimated size: 2049
 
@@ -961,9 +974,8 @@ C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c estimated size: 105
 
 shared
-		__stringtab    		STRCODE        	0500	0000	18
+		__stringtab    		STRING         	0800	0000	18
 		__initialization		CODE           	000F	0000	39
-		_data          		STRCODE        	0000	0000	0
 
 shared estimated size: 57
 

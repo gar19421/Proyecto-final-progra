@@ -2568,17 +2568,15 @@ extern char * strrichr(const char *, int);
 #pragma config BOR4V = BOR40V
 
 #pragma config WRT = OFF
-
-
-
-
-
+# 65 "proyecto_final.c"
 void setup();
 void config_reloj();
 void config_io();
 void config_int_enable();
 void config_iocb();
 void IOCB_interrupt();
+
+
 void showString(char *var);
 void writeToEEPROM(int data, int address);
 int dec_to_ascii(int val);
@@ -2587,14 +2585,16 @@ int dec_to_ascii(int val);
 
 
 
-int flag2=0;
-const char data = 97;
+
 int flag = 1;
-char texto[11];
+int flag2=0;
+
 unsigned char opcion=0;
+
 unsigned char temporal_posicion1;
 unsigned char temporal_posicion2;
 unsigned char leer = 0x10;
+
 int valor_pot;
 int var_temp;
 int valor_centenas;
@@ -2605,7 +2605,10 @@ int RB3_old;
 int eepromVal = 0;
 
 int addressEEPROM = 0x10;
+
 int parpadear = 0;
+
+
 
 
 
@@ -2616,13 +2619,9 @@ void main(void) {
     setup();
 
 
-
-
-
     ADCON0bits.GO = 1;
     while(1)
     {
-
 
 
         if(ADCON0bits.GO == 0){
@@ -2639,8 +2638,6 @@ void main(void) {
 
 
 
-
-
         if (PIR1bits.TXIF){
 
             if(flag){
@@ -2651,7 +2648,10 @@ void main(void) {
                 if(opcion == 49){
                     flag = 1;
                     opcion = 0;
+
+
                     while(opcion != 53){
+
 
                         if(flag){
                             showString("Bienvenido a nuestro programa");
@@ -2663,6 +2663,8 @@ void main(void) {
                             showString("(5)Salir de control por USART");
                             flag = 0;
                         }
+
+
                         if(opcion==49){
                             showString("Elija la posicion del servo 1 (abajo)");
                             showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
@@ -2674,20 +2676,24 @@ void main(void) {
 
                             }
 
+
                             if(opcion==49){
                                 PORTD = (0);
+
                                 CCPR1L = (PORTD>>1) + 128;
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
                             }
                             if(opcion==50){
                                 PORTD = (128);
+
                                 CCPR1L = (PORTD>>1) + 128;
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
                             }
                             if(opcion==51){
                                 PORTD = (255);
+
                                 CCPR1L = (PORTD>>1) + 120;
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
@@ -2703,20 +2709,24 @@ void main(void) {
 
                             }
 
+
                             if(opcion==49){
                                 PORTD = (0);
+
                                 CCPR2L = (PORTD>>1) + 128;
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
                             }
                             if(opcion==50){
                                 PORTD = (128);
+
                                 CCPR2L = (PORTD>>1) + 128;
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
                             }
                             if(opcion==51){
                                 PORTD = (255);
+
                                 CCPR2L = (PORTD>>1) + 120;
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
@@ -2725,7 +2735,10 @@ void main(void) {
 
                             opcion = 0;
                         }
+
+
                         if(opcion==50){
+
                             showString("Elija la accion que desea realizar para mover el carro");
                             showString("1.Forback 2.Forward 3.Turn rigth 4.Turn left 5.Stop");
 
@@ -2736,6 +2749,7 @@ void main(void) {
 
                             }
 
+
                             if(opcion==49){
                                 PORTA = 8;
                                 flag =1;
@@ -2745,6 +2759,8 @@ void main(void) {
                                 PORTA = 4;
                                 flag =2;
                             }
+
+
                             if(opcion==51){
                                 PORTA = 9;
                                 _delay((unsigned long)((800)*(8000000/4000.0)));
@@ -2766,6 +2782,7 @@ void main(void) {
                                 }
                             }
 
+
                             if(opcion==53){
                                 PORTA = 0;
                             }
@@ -2775,6 +2792,8 @@ void main(void) {
 
 
                         }
+
+
                         if (opcion==51){
                             showString("Ingrese la accion a realizar con los leds");
                             showString("1.Encender leds delanteras 2.Encender leds traseras 3.Parpadear leds");
@@ -2786,14 +2805,20 @@ void main(void) {
 
                             }
 
+
+
                             if(opcion==49){
                                 PORTAbits.RA4 = 1;
                                 PORTAbits.RA5 = 1;
                             }
+
+
                             if(opcion==50){
                                 PORTAbits.RA6 = 1;
                                 PORTAbits.RA7 = 1;
                             }
+
+
                             if(opcion==51){
                                 int i;
                                 for (i = 0; i < 3; i++) {
@@ -2817,15 +2842,19 @@ void main(void) {
                             opcion = 0;
                         }
 
+
                         if (opcion==52){
                             flag = 1;
 
+
                             ADCON0bits.CHS = 7;
                             _delay((unsigned long)((50)*(8000000/4000000.0)));
+
                             ADCON0bits.GO = 1;
                             _delay((unsigned long)((50)*(8000000/4000000.0)));
                             valor_pot = ADRESH;
                             _delay((unsigned long)((50)*(8000000/4000000.0)));
+
 
                             var_temp = valor_pot;
                             valor_centenas = var_temp / 100;
@@ -2833,6 +2862,7 @@ void main(void) {
                             valor_decenas = var_temp / 10;
                             var_temp = var_temp - valor_decenas*10;
                             valor_unidades = var_temp;
+
 
                             showString("El valor en decimal del pot es:");
                             TXREG = dec_to_ascii(valor_centenas);
@@ -2852,6 +2882,7 @@ void main(void) {
 
                     }
 
+
                     if(opcion==53){
                        showString("Ingrese 1 si desea ingresar a modo control USART");
                        flag = 0;
@@ -2864,14 +2895,15 @@ void main(void) {
 
 
 
-
         if (PORTBbits.RB4 == 0){
             RB3_old = 1;
         }
+
         if(PORTBbits.RB4 == 1 && RB3_old==1){
             eepromVal = temporal_posicion1;
 
             writeToEEPROM(eepromVal,addressEEPROM);
+
 
             if(addressEEPROM == 0x17){
                 addressEEPROM = 0x10;
@@ -2899,6 +2931,7 @@ void main(void) {
 
     return;
 }
+
 
 
 int dec_to_ascii(int val){
@@ -2937,6 +2970,7 @@ void setup(){
 };
 
 
+
 void writeToEEPROM(int data, int address){
     EEADR = address;
     EEDAT = data;
@@ -2958,6 +2992,7 @@ void writeToEEPROM(int data, int address){
 }
 
 
+
 int readFromEEPROM(int address){
  EEADR = address;
  EECON1bits.EEPGD = 0;
@@ -2967,7 +3002,6 @@ int readFromEEPROM(int address){
  return data;
 
 }
-
 
 
 
@@ -3012,6 +3046,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 void IOCB_interrupt(){
 
+
     if (PORTBbits.RB0 == 0){
         if (flag2){
 
@@ -3028,6 +3063,7 @@ void IOCB_interrupt(){
             PORTA = 0;
         }
     }
+
     if(PORTBbits.RB1 == 0) {
         if (flag2){
             PORTA = 9;
@@ -3042,12 +3078,15 @@ void IOCB_interrupt(){
             PORTA = 0;
         }
     }
+
+
     if(PORTBbits.RB2 == 0) {
         PORTA = 8;
         flag2 = 1;
         PORTAbits.RA4 = 1;
         PORTAbits.RA5 = 1;
     }
+
     if(PORTBbits.RB3 == 0) {
 
        PORTA = 4;
@@ -3063,6 +3102,7 @@ void IOCB_interrupt(){
     }
 
 
+
     if(PORTBbits.RB5 == 0){
 
         PORTD = readFromEEPROM(leer);
@@ -3072,6 +3112,7 @@ void IOCB_interrupt(){
         }else{
             leer++;
         }
+
 
         CCPR1L = (PORTD>>1) + 120;
         CCP1CONbits.DC1B1 = PORTDbits.RD0;
@@ -3086,6 +3127,7 @@ void IOCB_interrupt(){
         }else{
             leer++;
         }
+
 
         CCPR2L = (PORTD>>1) + 128;
         CCP2CONbits.DC2B1 = PORTDbits.RD0;

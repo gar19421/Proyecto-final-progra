@@ -1,14 +1,14 @@
 
 /*
- * Archivo:   lab09_main.c
+ * Archivo:   proyecto_final.c
  * Dispositivo: PIC16F887
  * Autor: Brandon Garrido 
  * 
- * Programa: 
- * Hardware:
- * 
- * Creado: Mayo 22, 2021
- * Última modificación: Abril 20, 2021
+ * Programa: Proyecto final 2- Carrito con comunicación USART y control con push
+ * Hardware: Push en PORTB, Salidas para motores DC y leds PORTA, salida servos
+ *           CCP1 y CCP2, comunicación serial en puertos TX y RX
+ * Creado: Mayo 20, 2021
+ * Última modificación: Mayo 3 , 2021
  */
 
 //------------------------------------------------------------------------------
@@ -21,7 +21,7 @@
 //------------------------------------------------------------------------------
 //                          Directivas del compilador
 //------------------------------------------------------------------------------
-#define _XTAL_FREQ 8000000 //Para delay
+#define _XTAL_FREQ 8000000 //Para delay a una frecuencia de (8MZ)
 //#define addressEEPROM 0x10
 
 //------------------------------------------------------------------------------
@@ -46,7 +46,7 @@
                                 //Internal/External Switchover mode is disabled
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enabled bit 
                                 //(Fail-Safe Clock Monitor is disabled)
-#pragma config LVP = OFF         //Low Voltage Programming Enable bit(RB3/PGM pin 
+#pragma config LVP = OFF        //Low Voltage Programming Enable bit(RB3/PGM pin 
                                 //has PGM function, low voltage programming 
                                 //enabled)
 // CONFIG2
@@ -57,13 +57,19 @@
 
 
 
-// Prototipos
+//------------------------------------------------------------------------------
+//                          Prototipos
+//------------------------------------------------------------------------------
+
+//prototipos de configuración pic e interrupciones
 void setup();
 void config_reloj();
 void config_io();
 void config_int_enable();
 void config_iocb();
 void IOCB_interrupt();
+
+//prototipos funciones de programa
 void showString(char *var);// funcion para cadena de strings
 void writeToEEPROM(int data, int address);
 int dec_to_ascii(int val);
@@ -72,36 +78,38 @@ int dec_to_ascii(int val);
 //------------------------------------------------------------------------------
 //                          Variables
 //------------------------------------------------------------------------------
-int flag2=0;
-const char data = 97; //constante valor a
+
 int flag = 1; //bandera de menu con valor inicial 1
-char texto[11]; //texto de opcion 1
+int flag2=0; //bandera para control de giro de motores DC
+
 unsigned char opcion=0; // opcion ingresada por el usuario
-unsigned char temporal_posicion1;
-unsigned char temporal_posicion2;
+
+unsigned char temporal_posicion1;//variables de posiciones guardadas en EEPROM
+unsigned char temporal_posicion2;//de los servos para reproducir y guardar
 unsigned char leer = 0x10;
-int valor_pot;
-int var_temp;
+
+int valor_pot;//variables para control y conversión de entrada analogica 
+int var_temp; //del potenciometro y convertirlo a decimal para mostrar en USART
 int valor_centenas;
 int valor_decenas;
 int valor_unidades;
 
-int RB3_old;
+int RB3_old; // variables de control para escritura en EEPROM
 int eepromVal = 0;
 
-int addressEEPROM = 0x10;
-int parpadear = 0;
+int addressEEPROM = 0x10;// posición de inicio para escribir en EEPROM 
 
-/*
- *  mainn;
- */
+int parpadear = 0; // control de titileo leds
+
+
+
+//------------------------------------------------------------------------------
+//                          Main
+//------------------------------------------------------------------------------
 
 void main(void) {
     
-    setup(); // llamar función de configuraciones
-        
-   // strcpy(texto,"hola mundo!");
-    
+    setup(); // llamar función de configuraciones  
     
     
     ADCON0bits.GO = 1; //La conversión ADC se ejecuta
@@ -109,7 +117,6 @@ void main(void) {
     {
   
         // codigo del adc
-        
         if(ADCON0bits.GO == 0){ //Si la conversión ya está terminada
             if (ADCON0bits.CHS == 5){ //Si está en el primer canal,
                 ADCON0bits.CHS = 6;}  //pasa al segundo canal
@@ -122,12 +129,10 @@ void main(void) {
         }
         
         
-        // codigo del usart
-     
-        //__delay_ms(20);
-        
-        if (PIR1bits.TXIF){
+        // codigo del menú para el USART
             
+        if (PIR1bits.TXIF){ 
+            //verifica banderas de inicio para mostrar menú de opciones en USART
             if(flag){
                 showString("Ingrese 1 si desea ingresar a modo control USART");
                 flag = 0;
@@ -136,9 +141,12 @@ void main(void) {
                 if(opcion == 49){
                     flag = 1;
                     opcion = 0;
-                    while(opcion != 53){
+                    
+                    //se mantiene en control usart hasta que el usuario salga
+                    while(opcion != 53){ 
 
-                        if(flag){ // si la bandera esta encendida mostrara el menu
+                        // si la bandera esta encendida mostrara el menu
+                        if(flag){ 
                             showString("Bienvenido a nuestro programa");
                             showString("Que accion desea ejecutar?");
                             showString("(1)Controlar Brazo");
@@ -148,7 +156,9 @@ void main(void) {
                             showString("(5)Salir de control por USART");
                             flag = 0;
                         }
-                        if(opcion==49){ // cuando seleccione opcion 1 mostrara el texto 
+                        
+                        // cuando seleccione opcion 1 mostrara el texto 
+                        if(opcion==49){ 
                             showString("Elija la posicion del servo 1 (abajo)");
                             showString("Ingrese: 1-.0grados 2-.90grados 3-.180grados");
 
@@ -157,23 +167,27 @@ void main(void) {
 
                             while(!opcion){
 
-                            }
+                            } //espera hasta que se ingrese opcion 
 
+                            //mueve servo 1 a traves el CCP1
                             if(opcion==49){
                                 PORTD = (0);
-                                CCPR1L = (PORTD>>1) + 128; //Swift y ajuste de señal
+                                //Swift y ajuste de señal
+                                CCPR1L = (PORTD>>1) + 128; 
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
                             }
                             if(opcion==50){
                                 PORTD = (128);
-                                CCPR1L = (PORTD>>1) + 128; //Swift y ajuste de señal
+                                //Swift y ajuste de señal
+                                CCPR1L = (PORTD>>1) + 128; 
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
                             }
                             if(opcion==51){
                                 PORTD = (255);
-                                CCPR1L = (PORTD>>1) + 120; //Swift y ajuste de señal
+                                //Swift y ajuste de señal
+                                CCPR1L = (PORTD>>1) + 120; 
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
                             }
@@ -186,31 +200,38 @@ void main(void) {
 
                             while(!opcion){
 
-                            }
+                            }//espera que ingrese opcion 
 
+                            //mueve servo 2 a traves el CCP2
                             if(opcion==49){
                                 PORTD = (0);
-                                CCPR2L = (PORTD>>1) + 128; //Swift y ajuste de señal
+                                //Swift y ajuste de señal
+                                CCPR2L = (PORTD>>1) + 128; 
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
                             }
                             if(opcion==50){
                                 PORTD = (128);
-                                CCPR2L = (PORTD>>1) + 128; //Swift y ajuste de señal
+                                //Swift y ajuste de señal
+                                CCPR2L = (PORTD>>1) + 128; 
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
                             }
                             if(opcion==51){
                                 PORTD = (255);
-                                CCPR2L = (PORTD>>1) + 120; //Swift y ajuste de señal
+                                //Swift y ajuste de señal
+                                CCPR2L = (PORTD>>1) + 120; 
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
                             }
 
 
-                            opcion = 0;
+                            opcion = 0; //limpia opciones para poder reingresar
                         }
-                        if(opcion==50){ // opcion 2, modificar caracter porta
+                        
+                        //controla las acciones a realizar con USAR a los DC
+                        if(opcion==50){ 
+                            
                             showString("Elija la accion que desea realizar para mover el carro");
                             showString("1.Forback 2.Forward 3.Turn rigth 4.Turn left 5.Stop");
                 
@@ -220,8 +241,9 @@ void main(void) {
                             while(!opcion){
 
                             }
-
-                            if(opcion==49){
+                            
+                            //control de giro avanzar / retroceder
+                            if(opcion==49){ 
                                 PORTA = 8; 
                                 flag =1;
                             }
@@ -230,6 +252,8 @@ void main(void) {
                                 PORTA = 4; 
                                 flag =2;
                             }
+                            
+                            //control de giro derecha / izquierda
                             if(opcion==51){
                                 PORTA = 9;
                                 __delay_ms(800);
@@ -251,34 +275,43 @@ void main(void) {
                                 }
                             }
                             
+                            //detiene los motores
                             if(opcion==53){
                                 PORTA = 0;
                             }
 
 
-                            opcion = 0;
+                            opcion = 0; // limpia para poder reingresar
 
 
                         }
-                        if (opcion==51){ //opcion 3 modificar caracter portb
+                        
+                        //control de los indicadores (LEDs)
+                        if (opcion==51){
                             showString("Ingrese la accion a realizar con los leds");
                             showString("1.Encender leds delanteras 2.Encender leds traseras 3.Parpadear leds");
                             
                             flag = 1;
                             opcion = 0;
 
-                            while(!opcion){// hasta que ingrese un valor en portb
+                            while(!opcion){// hasta que ingrese un valor 
                                             //se mantiene en espera 
                             }
                             
+                            
+                            //enciende luces delanteras
                             if(opcion==49){
                                 PORTAbits.RA4 = 1;
                                 PORTAbits.RA5 = 1;
                             }
+                            
+                            //enciendo luces traseras
                             if(opcion==50){
                                 PORTAbits.RA6 = 1;
                                 PORTAbits.RA7 = 1;
                             }
+                            
+                            // realiza el titileo de los leds y los apaga
                             if(opcion==51){
                                 int i;
                                 for (i = 0; i < 3; i++) {
@@ -298,20 +331,24 @@ void main(void) {
 
                             }
 
-                            //PORTB = opcion;
-                            opcion = 0;
+
+                            opcion = 0; //limpia para reingresar
                         } 
 
-                        if (opcion==52){ //opcion 3 modificar caracter portb
+                        //muestra el valor del potenciometro de comunicacion 
+                        if (opcion==52){ 
                             flag = 1;
                             
+                            //habilita el canal y conversión del potenciometro
                             ADCON0bits.CHS = 7;
                             __delay_us(50);
-                            ADCON0bits.GO = 1; //Se vuelve a ejecutar la conversión ADC
-                            __delay_us(50); //Delay para el capacitor sample/hold
+                            //Se vuelve a ejecutar la conversión ADC
+                            ADCON0bits.GO = 1;
+                            __delay_us(50); //Delay para capacitor sample/hold
                             valor_pot = ADRESH;
                             __delay_us(50);
                             
+                            //realiza la conversión a valor decimal
                             var_temp = valor_pot;
                             valor_centenas = var_temp / 100; 
                             var_temp = var_temp - valor_centenas*100;
@@ -319,6 +356,7 @@ void main(void) {
                             var_temp = var_temp - valor_decenas*10;
                             valor_unidades = var_temp;
                             
+                            //manda a traer el valor ASCII de la UDC
                             showString("El valor en decimal del pot es:");
                             TXREG = dec_to_ascii(valor_centenas);
                             __delay_ms(10);
@@ -329,7 +367,7 @@ void main(void) {
                             
                             TXREG = 13;
                             __delay_ms(10);
-                            TXREG = 11;
+                            TXREG = 11;// nueva linea + retorno de carro
                             
                             opcion = 0;
                         } 
@@ -337,6 +375,7 @@ void main(void) {
 
                     }
                     
+                    // al salir muestra de nuevo opcion de reingreso al control
                     if(opcion==53){
                        showString("Ingrese 1 si desea ingresar a modo control USART");
                        flag = 0;
@@ -347,17 +386,18 @@ void main(void) {
         }
         
     
-        // codigo de la eeprom
-        //PORTC readFromEEPROM(addressEEPROM);
-        
+        // codigo de la EEPROM
+   
         if (PORTBbits.RB4 == 0){
             RB3_old = 1;
         }
+        //escritura de la EEPROM cuando se presiona RB4
         if(PORTBbits.RB4 == 1 && RB3_old==1){
-            eepromVal = temporal_posicion1;
+            eepromVal = temporal_posicion1; //escribe la posición servo 1
             
             writeToEEPROM(eepromVal,addressEEPROM);
             
+            //inicia escribiendo el valor desde posición 0x10 hasta 0x17
             if(addressEEPROM == 0x17){
                 addressEEPROM = 0x10;
             }else{
@@ -365,7 +405,7 @@ void main(void) {
             }
             
             __delay_ms(10);
-            eepromVal = temporal_posicion2;
+            eepromVal = temporal_posicion2;//escribe la posición servo 2
             
             writeToEEPROM(eepromVal,addressEEPROM);
             
@@ -386,6 +426,7 @@ void main(void) {
 }
 
 
+//función para convertir valores decimales a su codigo ASCII
 int dec_to_ascii(int val){
     if(val==0){
         return 48;
@@ -422,6 +463,7 @@ void setup(){
 };
 
 
+//escritura de EEPROM
 void writeToEEPROM(int data, int address){
     EEADR = address;
     EEDAT = data;
@@ -443,6 +485,7 @@ void writeToEEPROM(int data, int address){
 }
 
 
+//Lectura de EEPROM
 int readFromEEPROM(int address){
  EEADR = address;
  EECON1bits.EEPGD = 0;
@@ -457,11 +500,10 @@ int readFromEEPROM(int address){
 
 
 // interrupciones
-
 void __interrupt() isr(void){
 
     if(INTCONbits.RBIF){
-        IOCB_interrupt();
+        IOCB_interrupt(); //interrupcion puertos B
     }
     
     if (PIR1bits.RCIF){//registra los caracteres ingresados
@@ -497,7 +539,8 @@ void __interrupt() isr(void){
 
 void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
 
-    if (PORTBbits.RB0 == 0){ 
+    //control de giro hacia derecha
+    if (PORTBbits.RB0 == 0){  
         if (flag2){
              
             PORTA = 10;
@@ -513,6 +556,7 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
             PORTA = 0;
         }
     }
+    //contorl de giro hacia la izquierda
     if(PORTBbits.RB1 == 0) {
         if (flag2){
             PORTA = 9;
@@ -527,17 +571,20 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
             PORTA = 0;
         }
     }
+    
+    //control de avance
     if(PORTBbits.RB2 == 0) {
         PORTA = 8; 
         flag2 = 1;
-        PORTAbits.RA4 = 1;
+        PORTAbits.RA4 = 1;//prende leds
         PORTAbits.RA5 = 1;
     }
+    //control de retroceso
     if(PORTBbits.RB3 == 0) {
                       
        PORTA = 4; 
        flag2 = 1;
-       PORTAbits.RA6 = 1;
+       PORTAbits.RA6 = 1;//prende leds
        PORTAbits.RA7 = 1;
         
     }
@@ -545,19 +592,21 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
     if(PORTBbits.RB3 == 1 && PORTBbits.RB2 == 1) {
         PORTA = 0; 
         flag2 = 0;
-    }
+    }//cuando se sueltan los push pone en cero todo
    
     
+    //si se presiona RB5 Reproduce los valores guardados en EEPROM
     if(PORTBbits.RB5 == 0){
         
         PORTD = readFromEEPROM(leer);
         
-        if(leer == 0x17){
+        if(leer == 0x17){//lee desde la posición 0x10 a 0x12 en pares (2 servos)
                 leer = 0x10;
         }else{
             leer++;
         }
        
+        //reproduce valores en servo 1
         CCPR1L = (PORTD>>1) + 120;//Swift y ajuste de señal
         CCP1CONbits.DC1B1 = PORTDbits.RD0;
         CCP1CONbits.DC1B0 = ADRESL>>7;
@@ -572,6 +621,7 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
             leer++;
         }
         
+        //reproduce valores en servo 2
         CCPR2L = (PORTD>>1) + 128;//Swift y ajuste de señal
         CCP2CONbits.DC2B1 = PORTDbits.RD0;
         CCP2CONbits.DC2B0 = ADRESL>>7;
@@ -665,7 +715,7 @@ void config_io(){
     SPBRG = 207;
     SPBRGH = 0;
     
-    RCSTAbits.SPEN = 1;
+    RCSTAbits.SPEN = 1;//configuraciones USART y tasa de baudios
     RCSTAbits.RX9 = 0;
     RCSTAbits.CREN = 1;
     
@@ -713,9 +763,9 @@ void showString(char *var){ //subrutina de formacion de cadena de caracteres
         __delay_ms(5);
     }
     
-    TXREG = 13;
+    TXREG = 13; 
     __delay_ms(5);
-    TXREG = 11;
+    TXREG = 11;//nueva linea + retorno de carro para el salto de linea
    
 }
 
