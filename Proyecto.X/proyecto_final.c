@@ -212,7 +212,7 @@ void main(void) {
                         }
                         if(opcion==50){ // opcion 2, modificar caracter porta
                             showString("Elija la accion que desea realizar para mover el carro");
-                            showString("1.Forward 2.Forback 3.Turn rigth 4.Turn left 5.Stop");
+                            showString("1.Forback 2.Forward 3.Turn rigth 4.Turn left 5.Stop");
                 
                             flag = 1;
                             opcion = 0;

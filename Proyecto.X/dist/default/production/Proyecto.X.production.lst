@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Thu Jun 03 21:17:29 2021
+                                                                                               Fri Jun 04 00:58:49 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -458,20 +458,20 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    444  0591  3446               	retlw	70	;'F'
    445  0592  346F               	retlw	111	;'o'
    446  0593  3472               	retlw	114	;'r'
-   447  0594  3477               	retlw	119	;'w'
+   447  0594  3462               	retlw	98	;'b'
    448  0595  3461               	retlw	97	;'a'
-   449  0596  3472               	retlw	114	;'r'
-   450  0597  3464               	retlw	100	;'d'
+   449  0596  3463               	retlw	99	;'c'
+   450  0597  346B               	retlw	107	;'k'
    451  0598  3420               	retlw	32	;' '
    452  0599  3432               	retlw	50	;'2'
    453  059A  342E               	retlw	46	;'.'
    454  059B  3446               	retlw	70	;'F'
    455  059C  346F               	retlw	111	;'o'
    456  059D  3472               	retlw	114	;'r'
-   457  059E  3462               	retlw	98	;'b'
+   457  059E  3477               	retlw	119	;'w'
    458  059F  3461               	retlw	97	;'a'
-   459  05A0  3463               	retlw	99	;'c'
-   460  05A1  346B               	retlw	107	;'k'
+   459  05A0  3472               	retlw	114	;'r'
+   460  05A1  3464               	retlw	100	;'d'
    461  05A2  3420               	retlw	32	;' '
    462  05A3  3433               	retlw	51	;'3'
    463  05A4  342E               	retlw	46	;'.'
@@ -1516,11 +1516,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1496                           ;proyecto_final.c: 156:                         if(opcion==50){
   1497  0111  01BF               	clrf	_opcion
   1498  0112                     l1972:	
-  1499                           ;proyecto_final.c: 158:                             showString("1.Forward 2.Forback 3.Tu
+  1499                           ;proyecto_final.c: 158:                             showString("1.Forback 2.Forward 3.Tu
       +                          rn rigth 4.Turn left 5.Stop");
   1500                           
   1501                           
-  1502                           ;proyecto_final.c: 158:                             showString("1.Forward 2.Forback 3.Tu
+  1502                           ;proyecto_final.c: 158:                             showString("1.Forback 2.Forward 3.Tu
       +                          rn rigth 4.Turn left 5.Stop");
   1503  0112  083F               	movf	_opcion,w
   1504  0113  1903               	btfsc	3,2
@@ -5368,7 +5368,7 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Thu Jun 03 21:17:29 2021
+Symbol Table                                                                                   Fri Jun 04 00:58:49 2021
 
                          pc 0002                ___awdiv@sign 0046                          fsr 0004  
        ___wmul@multiplicand 0042                         l212 0ED4                         l225 0ED4  
