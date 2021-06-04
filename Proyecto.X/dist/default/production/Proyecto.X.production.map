@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Proyecto.X.production.sym \
   --cmf=dist/default/production\Proyecto.X.production.cmf -z -Q16F887 \
-  -oC:\Users\brand\AppData\Local\Temp\sdco.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\brand\AppData\Local\Temp\s6o.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Proyecto.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\brand\AppData\Local\Temp\sdco.o \
+  -pfunctab=ENTRY -k C:\Users\brand\AppData\Local\Temp\s6o.o \
   dist/default/production\Proyecto.X.production.o 
 
 Object code version is 3.11
@@ -28,58 +28,68 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\brand\AppData\Local\Temp\sdco.o
+C:\Users\brand\AppData\Local\Temp\s6o.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
 dist/default/production\Proyecto.X.production.o
-                cinit                                 F        F       2A        8       0
+                cinit                                 F        F       2B        8       0
                 intentry                              4        4        8        8       0
                 config                             2007     2007        2        0       4
-                text10                              4C5      4C5       87      98A       0
-                text9                               54C      54C       82      98A       0
-                text8                               6DE      6DE       11      98A       0
-                text7                               5CE      5CE       69      98A       0
-                text6                               6FE      6FE        6      98A       0
-                text5                               6F7      6F7        7      98A       0
-                text4                               6C9      6C9       15      98A       0
-                text3                               68C      68C       24      98A       0
-                text2                               637      637       55      98A       0
-                text1                               6B0      6B0       19      98A       0
-                maintext                             39       39      288        8       0
-                cstackBANK0                          30       30        D       20       1
-                cstackCOMMON                         70       70        7       70       1
-                clrtext                             6EF      6EF        8      98A       0
-                dataBANK0                            3D       3D        4       20       1
-                bssBANK0                             20       20       10       20       1
-                bssCOMMON                            77       77        5       70       1
-                stringtext                          300      300      1C5        6       0
-                idataBANK0                          704      704        4      98A       0
+                text14                              CD4      CD4       16     19A8       0
+                text13                              ED5      ED5      12B     1DAA       0
+                text12                              760      760       97      EC0       0
+                text11                              D8A      D8A       69     1B14       0
+                text10                              D0E      D0E       27     1A1C       0
+                text9                               E5C      E5C       79     1CB8       0
+                text8                               CAE      CAE       11     195C       0
+                text7                               DF3      DF3       69     1BE6       0
+                text6                               CA8      CA8        6     1950       0
+                text5                               4F7      4F7        7        8       0
+                text4                               CBF      CBF       15     197E       0
+                text3                               CEA      CEA       24     19D4       0
+                text2                               D35      D35       55     1A6A       0
+                text1                               4DE      4DE       19        8       0
+                maintext                             3A       3A      4A4        8       0
+                cstackBANK0                          40       40       10       20       1
+                cstackCOMMON                         70       70        D       70       1
+                clrtext                             7F7      7F7        8      EC0       0
+                dataBANK0                            50       50        4       20       1
+                bssBANK0                             20       20       20       20       1
+                dataCOMMON                           7D       7D        1       70       1
+                stringtext                          500      500      260        A       0
+                idataBANK0                          CA4      CA4        4     1948       0
+                idataCOMMON                         7FF      7FF        1      EC0       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              C        C        3         0
-                cinit                                 F        F       2A         0
+                cinit                                 F        F       2B         0
                 intentry                              4        4        8         0
                 reset_vec                             0        0        3         0
-                text10                              4C5      4C5       87         0
-                text9                               54C      54C       82         0
-                text8                               6DE      6DE       11         0
-                text7                               5CE      5CE       69         0
-                text6                               6FE      6FE        6         0
-                text5                               6F7      6F7        7         0
-                text4                               6C9      6C9       15         0
-                text3                               68C      68C       24         0
-                text2                               637      637       55         0
-                text1                               6B0      6B0       19         0
-                maintext                             39       39      288         0
-                clrtext                             6EF      6EF        8         0
-                idataBANK0                          704      704        4         0
+                text14                              CD4      CD4       16         0
+                text13                              ED5      ED5      12B         0
+                text12                              760      760       97         0
+                text11                              D8A      D8A       69         0
+                text10                              D0E      D0E       27         0
+                text9                               E5C      E5C       79         0
+                text8                               CAE      CAE       11         0
+                text7                               DF3      DF3       69         0
+                text6                               CA8      CA8        6         0
+                text5                               4F7      4F7        7         0
+                text4                               CBF      CBF       15         0
+                text3                               CEA      CEA       24         0
+                text2                               D35      D35       55         0
+                text1                               4DE      4DE       19         0
+                maintext                             3A       3A      4A4         0
+                clrtext                             7F7      7F7        8         0
+                idataBANK0                          CA4      CA4        4         0
+                idataCOMMON                         7FF      7FF        1         0
 
         CLASS   STRCODE        
-                stringtext                          300      300      1C5         0
+                stringtext                          500      500      260         0
 
         CLASS   STRING         
 
@@ -88,13 +98,13 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        7         1
-                bssCOMMON                            77       77        5         1
+                cstackCOMMON                         70       70        D         1
+                dataCOMMON                           7D       7D        1         1
 
         CLASS   BANK0          
-                cstackBANK0                          30       30        D         1
-                dataBANK0                            3D       3D        4         1
-                bssBANK0                             20       20       10         1
+                cstackBANK0                          40       40       10         1
+                dataBANK0                            50       50        4         1
+                bssBANK0                             20       20       20         1
 
         CLASS   BANK1          
 
@@ -127,33 +137,47 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  0002BD  0002C1         8       0  CODE        2
-                bssBANK0                       000020  000021  000041        20       1  BANK0       1
-                cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
-                stringtext                     000300  0001C5  0004C5         6       0  STRCODE     2
-                text10                         0004C5  000243  000708       98A       0  CODE        2
+                intentry                       000004  0004FA  0004FE         8       0  CODE        2
+                bssBANK0                       000020  000034  000054        20       1  BANK0       1
+                cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
+                stringtext                     000500  000260  000760         A       0  STRCODE     2
+                text12                         000760  0000A0  000800       EC0       0  CODE        2
+                idataBANK0                     000CA4  000004  000CA8      1948       0  CODE        2
+                text6                          000CA8  000006  000CAE      1950       0  CODE        2
+                text8                          000CAE  000011  000CBF      195C       0  CODE        2
+                text4                          000CBF  000015  000CD4      197E       0  CODE        2
+                text14                         000CD4  000016  000CEA      19A8       0  CODE        2
+                text3                          000CEA  000024  000D0E      19D4       0  CODE        2
+                text10                         000D0E  000027  000D35      1A1C       0  CODE        2
+                text2                          000D35  000055  000D8A      1A6A       0  CODE        2
+                text11                         000D8A  000069  000DF3      1B14       0  CODE        2
+                text7                          000DF3  000069  000E5C      1BE6       0  CODE        2
+                text9                          000E5C  000079  000ED5      1CB8       0  CODE        2
+                text13                         000ED5  00012B  001000      1DAA       0  CODE        2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0041-006F             2F           1
+        BANK0            0054-006F             1C           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         02C1-02FF             3F
-                         0708-1FFF            800
-        COMMON           007C-007D              2           1
+                         04FE-04FF              2
+                         0800-0CA3            4A4
+                         1000-1FFF            800
         CONST            0003-0003              1           2
-                         02C1-02FF             3F
-                         0708-1FFF            100
+                         04FE-04FF              2
+                         0800-0CA3            100
+                         1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         02C1-02FF             3F
-                         0708-1FFF            100
+                         04FE-04FF              2
+                         0800-0CA3            100
+                         1000-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              0041-006F             2F           1
+        RAM              0054-006F             1C           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
@@ -163,15 +187,21 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         02C1-02FF             3F
-                         0708-1FFF           18F8
+                         04FE-04FF              2
+                         0800-0CA3            4A4
+                         1000-1FFF           1000
         STRING           0003-0003              1           2
-                         02C1-02FF             3F
-                         0708-1FFF            100
+                         04FE-04FF              2
+                         0800-0CA3            100
+                         1000-1FFF            100
 
                                   Symbol Table
 
-?_strlen                    cstackBANK0  0030
+?___awdiv                   cstackBANK0  0040
+?___wmul                    cstackBANK0  0040
+?_dec_to_ascii              cstackBANK0  0040
+?_readFromEEPROM            cstackCOMMON 0070
+?_strlen                    cstackBANK0  0040
 _ADCON0bits                 (abs)        001F
 _ADCON1bits                 (abs)        009F
 _ADRESH                     (abs)        001E
@@ -187,9 +217,10 @@ _EEADR                      (abs)        010D
 _EECON1bits                 (abs)        018C
 _EECON2                     (abs)        018D
 _EEDAT                      (abs)        010C
+_EEDATA                     (abs)        010C
 _INTCONbits                 (abs)        000B
 _IOCB                       (abs)        0096
-_IOCB_interrupt             text10       04C5
+_IOCB_interrupt             text13       0ED5
 _OPTION_REGbits             (abs)        0081
 _OSCCONbits                 (abs)        008F
 _PIE1bits                   (abs)        008C
@@ -203,7 +234,7 @@ _PORTD                      (abs)        0008
 _PORTDbits                  (abs)        0008
 _PORTE                      (abs)        0009
 _PR2                        (abs)        0092
-_RB3_old                    bssBANK0     002D
+_RB3_old                    bssBANK0     002F
 _RCREG                      (abs)        001A
 _RCSTAbits                  (abs)        0018
 _SPBRG                      (abs)        0099
@@ -223,8 +254,7 @@ __Hbank1                    bank1        0000
 __Hbank2                    bank2        0000
 __Hbank3                    bank3        0000
 __HbssBANK0                 bssBANK0     0000
-__HbssCOMMON                bssCOMMON    0000
-__Hcinit                    cinit        0039
+__Hcinit                    cinit        003A
 __Hclrtext                  clrtext      0000
 __Hcode                     code         0000
 __Hcommon                   common       0000
@@ -232,10 +262,12 @@ __Hconfig                   config       2009
 __HcstackBANK0              cstackBANK0  0000
 __HcstackCOMMON             cstackCOMMON 0000
 __HdataBANK0                dataBANK0    0000
+__HdataCOMMON               dataCOMMON   0000
 __Heeprom_data              eeprom_data  0000
 __Hend_init                 end_init     000F
 __Hfunctab                  functab      0000
 __HidataBANK0               idataBANK0   0000
+__HidataCOMMON              idataCOMMON  0000
 __Hinit                     init         000C
 __Hintentry                 intentry     000C
 __Hmaintext                 maintext     0000
@@ -246,8 +278,8 @@ __Hsfr0                     sfr0         0000
 __Hsfr1                     sfr1         0000
 __Hsfr2                     sfr2         0000
 __Hsfr3                     sfr3         0000
-__Hspace_0                  (abs)        0708
-__Hspace_1                  (abs)        007C
+__Hspace_0                  (abs)        1000
+__Hspace_1                  (abs)        007E
 __Hspace_2                  (abs)        0000
 __Hspace_3                  (abs)        0000
 __Hspace_4                  (abs)        4010
@@ -261,7 +293,6 @@ __Lbank1                    bank1        0000
 __Lbank2                    bank2        0000
 __Lbank3                    bank3        0000
 __LbssBANK0                 bssBANK0     0000
-__LbssCOMMON                bssCOMMON    0000
 __Lcinit                    cinit        000F
 __Lclrtext                  clrtext      0000
 __Lcode                     code         0000
@@ -270,10 +301,12 @@ __Lconfig                   config       0000
 __LcstackBANK0              cstackBANK0  0000
 __LcstackCOMMON             cstackCOMMON 0000
 __LdataBANK0                dataBANK0    0000
+__LdataCOMMON               dataCOMMON   0000
 __Leeprom_data              eeprom_data  0000
 __Lend_init                 end_init     000C
 __Lfunctab                  functab      0000
 __LidataBANK0               idataBANK0   0000
+__LidataCOMMON              idataCOMMON  0000
 __Linit                     init         000C
 __Lintentry                 intentry     0004
 __Lmaintext                 maintext     0000
@@ -293,81 +326,114 @@ __Lstack                    stack        0000
 __Lstrings                  strings      0000
 __Lstringtext               stringtext   0000
 __Ltext                     text         0000
-__S0                        (abs)        0708
-__S1                        (abs)        007C
+__S0                        (abs)        1000
+__S1                        (abs)        007E
 __S2                        (abs)        0000
 __S3                        (abs)        0000
+___awdiv                    text11       0D8A
+___awdiv@counter            cstackBANK0  0045
+___awdiv@dividend           cstackBANK0  0042
+___awdiv@divisor            cstackBANK0  0040
+___awdiv@quotient           cstackBANK0  0047
+___awdiv@sign               cstackBANK0  0046
 ___int_sp                   stack        0000
 ___latbits                  (abs)        0002
 ___sp                       stack        0000
 ___stackhi                  (abs)        0000
 ___stacklo                  (abs)        0000
-__end_of_IOCB_interrupt     text10       054C
-__end_of__initialization    cinit        0035
-__end_of__stringtab         stringtext   0312
-__end_of_config_int_enable  text8        06EF
-__end_of_config_io          text7        0637
-__end_of_config_iocb        text6        0704
-__end_of_config_reloj       text5        06FE
-__end_of_data               stringtext   0313
-__end_of_isr                text9        05CE
-__end_of_main               maintext     02C1
-__end_of_setup              text4        06DE
-__end_of_showString         text2        068C
-__end_of_strlen             text3        06B0
-__end_of_writeToEEPROM      text1        06C9
+___wmul                     text10       0D0E
+___wmul@multiplicand        cstackBANK0  0042
+___wmul@multiplier          cstackBANK0  0040
+___wmul@product             cstackBANK0  0044
+__end_of_IOCB_interrupt     text13       1000
+__end_of___awdiv            text11       0DF3
+__end_of___wmul             text10       0D35
+__end_of__initialization    cinit        0036
+__end_of__stringtab         stringtext   0512
+__end_of_config_int_enable  text8        0CBF
+__end_of_config_io          text7        0E5C
+__end_of_config_iocb        text6        0CAE
+__end_of_config_reloj       text5        04FE
+__end_of_data               stringtext   0513
+__end_of_dec_to_ascii       text9        0ED5
+__end_of_isr                text12       07F7
+__end_of_main               maintext     04DE
+__end_of_readFromEEPROM     text14       0CEA
+__end_of_setup              text4        0CD4
+__end_of_showString         text2        0D8A
+__end_of_strlen             text3        0D0E
+__end_of_writeToEEPROM      text1        04F7
 __initialization            cinit        000F
 __pbssBANK0                 bssBANK0     0020
-__pbssCOMMON                bssCOMMON    0077
-__pcstackBANK0              cstackBANK0  0030
+__pcstackBANK0              cstackBANK0  0040
 __pcstackCOMMON             cstackCOMMON 0070
-__pdataBANK0                dataBANK0    003D
-__pidataBANK0               idataBANK0   0704
+__pdataBANK0                dataBANK0    0050
+__pdataCOMMON               dataCOMMON   007D
+__pidataBANK0               idataBANK0   0CA4
+__pidataCOMMON              idataCOMMON  07FF
 __pintentry                 intentry     0004
-__pmaintext                 maintext     0039
-__pstringtext               stringtext   0300
-__ptext1                    text1        06B0
-__ptext10                   text10       04C5
-__ptext2                    text2        0637
-__ptext3                    text3        068C
-__ptext4                    text4        06C9
-__ptext5                    text5        06F7
-__ptext6                    text6        06FE
-__ptext7                    text7        05CE
-__ptext8                    text8        06DE
-__ptext9                    text9        054C
+__pmaintext                 maintext     003A
+__pstringtext               stringtext   0500
+__ptext1                    text1        04DE
+__ptext10                   text10       0D0E
+__ptext11                   text11       0D8A
+__ptext12                   text12       0760
+__ptext13                   text13       0ED5
+__ptext14                   text14       0CD4
+__ptext2                    text2        0D35
+__ptext3                    text3        0CEA
+__ptext4                    text4        0CBF
+__ptext5                    text5        04F7
+__ptext6                    text6        0CA8
+__ptext7                    text7        0DF3
+__ptext8                    text8        0CAE
+__ptext9                    text9        0E5C
 __size_of_IOCB_interrupt    (abs)        0000
+__size_of___awdiv           (abs)        0000
+__size_of___wmul            (abs)        0000
 __size_of_config_int_enable (abs)        0000
 __size_of_config_io         (abs)        0000
 __size_of_config_iocb       (abs)        0000
 __size_of_config_reloj      (abs)        0000
+__size_of_dec_to_ascii      (abs)        0000
 __size_of_isr               (abs)        0000
 __size_of_main              (abs)        0000
+__size_of_readFromEEPROM    (abs)        0000
 __size_of_setup             (abs)        0000
 __size_of_showString        (abs)        0000
 __size_of_strlen            (abs)        0000
 __size_of_writeToEEPROM     (abs)        0000
-__stringbase                stringtext   0312
-__stringtab                 stringtext   0300
-_addressEEPROM              dataBANK0    003D
-_config_int_enable          text8        06DE
-_config_io                  text7        05CE
-_config_iocb                text6        06FE
-_config_reloj               text5        06F7
-_eepromVal                  bssBANK0     002B
-_flag                       dataBANK0    003F
-_flag2                      bssCOMMON    0079
-_isr                        text9        054C
-_main                       maintext     0039
-_opcion                     bssBANK0     002F
-_setup                      text4        06C9
-_showString                 text2        0637
-_strlen                     text3        068C
-_valor_pot                  bssCOMMON    007B
-_writeToEEPROM              text1        06B0
+__stringbase                stringtext   0512
+__stringtab                 stringtext   0500
+_addressEEPROM              dataBANK0    0050
+_config_int_enable          text8        0CAE
+_config_io                  text7        0DF3
+_config_iocb                text6        0CA8
+_config_reloj               text5        04F7
+_dec_to_ascii               text9        0E5C
+_eepromVal                  bssBANK0     002D
+_flag                       dataBANK0    0052
+_flag2                      bssBANK0     003B
+_isr                        text12       0760
+_leer                       dataCOMMON   007D
+_main                       maintext     003A
+_opcion                     bssBANK0     003F
+_readFromEEPROM             text14       0CD4
+_setup                      text4        0CBF
+_showString                 text2        0D35
+_strlen                     text3        0CEA
+_temporal_posicion1         bssBANK0     003E
+_temporal_posicion2         bssBANK0     003D
+_valor_centenas             bssBANK0     0035
+_valor_decenas              bssBANK0     0033
+_valor_pot                  bssBANK0     0039
+_valor_unidades             bssBANK0     0031
+_var_temp                   bssBANK0     0037
+_writeToEEPROM              text1        04DE
 btemp                       (abs)        007E
-clear_ram0                  clrtext      06EF
-end_of_initialization       cinit        0035
+clear_ram0                  clrtext      07F7
+dec_to_ascii@val            cstackBANK0  0040
+end_of_initialization       cinit        0036
 interrupt_function          intentry     0004
 intlevel0                   functab      0000
 intlevel1                   functab      0000
@@ -375,16 +441,19 @@ intlevel2                   functab      0000
 intlevel3                   functab      0000
 intlevel4                   functab      0000
 intlevel5                   functab      0000
+main@i                      cstackBANK0  004E
+readFromEEPROM@address      cstackCOMMON 0070
+readFromEEPROM@data         cstackCOMMON 0074
 reset_vec                   reset_vec    0000
 saved_w                     (abs)        007E
-showString@i                cstackBANK0  0039
-showString@var              cstackBANK0  0034
+showString@i                cstackBANK0  0049
+showString@var              cstackBANK0  0044
 start                       init         000C
 start_initialization        cinit        000F
-strlen@cp                   cstackBANK0  0032
-strlen@s                    cstackBANK0  0030
-writeToEEPROM@address       cstackBANK0  0032
-writeToEEPROM@data          cstackBANK0  0030
+strlen@cp                   cstackBANK0  0042
+strlen@s                    cstackBANK0  0040
+writeToEEPROM@address       cstackBANK0  0042
+writeToEEPROM@data          cstackBANK0  0040
 wtemp0                      (abs)        007E
 
 
@@ -392,11 +461,11 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 91 in file "proyecto_final.c"
+		line 99 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-		None
+  i               2   14[BANK0 ] int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -407,12 +476,15 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
-      Locals:         0       0       0       0       0
-      Temps:          0       2       0       0       0
-      Totals:         0       2       0       0       0
-Total ram usage:        2 bytes
- Hardware stack levels required when called:    4
+      Locals:         0       2       0       0       0
+      Temps:          0       3       0       0       0
+      Totals:         0       5       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels required when called:    5
  This function calls:
+		___awdiv
+		___wmul
+		_dec_to_ascii
 		_setup
 		_showString
 		_writeToEEPROM
@@ -423,7 +495,7 @@ Total ram usage:        2 bytes
 
  *************** function _writeToEEPROM *****************
  Defined at:
-		line 304 in file "proyecto_final.c"
+		line 425 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
   data            2    0[BANK0 ] int 
   address         2    2[BANK0 ] int 
@@ -444,7 +516,7 @@ Total ram usage:        2 bytes
       Totals:         0       4       0       0       0
 Total ram usage:        4 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
@@ -454,13 +526,14 @@ Total ram usage:        4 bytes
 
  *************** function _showString *****************
  Defined at:
-		line 548 in file "proyecto_final.c"
+		line 708 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
   var             2    4[BANK0 ] PTR unsigned char 
-		 -> STR_15(49), STR_14(39), STR_13(56), STR_12(45), 
-		 -> STR_11(39), STR_10(45), STR_9(38), STR_8(30), 
-		 -> STR_7(25), STR_6(18), STR_5(19), STR_4(19), 
-		 -> STR_3(27), STR_2(30), STR_1(49), 
+		 -> STR_18(49), STR_17(32), STR_16(69), STR_15(42), 
+		 -> STR_14(52), STR_13(55), STR_12(45), STR_11(39), 
+		 -> STR_10(45), STR_9(38), STR_8(30), STR_7(25), 
+		 -> STR_6(18), STR_5(19), STR_4(19), STR_3(27), 
+		 -> STR_2(30), STR_1(49), 
  Auto vars:     Size  Location     Type
   i               2    9[BANK0 ] int 
  Return value:  Size  Location     Type
@@ -478,7 +551,7 @@ Total ram usage:        4 bytes
       Totals:         0       7       0       0       0
 Total ram usage:        7 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
 		_strlen
  This function is called by:
@@ -491,16 +564,18 @@ Total ram usage:        7 bytes
 		line 4 in file "C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\strlen.c"
  Parameters:    Size  Location     Type
   s               2    0[BANK0 ] PTR const unsigned char 
-		 -> STR_15(49), STR_14(39), STR_13(56), STR_12(45), 
-		 -> STR_11(39), STR_10(45), STR_9(38), STR_8(30), 
-		 -> STR_7(25), STR_6(18), STR_5(19), STR_4(19), 
-		 -> STR_3(27), STR_2(30), STR_1(49), 
+		 -> STR_18(49), STR_17(32), STR_16(69), STR_15(42), 
+		 -> STR_14(52), STR_13(55), STR_12(45), STR_11(39), 
+		 -> STR_10(45), STR_9(38), STR_8(30), STR_7(25), 
+		 -> STR_6(18), STR_5(19), STR_4(19), STR_3(27), 
+		 -> STR_2(30), STR_1(49), 
  Auto vars:     Size  Location     Type
   cp              2    2[BANK0 ] PTR const unsigned char 
-		 -> STR_15(49), STR_14(39), STR_13(56), STR_12(45), 
-		 -> STR_11(39), STR_10(45), STR_9(38), STR_8(30), 
-		 -> STR_7(25), STR_6(18), STR_5(19), STR_4(19), 
-		 -> STR_3(27), STR_2(30), STR_1(49), 
+		 -> STR_18(49), STR_17(32), STR_16(69), STR_15(42), 
+		 -> STR_14(52), STR_13(55), STR_12(45), STR_11(39), 
+		 -> STR_10(45), STR_9(38), STR_8(30), STR_7(25), 
+		 -> STR_6(18), STR_5(19), STR_4(19), STR_3(27), 
+		 -> STR_2(30), STR_1(49), 
  Return value:  Size  Location     Type
                   2    0[BANK0 ] unsigned int 
  Registers used:
@@ -516,7 +591,7 @@ Total ram usage:        7 bytes
       Totals:         0       4       0       0       0
 Total ram usage:        4 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
@@ -526,7 +601,7 @@ Total ram usage:        4 bytes
 
  *************** function _setup *****************
  Defined at:
-		line 293 in file "proyecto_final.c"
+		line 414 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -546,7 +621,7 @@ Total ram usage:        4 bytes
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
 		_config_int_enable
 		_config_io
@@ -559,7 +634,7 @@ Total ram usage:        0 bytes
 
  *************** function _config_reloj *****************
  Defined at:
-		line 431 in file "proyecto_final.c"
+		line 591 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -579,7 +654,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
@@ -589,7 +664,7 @@ Total ram usage:        0 bytes
 
  *************** function _config_iocb *****************
  Defined at:
-		line 538 in file "proyecto_final.c"
+		line 698 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -609,7 +684,7 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
@@ -619,7 +694,7 @@ Total ram usage:        0 bytes
 
  *************** function _config_io *****************
  Defined at:
-		line 441 in file "proyecto_final.c"
+		line 601 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -639,7 +714,7 @@ Total ram usage:        0 bytes
       Totals:         0       1       0       0       0
 Total ram usage:        1 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
@@ -649,7 +724,7 @@ Total ram usage:        1 bytes
 
  *************** function _config_int_enable *****************
  Defined at:
-		line 519 in file "proyecto_final.c"
+		line 679 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -669,7 +744,7 @@ Total ram usage:        1 bytes
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
 		Nothing
  This function is called by:
@@ -677,9 +752,103 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _dec_to_ascii *****************
+ Defined at:
+		line 389 in file "proyecto_final.c"
+ Parameters:    Size  Location     Type
+  val             2    0[BANK0 ] int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2    0[BANK0 ] int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       2       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       2       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function ___wmul *****************
+ Defined at:
+		line 15 in file "C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c"
+ Parameters:    Size  Location     Type
+  multiplier      2    0[BANK0 ] unsigned int 
+  multiplicand    2    2[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  product         2    4[BANK0 ] unsigned int 
+ Return value:  Size  Location     Type
+                  2    0[BANK0 ] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       4       0       0       0
+      Locals:         0       2       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       6       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function ___awdiv *****************
+ Defined at:
+		line 5 in file "C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c"
+ Parameters:    Size  Location     Type
+  divisor         2    0[BANK0 ] int 
+  dividend        2    2[BANK0 ] int 
+ Auto vars:     Size  Location     Type
+  quotient        2    7[BANK0 ] int 
+  sign            1    6[BANK0 ] unsigned char 
+  counter         1    5[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    0[BANK0 ] int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       4       0       0       0
+      Locals:         0       4       0       0       0
+      Temps:          0       1       0       0       0
+      Totals:         0       9       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
  *************** function _isr *****************
  Defined at:
-		line 340 in file "proyecto_final.c"
+		line 461 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -699,7 +868,7 @@ Total ram usage:        0 bytes
       Totals:         4       0       0       0       0
 Total ram usage:        4 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    1
+ Hardware stack levels required when called:    2
  This function calls:
 		_IOCB_interrupt
  This function is called by:
@@ -709,7 +878,7 @@ Total ram usage:        4 bytes
 
  *************** function _IOCB_interrupt *****************
  Defined at:
-		line 375 in file "proyecto_final.c"
+		line 498 in file "proyecto_final.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -717,7 +886,7 @@ Total ram usage:        4 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0
+		wreg, status,2, status,0, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -729,10 +898,40 @@ Total ram usage:        4 bytes
       Totals:         3       0       0       0       0
 Total ram usage:        3 bytes
  Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_readFromEEPROM
+ This function is called by:
+		_isr
+ This function uses a non-reentrant model
+
+
+ *************** function _readFromEEPROM *****************
+ Defined at:
+		line 446 in file "proyecto_final.c"
+ Parameters:    Size  Location     Type
+  address         2    0[COMMON] int 
+ Auto vars:     Size  Location     Type
+  data            2    4[COMMON] int 
+ Return value:  Size  Location     Type
+                  2    0[COMMON] int 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         2       0       0       0       0
+      Locals:         2       0       0       0       0
+      Temps:          2       0       0       0       0
+      Totals:         6       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
  This function calls:
 		Nothing
  This function is called by:
-		_isr
+		_IOCB_interrupt
  This function uses a non-reentrant model
 
 
@@ -740,29 +939,41 @@ Total ram usage:        3 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-proyecto_final.c
-		_writeToEEPROM 		CODE           	06B0	0000	25
-		_config_int_enable		CODE           	06DE	0000	17
-		_showString    		CODE           	0637	0000	85
-		_main          		CODE           	0039	0000	648
-		_IOCB_interrupt		CODE           	04C5	0000	135
-		_isr           		CODE           	054C	0000	130
-		_setup         		CODE           	06C9	0000	21
-		_config_io     		CODE           	05CE	0000	105
-		_config_iocb   		CODE           	06FE	0000	6
-		_config_reloj  		CODE           	06F7	0000	7
+C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+		___wmul        		CODE           	0D0E	0000	39
 
-proyecto_final.c estimated size: 1179
+C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c estimated size: 39
+
+proyecto_final.c
+		_writeToEEPROM 		CODE           	04DE	0000	25
+		_readFromEEPROM		CODE           	0CD4	0000	22
+		_config_int_enable		CODE           	0CAE	0000	17
+		_showString    		CODE           	0D35	0000	85
+		_main          		CODE           	003A	0000	1188
+		_dec_to_ascii  		CODE           	0E5C	0000	121
+		_IOCB_interrupt		CODE           	0ED5	0000	299
+		_isr           		CODE           	0760	0000	151
+		_setup         		CODE           	0CBF	0000	21
+		_config_io     		CODE           	0DF3	0000	105
+		_config_iocb   		CODE           	0CA8	0000	6
+		_config_reloj  		CODE           	04F7	0000	7
+
+proyecto_final.c estimated size: 2047
+
+C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+		___awdiv       		CODE           	0D8A	0000	105
+
+C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c estimated size: 105
 
 shared
-		__stringtab    		STRCODE        	0300	0000	18
-		__initialization		CODE           	000F	0000	38
+		__stringtab    		STRCODE        	0500	0000	18
+		__initialization		CODE           	000F	0000	39
 		_data          		STRCODE        	0000	0000	0
 
-shared estimated size: 56
+shared estimated size: 57
 
 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\strlen.c
-		_strlen        		CODE           	068C	0000	36
+		_strlen        		CODE           	0CEA	0000	36
 
 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\strlen.c estimated size: 36
 

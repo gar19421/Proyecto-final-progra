@@ -2581,6 +2581,7 @@ void config_iocb();
 void IOCB_interrupt();
 void showString(char *var);
 void writeToEEPROM(int data, int address);
+int dec_to_ascii(int val);
 
 
 
@@ -2591,7 +2592,14 @@ const char data = 97;
 int flag = 1;
 char texto[11];
 unsigned char opcion=0;
-unsigned char valor_pot;
+unsigned char temporal_posicion1;
+unsigned char temporal_posicion2;
+unsigned char leer = 0x10;
+int valor_pot;
+int var_temp;
+int valor_centenas;
+int valor_decenas;
+int valor_unidades;
 
 int RB3_old;
 int eepromVal = 0;
@@ -2620,9 +2628,10 @@ void main(void) {
         if(ADCON0bits.GO == 0){
             if (ADCON0bits.CHS == 5){
                 ADCON0bits.CHS = 6;}
-            else {
+            else if (ADCON0bits.CHS == 6){
                 ADCON0bits.CHS = 5;}
-
+            else if (ADCON0bits.CHS == 7){
+                ADCON0bits.CHS = 5;}
             _delay((unsigned long)((50)*(8000000/4000000.0)));
             ADCON0bits.GO = 1;
         }
@@ -2679,7 +2688,7 @@ void main(void) {
                             }
                             if(opcion==51){
                                 PORTD = (255);
-                                CCPR1L = (PORTD>>1) + 128;
+                                CCPR1L = (PORTD>>1) + 120;
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
                             }
@@ -2717,8 +2726,8 @@ void main(void) {
                             opcion = 0;
                         }
                         if(opcion==50){
-                            showString("Elija la acción que desea realizar para mover el carro");
-
+                            showString("Elija la accion que desea realizar para mover el carro");
+                            showString("1.Forward 2.Forback 3.Turn rigth 4.Turn left 5.Stop");
 
                             flag = 1;
                             opcion = 0;
@@ -2727,7 +2736,39 @@ void main(void) {
 
                             }
 
+                            if(opcion==49){
+                                PORTA = 8;
+                                flag =1;
+                            }
+                            if(opcion==50){
 
+                                PORTA = 4;
+                                flag =2;
+                            }
+                            if(opcion==51){
+                                PORTA = 9;
+                                _delay((unsigned long)((250)*(8000000/4000.0)));
+                                if(flag ==1){
+                                    PORTA = 8;
+                                }
+                                if(flag ==2){
+                                    PORTA = 4;
+                                }
+                            }
+                            if(opcion==52){
+                                PORTA = 10;
+                                _delay((unsigned long)((250)*(8000000/4000.0)));
+                                if(flag ==1){
+                                    PORTA = 8;
+                                }
+                                if(flag ==2){
+                                    PORTA = 4;
+                                }
+                            }
+
+                            if(opcion==53){
+                                PORTA = 0;
+                            }
 
 
                             opcion = 0;
@@ -2735,12 +2776,40 @@ void main(void) {
 
                         }
                         if (opcion==51){
-                            showString("Ingrese el caracter a mostrar en PORTB");
+                            showString("Ingrese la accion a realizar con los leds");
+                            showString("1.Encender leds delanteras 2.Encender leds traseras 3.Parpadear leds");
 
                             flag = 1;
                             opcion = 0;
 
                             while(!opcion){
+
+                            }
+
+                            if(opcion==49){
+                                PORTAbits.RA4 = 1;
+                                PORTAbits.RA5 = 1;
+                            }
+                            if(opcion==50){
+                                PORTAbits.RA6 = 1;
+                                PORTAbits.RA7 = 1;
+                            }
+                            if(opcion==51){
+                                int i;
+                                for (i = 0; i < 3; i++) {
+
+                                   PORTAbits.RA4 = 1;
+                                   PORTAbits.RA5 = 1;
+                                   PORTAbits.RA6 = 1;
+                                   PORTAbits.RA7 = 1;
+                                   _delay((unsigned long)((250)*(8000000/4000.0)));
+                                   PORTAbits.RA4 = 0;
+                                   PORTAbits.RA5 = 0;
+                                   PORTAbits.RA6 = 0;
+                                   PORTAbits.RA7 = 0;
+                                   _delay((unsigned long)((250)*(8000000/4000.0)));
+
+                                }
 
                             }
 
@@ -2750,7 +2819,33 @@ void main(void) {
 
                         if (opcion==52){
                             flag = 1;
-# 248 "proyecto_final.c"
+
+                            ADCON0bits.CHS = 7;
+                            _delay((unsigned long)((50)*(8000000/4000000.0)));
+                            ADCON0bits.GO = 1;
+                            _delay((unsigned long)((50)*(8000000/4000000.0)));
+                            valor_pot = ADRESH;
+                            _delay((unsigned long)((50)*(8000000/4000000.0)));
+
+                            var_temp = valor_pot;
+                            valor_centenas = var_temp / 100;
+                            var_temp = var_temp - valor_centenas*100;
+                            valor_decenas = var_temp / 10;
+                            var_temp = var_temp - valor_decenas*10;
+                            valor_unidades = var_temp;
+
+                            showString("El valor en decimal del pot es:");
+                            TXREG = dec_to_ascii(valor_centenas);
+                            _delay((unsigned long)((10)*(8000000/4000.0)));
+                            TXREG = dec_to_ascii(valor_decenas);
+                            _delay((unsigned long)((10)*(8000000/4000.0)));
+                            TXREG = dec_to_ascii(valor_unidades);
+                            _delay((unsigned long)((10)*(8000000/4000.0)));
+
+                            TXREG = 13;
+                            _delay((unsigned long)((10)*(8000000/4000.0)));
+                            TXREG = 11;
+
                             opcion = 0;
                         }
 
@@ -2764,8 +2859,6 @@ void main(void) {
 
                 }
 
-
-
         }
 
 
@@ -2776,11 +2869,22 @@ void main(void) {
             RB3_old = 1;
         }
         if(PORTBbits.RB4 == 1 && RB3_old==1){
-            eepromVal = eepromVal + 1;
+            eepromVal = temporal_posicion1;
 
             writeToEEPROM(eepromVal,addressEEPROM);
 
-            if(addressEEPROM == 0x15){
+            if(addressEEPROM == 0x17){
+                addressEEPROM = 0x10;
+            }else{
+                addressEEPROM = addressEEPROM + 1;
+            }
+
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+            eepromVal = temporal_posicion2;
+
+            writeToEEPROM(eepromVal,addressEEPROM);
+
+            if(addressEEPROM == 0x17){
                 addressEEPROM = 0x10;
             }else{
                 addressEEPROM = addressEEPROM + 1;
@@ -2794,6 +2898,32 @@ void main(void) {
     }
 
     return;
+}
+
+
+int dec_to_ascii(int val){
+    if(val==0){
+        return 48;
+    }else if(val==1){
+        return 49;
+    }else if(val==2){
+        return 50;
+    }else if(val==3){
+        return 51;
+    }else if(val==4){
+        return 52;
+    }else if(val==5){
+        return 53;
+    }else if(val==6){
+        return 54;
+    }else if(val==7){
+        return 55;
+    }else if(val==8){
+        return 56;
+    }else if(val==9){
+        return 57;
+    }
+
 }
 
 void setup(){
@@ -2826,7 +2956,23 @@ void writeToEEPROM(int data, int address){
 
     return;
 }
-# 340 "proyecto_final.c"
+
+
+int readFromEEPROM(int address){
+ EEADR = address;
+ EECON1bits.EEPGD = 0;
+ EECON1bits.RD = 1;
+ int data = EEDATA;
+
+ return data;
+
+}
+
+
+
+
+
+
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if(INTCONbits.RBIF){
@@ -2842,15 +2988,17 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
         if(ADCON0bits.CHS == 5) {
             PORTD = ADRESH;
+            temporal_posicion1 = PORTD;
             CCPR1L = (PORTD>>1) + 128;
             CCP1CONbits.DC1B1 = PORTDbits.RD0;
             CCP1CONbits.DC1B0 = ADRESL>>7;}
-        if(ADCON0bits.CHS == 7){
+        else if(ADCON0bits.CHS == 7){
             valor_pot = ADRESH;
         }
 
-        else{
+        else if(ADCON0bits.CHS == 6){
             PORTD = ADRESH;
+            temporal_posicion2 = PORTD;
             CCPR2L = (PORTD>>1) + 128;
             CCP2CONbits.DC2B1 = PORTDbits.RD0;
             CCP2CONbits.DC2B0 = ADRESL>>7;}
@@ -2866,26 +3014,31 @@ void IOCB_interrupt(){
 
     if (PORTBbits.RB0 == 0){
         if (flag2){
+
             PORTA = 10;
-            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTAbits.RA4 = 1;
+            _delay((unsigned long)((600)*(8000000/4000.0)));
             PORTA = 8;
 
         }
         else {
             PORTA = 2;
-            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTAbits.RA4 = 1;
+            _delay((unsigned long)((600)*(8000000/4000.0)));
             PORTA = 0;
         }
     }
     if(PORTBbits.RB1 == 0) {
         if (flag2){
             PORTA = 9;
-            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTAbits.RA5 = 1;
+            _delay((unsigned long)((600)*(8000000/4000.0)));
             PORTA = 8;
         }
         else {
             PORTA = 1;
-            _delay((unsigned long)((250)*(8000000/4000.0)));
+            PORTAbits.RA5 = 1;
+            _delay((unsigned long)((600)*(8000000/4000.0)));
             PORTA = 0;
         }
     }
@@ -2897,7 +3050,6 @@ void IOCB_interrupt(){
     }
     if(PORTBbits.RB3 == 0) {
 
-
        PORTA = 4;
        flag2 = 1;
        PORTAbits.RA6 = 1;
@@ -2908,6 +3060,39 @@ void IOCB_interrupt(){
     if(PORTBbits.RB3 == 1 && PORTBbits.RB2 == 1) {
         PORTA = 0;
         flag2 = 0;
+    }
+
+
+    if(PORTBbits.RB5 == 0){
+
+        PORTD = readFromEEPROM(leer);
+
+        if(leer == 0x17){
+                leer = 0x10;
+        }else{
+            leer++;
+        }
+
+        CCPR1L = (PORTD>>1) + 120;
+        CCP1CONbits.DC1B1 = PORTDbits.RD0;
+        CCP1CONbits.DC1B0 = ADRESL>>7;
+
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+        PORTD = readFromEEPROM(leer);
+
+        if(leer == 0x17){
+                leer = 0x10;
+        }else{
+            leer++;
+        }
+
+        CCPR2L = (PORTD>>1) + 128;
+        CCP2CONbits.DC2B1 = PORTDbits.RD0;
+        CCP2CONbits.DC2B0 = ADRESL>>7;
+
+
+        _delay((unsigned long)((5000)*(8000000/4000.0)));
 
     }
 
@@ -2932,7 +3117,7 @@ void config_io(){
 
 
     ANSELH = 0x00;
-    ANSEL = 0X70;
+    ANSEL = 0xE0;
 
     TRISB = 0xFF;
     TRISA = 0x00;
@@ -2945,7 +3130,7 @@ void config_io(){
     WPUB = 0xFF;
 
     PORTA = 0x00;
-    PORTB = 0x0F;
+    PORTB = 0xFF;
 
     PORTE = 0x00;
     PORTD = 0x00;
@@ -3027,7 +3212,7 @@ void config_int_enable(){
 
 void config_iocb(){
 
-    IOCB = 0x0F;
+    IOCB = 0xFF;
 
     INTCONbits.RBIF = 0;
 

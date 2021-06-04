@@ -66,6 +66,7 @@ void config_iocb();
 void IOCB_interrupt();
 void showString(char *var);// funcion para cadena de strings
 void writeToEEPROM(int data, int address);
+int dec_to_ascii(int val);
 //int readFromEEPROM(int address);
 
 //------------------------------------------------------------------------------
@@ -76,7 +77,14 @@ const char data = 97; //constante valor a
 int flag = 1; //bandera de menu con valor inicial 1
 char texto[11]; //texto de opcion 1
 unsigned char opcion=0; // opcion ingresada por el usuario
-unsigned char valor_pot;
+unsigned char temporal_posicion1;
+unsigned char temporal_posicion2;
+unsigned char leer = 0x10;
+int valor_pot;
+int var_temp;
+int valor_centenas;
+int valor_decenas;
+int valor_unidades;
 
 int RB3_old;
 int eepromVal = 0;
@@ -105,9 +113,10 @@ void main(void) {
         if(ADCON0bits.GO == 0){ //Si la conversión ya está terminada
             if (ADCON0bits.CHS == 5){ //Si está en el primer canal,
                 ADCON0bits.CHS = 6;}  //pasa al segundo canal
-            else {                   //Si está en el segundo canal,
-                ADCON0bits.CHS = 5;} //se coloca en el primer canal
-            
+            else if (ADCON0bits.CHS == 6){ //Si está en el primer canal,
+                ADCON0bits.CHS = 5;}  //pasa al segundo canal
+            else if (ADCON0bits.CHS == 7){ //Si está en el primer canal,
+                ADCON0bits.CHS = 5;}  //pasa al segundo canal
             __delay_us(50); //Delay para el capacitor sample/hold
             ADCON0bits.GO = 1; //Se vuelve a ejecutar la conversión ADC
         }
@@ -164,7 +173,7 @@ void main(void) {
                             }
                             if(opcion==51){
                                 PORTD = (255);
-                                CCPR1L = (PORTD>>1) + 128; //Swift y ajuste de señal
+                                CCPR1L = (PORTD>>1) + 120; //Swift y ajuste de señal
                                 CCP1CONbits.DC1B1 = PORTDbits.RD0;
                                 CCP1CONbits.DC1B0 = ADRESL>>7;
                             }
@@ -202,9 +211,9 @@ void main(void) {
                             opcion = 0;
                         }
                         if(opcion==50){ // opcion 2, modificar caracter porta
-                            showString("Elija la acción que desea realizar para mover el carro");
-
-
+                            showString("Elija la accion que desea realizar para mover el carro");
+                            showString("1.Forward 2.Forback 3.Turn rigth 4.Turn left 5.Stop");
+                
                             flag = 1;
                             opcion = 0;
 
@@ -212,7 +221,39 @@ void main(void) {
 
                             }
 
+                            if(opcion==49){
+                                PORTA = 8; 
+                                flag =1;
+                            }
+                            if(opcion==50){
 
+                                PORTA = 4; 
+                                flag =2;
+                            }
+                            if(opcion==51){
+                                PORTA = 9;
+                                __delay_ms(250);
+                                if(flag ==1){
+                                    PORTA = 8;
+                                }
+                                if(flag ==2){
+                                    PORTA = 4;
+                                }
+                            }
+                            if(opcion==52){
+                                PORTA = 10;
+                                __delay_ms(250);
+                                if(flag ==1){
+                                    PORTA = 8;
+                                }
+                                if(flag ==2){
+                                    PORTA = 4;
+                                }
+                            }
+                            
+                            if(opcion==53){
+                                PORTA = 0;
+                            }
 
 
                             opcion = 0;
@@ -220,13 +261,41 @@ void main(void) {
 
                         }
                         if (opcion==51){ //opcion 3 modificar caracter portb
-                            showString("Ingrese el caracter a mostrar en PORTB");
-
+                            showString("Ingrese la accion a realizar con los leds");
+                            showString("1.Encender leds delanteras 2.Encender leds traseras 3.Parpadear leds");
+                            
                             flag = 1;
                             opcion = 0;
 
                             while(!opcion){// hasta que ingrese un valor en portb
                                             //se mantiene en espera 
+                            }
+                            
+                            if(opcion==49){
+                                PORTAbits.RA4 = 1;
+                                PORTAbits.RA5 = 1;
+                            }
+                            if(opcion==50){
+                                PORTAbits.RA6 = 1;
+                                PORTAbits.RA7 = 1;
+                            }
+                            if(opcion==51){
+                                int i;
+                                for (i = 0; i < 3; i++) {
+                                   
+                                   PORTAbits.RA4 = 1;
+                                   PORTAbits.RA5 = 1;
+                                   PORTAbits.RA6 = 1;
+                                   PORTAbits.RA7 = 1; 
+                                   __delay_ms(250);
+                                   PORTAbits.RA4 = 0;
+                                   PORTAbits.RA5 = 0;
+                                   PORTAbits.RA6 = 0;
+                                   PORTAbits.RA7 = 0;
+                                   __delay_ms(250);
+                                    
+                                }
+
                             }
 
                             //PORTB = opcion;
@@ -236,15 +305,32 @@ void main(void) {
                         if (opcion==52){ //opcion 3 modificar caracter portb
                             flag = 1;
                             
-                        //int i;
-                        //for (i = 0; i < 8; i++) {
-                        //    TXREG = valor_pot;
-                        //    __delay_ms(10);
-
-                        //}
-
-                           
-                            //PORTB = opcion;
+                            ADCON0bits.CHS = 7;
+                            __delay_us(50);
+                            ADCON0bits.GO = 1; //Se vuelve a ejecutar la conversión ADC
+                            __delay_us(50); //Delay para el capacitor sample/hold
+                            valor_pot = ADRESH;
+                            __delay_us(50);
+                            
+                            var_temp = valor_pot;
+                            valor_centenas = var_temp / 100; 
+                            var_temp = var_temp - valor_centenas*100;
+                            valor_decenas = var_temp / 10;
+                            var_temp = var_temp - valor_decenas*10;
+                            valor_unidades = var_temp;
+                            
+                            showString("El valor en decimal del pot es:");
+                            TXREG = dec_to_ascii(valor_centenas);
+                            __delay_ms(10);
+                            TXREG = dec_to_ascii(valor_decenas);
+                            __delay_ms(10);
+                            TXREG = dec_to_ascii(valor_unidades);
+                            __delay_ms(10);
+                            
+                            TXREG = 13;
+                            __delay_ms(10);
+                            TXREG = 11;
+                            
                             opcion = 0;
                         } 
 
@@ -258,8 +344,6 @@ void main(void) {
                     
                 }
             
-            
-            
         }
         
     
@@ -270,11 +354,22 @@ void main(void) {
             RB3_old = 1;
         }
         if(PORTBbits.RB4 == 1 && RB3_old==1){
-            eepromVal = eepromVal + 1;
+            eepromVal = temporal_posicion1;
             
             writeToEEPROM(eepromVal,addressEEPROM);
             
-            if(addressEEPROM == 0x15){
+            if(addressEEPROM == 0x17){
+                addressEEPROM = 0x10;
+            }else{
+                addressEEPROM = addressEEPROM + 1;
+            }
+            
+            __delay_ms(10);
+            eepromVal = temporal_posicion2;
+            
+            writeToEEPROM(eepromVal,addressEEPROM);
+            
+            if(addressEEPROM == 0x17){
                 addressEEPROM = 0x10;
             }else{
                 addressEEPROM = addressEEPROM + 1;
@@ -288,6 +383,32 @@ void main(void) {
     }
     
     return;
+}
+
+
+int dec_to_ascii(int val){
+    if(val==0){
+        return 48;
+    }else if(val==1){
+        return 49;
+    }else if(val==2){
+        return 50;
+    }else if(val==3){
+        return 51;
+    }else if(val==4){
+        return 52;
+    }else if(val==5){
+        return 53;
+    }else if(val==6){
+        return 54;
+    }else if(val==7){
+        return 55;
+    }else if(val==8){
+        return 56;
+    }else if(val==9){
+        return 57;
+    }
+
 }
 
 void setup(){
@@ -321,17 +442,17 @@ void writeToEEPROM(int data, int address){
     return;
 }
 
-/*
+
 int readFromEEPROM(int address){
- * EEADR = address;
- * EECON1bits.EEPGD = 0;
- * EECON1bits.RD = 1;
- * int data = EEDATA;
- * 
- * return data;
+ EEADR = address;
+ EECON1bits.EEPGD = 0;
+ EECON1bits.RD = 1;
+ int data = EEDATA;
+ 
+ return data;
 
 }
- */
+
 
 
 
@@ -352,15 +473,17 @@ void __interrupt() isr(void){
                
         if(ADCON0bits.CHS == 5) { //Verifica el canal en l que se encuentra
             PORTD = ADRESH;
+            temporal_posicion1 = PORTD;
             CCPR1L = (PORTD>>1) + 128; //Swift y ajuste de señal
             CCP1CONbits.DC1B1 = PORTDbits.RD0;
             CCP1CONbits.DC1B0 = ADRESL>>7;}
-        if(ADCON0bits.CHS == 7){
+        else if(ADCON0bits.CHS == 7){
             valor_pot = ADRESH;
         }
         
-        else{
+        else if(ADCON0bits.CHS == 6){
             PORTD = ADRESH;
+            temporal_posicion2 = PORTD;
             CCPR2L = (PORTD>>1) + 128;//Swift y ajuste de señal
             CCP2CONbits.DC2B1 = PORTDbits.RD0;
             CCP2CONbits.DC2B0 = ADRESL>>7;}
@@ -376,26 +499,31 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
 
     if (PORTBbits.RB0 == 0){ 
         if (flag2){
+             
             PORTA = 10;
-            __delay_ms(250);
+            PORTAbits.RA4 = 1;
+            __delay_ms(600);
             PORTA = 8;
             
         }
         else {
             PORTA = 2;
-            __delay_ms(250);
+            PORTAbits.RA4 = 1;
+            __delay_ms(600);
             PORTA = 0;
         }
     }
     if(PORTBbits.RB1 == 0) {
         if (flag2){
             PORTA = 9;
-            __delay_ms(250);
+            PORTAbits.RA5 = 1;
+            __delay_ms(600);
             PORTA = 8;
         }
         else {
             PORTA = 1;
-            __delay_ms(250);
+            PORTAbits.RA5 = 1;
+            __delay_ms(600);
             PORTA = 0;
         }
     }
@@ -406,8 +534,7 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
         PORTAbits.RA5 = 1;
     }
     if(PORTBbits.RB3 == 0) {
-                     
-               
+                      
        PORTA = 4; 
        flag2 = 1;
        PORTAbits.RA6 = 1;
@@ -418,9 +545,42 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
     if(PORTBbits.RB3 == 1 && PORTBbits.RB2 == 1) {
         PORTA = 0; 
         flag2 = 0;
-       
     }
    
+    
+    if(PORTBbits.RB5 == 0){
+        
+        PORTD = readFromEEPROM(leer);
+        
+        if(leer == 0x17){
+                leer = 0x10;
+        }else{
+            leer++;
+        }
+       
+        CCPR1L = (PORTD>>1) + 120;//Swift y ajuste de señal
+        CCP1CONbits.DC1B1 = PORTDbits.RD0;
+        CCP1CONbits.DC1B0 = ADRESL>>7;
+        
+        __delay_ms(10);
+        
+        PORTD = readFromEEPROM(leer);
+        
+        if(leer == 0x17){
+                leer = 0x10;
+        }else{
+            leer++;
+        }
+        
+        CCPR2L = (PORTD>>1) + 128;//Swift y ajuste de señal
+        CCP2CONbits.DC2B1 = PORTDbits.RD0;
+        CCP2CONbits.DC2B0 = ADRESL>>7;
+        
+        
+        __delay_ms(5000);
+        
+    }
+    
     INTCONbits.RBIF = 0;
     
     return;
@@ -442,7 +602,7 @@ void config_io(){
    
     //Configurar entradas y salidas
     ANSELH = 0x00;//Pines digitales
-    ANSEL = 0X70; //Primeros dos pines con entradas analógicas
+    ANSEL = 0xE0; //Primeros dos pines con entradas analógicas
     
     TRISB = 0xFF; // habilitar pines RB0,RB1 y RB2 como inputs
     TRISA = 0x00;
@@ -455,7 +615,7 @@ void config_io(){
     WPUB = 0xFF;  // se habilita los pull ups para los pines RB0, RB1 y RB2
     
     PORTA = 0x00;
-    PORTB = 0x0F; // se limpian las salidas de los puertos y valores iniciales
+    PORTB = 0xFF; // se limpian las salidas de los puertos y valores iniciales
     
     PORTE = 0x00; //Se limpian los puertos    
     PORTD = 0x00;
@@ -537,7 +697,7 @@ void config_int_enable(){
 
 void config_iocb(){
     
-    IOCB = 0x0F; // setear interrupciones en los pines RB0, RB1 y RB2
+    IOCB = 0xFF; // setear interrupciones en los pines RB0, RB1 y RB2
     
     INTCONbits.RBIF = 0;  
     
