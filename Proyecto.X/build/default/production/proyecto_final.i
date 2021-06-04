@@ -2717,7 +2717,7 @@ void main(void) {
                             }
                             if(opcion==51){
                                 PORTD = (255);
-                                CCPR2L = (PORTD>>1) + 128;
+                                CCPR2L = (PORTD>>1) + 120;
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
                             }
@@ -2747,7 +2747,7 @@ void main(void) {
                             }
                             if(opcion==51){
                                 PORTA = 9;
-                                _delay((unsigned long)((250)*(8000000/4000.0)));
+                                _delay((unsigned long)((800)*(8000000/4000.0)));
                                 if(flag ==1){
                                     PORTA = 8;
                                 }
@@ -2757,7 +2757,7 @@ void main(void) {
                             }
                             if(opcion==52){
                                 PORTA = 10;
-                                _delay((unsigned long)((250)*(8000000/4000.0)));
+                                _delay((unsigned long)((800)*(8000000/4000.0)));
                                 if(flag ==1){
                                     PORTA = 8;
                                 }
@@ -3017,14 +3017,14 @@ void IOCB_interrupt(){
 
             PORTA = 10;
             PORTAbits.RA4 = 1;
-            _delay((unsigned long)((1000)*(8000000/4000.0)));
+            _delay((unsigned long)((800)*(8000000/4000.0)));
             PORTA = 8;
 
         }
         else {
             PORTA = 2;
             PORTAbits.RA4 = 1;
-            _delay((unsigned long)((1000)*(8000000/4000.0)));
+            _delay((unsigned long)((800)*(8000000/4000.0)));
             PORTA = 0;
         }
     }
@@ -3032,13 +3032,13 @@ void IOCB_interrupt(){
         if (flag2){
             PORTA = 9;
             PORTAbits.RA5 = 1;
-            _delay((unsigned long)((1000)*(8000000/4000.0)));
+            _delay((unsigned long)((800)*(8000000/4000.0)));
             PORTA = 8;
         }
         else {
             PORTA = 1;
             PORTAbits.RA5 = 1;
-            _delay((unsigned long)((1000)*(8000000/4000.0)));
+            _delay((unsigned long)((800)*(8000000/4000.0)));
             PORTA = 0;
         }
     }

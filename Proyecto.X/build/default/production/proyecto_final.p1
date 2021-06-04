@@ -829,7 +829,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;proyecto_final.c: 147:                                 PORTD = (255);
 [e ( _showString (1 :s 7C ]
 "148
-[; ;proyecto_final.c: 148:                                 CCPR2L = (PORTD>>1) + 128;
+[; ;proyecto_final.c: 148:                                 CCPR2L = (PORTD>>1) + 120;
 [e ( _showString (1 :s 8C ]
 "149
 [; ;proyecto_final.c: 149:                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
@@ -921,7 +921,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;proyecto_final.c: 177:                                 PORTA = 9;
 [e = . . _CCP1CONbits 1 5 . . _PORTDbits 0 0 ]
 "178
-[; ;proyecto_final.c: 178:                                 _delay((unsigned long)((250)*(8000000/4000.0)));
+[; ;proyecto_final.c: 178:                                 _delay((unsigned long)((800)*(8000000/4000.0)));
 [e = . . _CCP1CONbits 1 4 -> >> -> _ADRESL `i -> 7 `i `uc ]
 "179
 [; ;proyecto_final.c: 179:                                 if(flag ==1){
@@ -1001,7 +1001,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _PORTD -> -> 255 `i `uc ]
 "205
 [; ;proyecto_final.c: 205:                         }
-[e = _CCPR2L -> + >> -> _PORTD `i -> 1 `i -> 128 `i `uc ]
+[e = _CCPR2L -> + >> -> _PORTD `i -> 1 `i -> 120 `i `uc ]
 "206
 [; ;proyecto_final.c: 206:                         if (opcion==51){
 [e = . . _CCP2CONbits 0 2 . . _PORTDbits 0 0 ]
@@ -1085,7 +1085,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _PORTA -> -> 9 `i `uc ]
 "235
 [; ;proyecto_final.c: 235:                                    PORTAbits.RA5 = 0;
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "236
 [; ;proyecto_final.c: 236:                                    PORTAbits.RA6 = 0;
 [e $ ! == _flag -> 1 `i 175  ]
@@ -1121,7 +1121,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _PORTA -> -> 10 `i `uc ]
 "245
 [; ;proyecto_final.c: 245:                             opcion = 0;
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "246
 [; ;proyecto_final.c: 246:                         }
 [e $ ! == _flag -> 1 `i 178  ]
@@ -1698,7 +1698,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;proyecto_final.c: 447:             PORTAbits.RA4 = 1;
 [e = _EEADR -> _address `uc ]
 "448
-[; ;proyecto_final.c: 448:             _delay((unsigned long)((1000)*(8000000/4000.0)));
+[; ;proyecto_final.c: 448:             _delay((unsigned long)((800)*(8000000/4000.0)));
 [e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
 "449
 [; ;proyecto_final.c: 449:             PORTA = 8;
@@ -1723,7 +1723,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _isr ]
 [f ]
 "463
-[; ;proyecto_final.c: 463:             _delay((unsigned long)((1000)*(8000000/4000.0)));
+[; ;proyecto_final.c: 463:             _delay((unsigned long)((800)*(8000000/4000.0)));
 [e $ ! != -> . . _INTCONbits 0 0 `i -> 0 `i 223  ]
 {
 "464
@@ -1838,7 +1838,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
 "505
 [; ;proyecto_final.c: 505:         CCP1CONbits.DC1B1 = PORTDbits.RD0;
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "506
 [; ;proyecto_final.c: 506:         CCP1CONbits.DC1B0 = ADRESL>>7;
 [e = _PORTA -> -> 8 `i `uc ]
@@ -1858,7 +1858,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
 "512
 [; ;proyecto_final.c: 512:         if(leer == 0x17){
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "513
 [; ;proyecto_final.c: 513:                 leer = 0x10;
 [e = _PORTA -> -> 0 `i `uc ]
@@ -1886,7 +1886,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
 "520
 [; ;proyecto_final.c: 520:         CCP2CONbits.DC2B0 = ADRESL>>7;
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "521
 [; ;proyecto_final.c: 521: 
 [e = _PORTA -> -> 8 `i `uc ]
@@ -1906,7 +1906,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
 "526
 [; ;proyecto_final.c: 526: 
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "527
 [; ;proyecto_final.c: 527:     INTCONbits.RBIF = 0;
 [e = _PORTA -> -> 0 `i `uc ]

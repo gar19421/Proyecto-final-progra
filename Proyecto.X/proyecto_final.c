@@ -202,7 +202,7 @@ void main(void) {
                             }
                             if(opcion==51){
                                 PORTD = (255);
-                                CCPR2L = (PORTD>>1) + 128; //Swift y ajuste de señal
+                                CCPR2L = (PORTD>>1) + 120; //Swift y ajuste de señal
                                 CCP2CONbits.DC2B1 = PORTDbits.RD0;
                                 CCP2CONbits.DC2B0 = ADRESL>>7;
                             }
@@ -232,7 +232,7 @@ void main(void) {
                             }
                             if(opcion==51){
                                 PORTA = 9;
-                                __delay_ms(250);
+                                __delay_ms(800);
                                 if(flag ==1){
                                     PORTA = 8;
                                 }
@@ -242,7 +242,7 @@ void main(void) {
                             }
                             if(opcion==52){
                                 PORTA = 10;
-                                __delay_ms(250);
+                                __delay_ms(800);
                                 if(flag ==1){
                                     PORTA = 8;
                                 }
@@ -502,14 +502,14 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
              
             PORTA = 10;
             PORTAbits.RA4 = 1;
-            __delay_ms(700);
+            __delay_ms(800);
             PORTA = 8;
             
         }
         else {
             PORTA = 2;
             PORTAbits.RA4 = 1;
-            __delay_ms(700);
+            __delay_ms(800);
             PORTA = 0;
         }
     }
@@ -517,13 +517,13 @@ void IOCB_interrupt(){ // se verifica el push presionado e incrementa o decrem..
         if (flag2){
             PORTA = 9;
             PORTAbits.RA5 = 1;
-            __delay_ms(700);
+            __delay_ms(800);
             PORTA = 8;
         }
         else {
             PORTA = 1;
             PORTAbits.RA5 = 1;
-            __delay_ms(700);
+            __delay_ms(800);
             PORTA = 0;
         }
     }

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Proyecto.X.production.sym \
   --cmf=dist/default/production\Proyecto.X.production.cmf -z -Q16F887 \
-  -oC:\Users\brand\AppData\Local\Temp\s4t4.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\brand\AppData\Local\Temp\s7as.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Proyecto.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\brand\AppData\Local\Temp\s4t4.o \
+  -pfunctab=ENTRY -k C:\Users\brand\AppData\Local\Temp\s7as.o \
   dist/default/production\Proyecto.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\brand\AppData\Local\Temp\s4t4.o
+C:\Users\brand\AppData\Local\Temp\s7as.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -45,12 +45,12 @@ dist/default/production\Proyecto.X.production.o
                 text8                               CAE      CAE       11     195C       0
                 text7                               DF3      DF3       69     1BE6       0
                 text6                               CA8      CA8        6     1950       0
-                text5                               4F7      4F7        7        8       0
+                text5                               4F9      4F9        7        8       0
                 text4                               CBF      CBF       15     197E       0
                 text3                               CEA      CEA       24     19D4       0
                 text2                               D35      D35       55     1A6A       0
-                text1                               4DE      4DE       19        8       0
-                maintext                             3A       3A      4A4        8       0
+                text1                               4E0      4E0       19        8       0
+                maintext                             3A       3A      4A6        8       0
                 cstackBANK0                          40       40       10       20       1
                 cstackCOMMON                         70       70        D       70       1
                 clrtext                             7F7      7F7        8      EC0       0
@@ -78,12 +78,12 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text8                               CAE      CAE       11         0
                 text7                               DF3      DF3       69         0
                 text6                               CA8      CA8        6         0
-                text5                               4F7      4F7        7         0
+                text5                               4F9      4F9        7         0
                 text4                               CBF      CBF       15         0
                 text3                               CEA      CEA       24         0
                 text2                               D35      D35       55         0
-                text1                               4DE      4DE       19         0
-                maintext                             3A       3A      4A4         0
+                text1                               4E0      4E0       19         0
+                maintext                             3A       3A      4A6         0
                 clrtext                             7F7      7F7        8         0
                 idataBANK0                          CA4      CA4        4         0
                 idataCOMMON                         7FF      7FF        1         0
@@ -137,7 +137,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  0004FA  0004FE         8       0  CODE        2
+                intentry                       000004  0004FC  000500         8       0  CODE        2
                 bssBANK0                       000020  000034  000054        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 stringtext                     000500  000260  000760         A       0  STRCODE     2
@@ -164,16 +164,13 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         04FE-04FF              2
                          0800-0CA3            4A4
                          1000-1FFF            800
         CONST            0003-0003              1           2
-                         04FE-04FF              2
                          0800-0CA3            100
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         04FE-04FF              2
                          0800-0CA3            100
                          1000-1FFF            100
         IDLOC            2000-2003              4           2
@@ -187,11 +184,9 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         04FE-04FF              2
                          0800-0CA3            4A4
                          1000-1FFF           1000
         STRING           0003-0003              1           2
-                         04FE-04FF              2
                          0800-0CA3            100
                          1000-1FFF            100
 
@@ -353,16 +348,16 @@ __end_of__stringtab         stringtext   0512
 __end_of_config_int_enable  text8        0CBF
 __end_of_config_io          text7        0E5C
 __end_of_config_iocb        text6        0CAE
-__end_of_config_reloj       text5        04FE
+__end_of_config_reloj       text5        0500
 __end_of_data               stringtext   0513
 __end_of_dec_to_ascii       text9        0ED5
 __end_of_isr                text12       07F7
-__end_of_main               maintext     04DE
+__end_of_main               maintext     04E0
 __end_of_readFromEEPROM     text14       0CEA
 __end_of_setup              text4        0CD4
 __end_of_showString         text2        0D8A
 __end_of_strlen             text3        0D0E
-__end_of_writeToEEPROM      text1        04F7
+__end_of_writeToEEPROM      text1        04F9
 __initialization            cinit        000F
 __pbssBANK0                 bssBANK0     0020
 __pcstackBANK0              cstackBANK0  0040
@@ -374,7 +369,7 @@ __pidataCOMMON              idataCOMMON  07FF
 __pintentry                 intentry     0004
 __pmaintext                 maintext     003A
 __pstringtext               stringtext   0500
-__ptext1                    text1        04DE
+__ptext1                    text1        04E0
 __ptext10                   text10       0D0E
 __ptext11                   text11       0D8A
 __ptext12                   text12       0760
@@ -383,7 +378,7 @@ __ptext14                   text14       0CD4
 __ptext2                    text2        0D35
 __ptext3                    text3        0CEA
 __ptext4                    text4        0CBF
-__ptext5                    text5        04F7
+__ptext5                    text5        04F9
 __ptext6                    text6        0CA8
 __ptext7                    text7        0DF3
 __ptext8                    text8        0CAE
@@ -409,7 +404,7 @@ _addressEEPROM              dataBANK0    0050
 _config_int_enable          text8        0CAE
 _config_io                  text7        0DF3
 _config_iocb                text6        0CA8
-_config_reloj               text5        04F7
+_config_reloj               text5        04F9
 _dec_to_ascii               text9        0E5C
 _eepromVal                  bssBANK0     002D
 _flag                       dataBANK0    0052
@@ -429,7 +424,7 @@ _valor_decenas              bssBANK0     0033
 _valor_pot                  bssBANK0     0039
 _valor_unidades             bssBANK0     0031
 _var_temp                   bssBANK0     0037
-_writeToEEPROM              text1        04DE
+_writeToEEPROM              text1        04E0
 btemp                       (abs)        007E
 clear_ram0                  clrtext      07F7
 dec_to_ascii@val            cstackBANK0  0040
@@ -945,20 +940,20 @@ C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c estimated size: 39
 
 proyecto_final.c
-		_writeToEEPROM 		CODE           	04DE	0000	25
+		_writeToEEPROM 		CODE           	04E0	0000	25
 		_readFromEEPROM		CODE           	0CD4	0000	22
 		_config_int_enable		CODE           	0CAE	0000	17
 		_showString    		CODE           	0D35	0000	85
-		_main          		CODE           	003A	0000	1188
+		_main          		CODE           	003A	0000	1190
 		_dec_to_ascii  		CODE           	0E5C	0000	121
 		_IOCB_interrupt		CODE           	0ED5	0000	299
 		_isr           		CODE           	0760	0000	151
 		_setup         		CODE           	0CBF	0000	21
 		_config_io     		CODE           	0DF3	0000	105
 		_config_iocb   		CODE           	0CA8	0000	6
-		_config_reloj  		CODE           	04F7	0000	7
+		_config_reloj  		CODE           	04F9	0000	7
 
-proyecto_final.c estimated size: 2047
+proyecto_final.c estimated size: 2049
 
 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 		___awdiv       		CODE           	0D8A	0000	105

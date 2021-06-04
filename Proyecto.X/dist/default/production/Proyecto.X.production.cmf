@@ -11,17 +11,17 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\brand\AppData\Local\Temp\s4t4.o
+$C:\Users\brand\AppData\Local\Temp\s7as.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\Proyecto.X.production.o
 cinit CODE 0 F F 2B 2
-text1 CODE 0 4DE 4DE 19 2
+text1 CODE 0 4E0 4E0 19 2
 text2 CODE 0 D35 D35 55 2
 text3 CODE 0 CEA CEA 24 2
 text4 CODE 0 CBF CBF 15 2
-text5 CODE 0 4F7 4F7 7 2
+text5 CODE 0 4F9 4F9 7 2
 text6 CODE 0 CA8 CA8 6 2
 text7 CODE 0 DF3 DF3 69 2
 text8 CODE 0 CAE CAE 11 2
@@ -32,7 +32,7 @@ text12 CODE 0 760 760 97 2
 text13 CODE 0 ED5 ED5 12B 2
 text14 CODE 0 CD4 CD4 16 2
 idataCOMMON CODE 0 7FF 7FF 1 2
-maintext CODE 0 3A 3A 4A4 2
+maintext CODE 0 3A 3A 4A6 2
 cstackCOMMON COMMON 1 70 70 D 1
 cstackBANK0 BANK0 1 40 40 10 1
 intentry CODE 0 4 4 8 2
@@ -58,17 +58,14 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 4FE-4FF 2
 CONST 800-CA3 2
 CONST 1000-1FFF 2
 ENTRY 3-3 2
-ENTRY 4FE-4FF 2
 ENTRY 800-CA3 2
 ENTRY 1000-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 4FE-4FF 2
 CODE 800-CA3 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
@@ -77,11 +74,9 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 4FE-4FF 2
 STRCODE 800-CA3 2
 STRCODE 1000-1FFF 2
 STRING 3-3 2
-STRING 4FE-4FF 2
 STRING 800-CA3 2
 STRING 1000-1FFF 2
 # %LINETAB Section
@@ -98,26 +93,26 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Proyecto.X.production.o
-F cinit CODE >1239:C:\Users\brand\AppData\Local\Temp\s4t4.s
-F cinit CODE >1242:C:\Users\brand\AppData\Local\Temp\s4t4.s
-F cinit CODE >1312:C:\Users\brand\AppData\Local\Temp\s4t4.s
-14 cinit CODE >1313:C:\Users\brand\AppData\Local\Temp\s4t4.s
-15 cinit CODE >1314:C:\Users\brand\AppData\Local\Temp\s4t4.s
-1A cinit CODE >1315:C:\Users\brand\AppData\Local\Temp\s4t4.s
-1B cinit CODE >1316:C:\Users\brand\AppData\Local\Temp\s4t4.s
-20 cinit CODE >1317:C:\Users\brand\AppData\Local\Temp\s4t4.s
-21 cinit CODE >1318:C:\Users\brand\AppData\Local\Temp\s4t4.s
-26 cinit CODE >1319:C:\Users\brand\AppData\Local\Temp\s4t4.s
-27 cinit CODE >1323:C:\Users\brand\AppData\Local\Temp\s4t4.s
-2C cinit CODE >1324:C:\Users\brand\AppData\Local\Temp\s4t4.s
-2D cinit CODE >1343:C:\Users\brand\AppData\Local\Temp\s4t4.s
-2E cinit CODE >1344:C:\Users\brand\AppData\Local\Temp\s4t4.s
-2F cinit CODE >1345:C:\Users\brand\AppData\Local\Temp\s4t4.s
-30 cinit CODE >1346:C:\Users\brand\AppData\Local\Temp\s4t4.s
-31 cinit CODE >1347:C:\Users\brand\AppData\Local\Temp\s4t4.s
-36 cinit CODE >1353:C:\Users\brand\AppData\Local\Temp\s4t4.s
-36 cinit CODE >1355:C:\Users\brand\AppData\Local\Temp\s4t4.s
-37 cinit CODE >1356:C:\Users\brand\AppData\Local\Temp\s4t4.s
+F cinit CODE >1239:C:\Users\brand\AppData\Local\Temp\s7as.s
+F cinit CODE >1242:C:\Users\brand\AppData\Local\Temp\s7as.s
+F cinit CODE >1312:C:\Users\brand\AppData\Local\Temp\s7as.s
+14 cinit CODE >1313:C:\Users\brand\AppData\Local\Temp\s7as.s
+15 cinit CODE >1314:C:\Users\brand\AppData\Local\Temp\s7as.s
+1A cinit CODE >1315:C:\Users\brand\AppData\Local\Temp\s7as.s
+1B cinit CODE >1316:C:\Users\brand\AppData\Local\Temp\s7as.s
+20 cinit CODE >1317:C:\Users\brand\AppData\Local\Temp\s7as.s
+21 cinit CODE >1318:C:\Users\brand\AppData\Local\Temp\s7as.s
+26 cinit CODE >1319:C:\Users\brand\AppData\Local\Temp\s7as.s
+27 cinit CODE >1323:C:\Users\brand\AppData\Local\Temp\s7as.s
+2C cinit CODE >1324:C:\Users\brand\AppData\Local\Temp\s7as.s
+2D cinit CODE >1343:C:\Users\brand\AppData\Local\Temp\s7as.s
+2E cinit CODE >1344:C:\Users\brand\AppData\Local\Temp\s7as.s
+2F cinit CODE >1345:C:\Users\brand\AppData\Local\Temp\s7as.s
+30 cinit CODE >1346:C:\Users\brand\AppData\Local\Temp\s7as.s
+31 cinit CODE >1347:C:\Users\brand\AppData\Local\Temp\s7as.s
+36 cinit CODE >1353:C:\Users\brand\AppData\Local\Temp\s7as.s
+36 cinit CODE >1355:C:\Users\brand\AppData\Local\Temp\s7as.s
+37 cinit CODE >1356:C:\Users\brand\AppData\Local\Temp\s7as.s
 4 intentry CODE >461:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 CD4 text14 CODE >446:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 CD4 text14 CODE >447:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
@@ -326,12 +321,12 @@ CA8 text6 CODE >698:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto
 CA8 text6 CODE >700:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 CAC text6 CODE >702:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 CAD text6 CODE >705:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F7 text5 CODE >591:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F7 text5 CODE >593:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4FA text5 CODE >594:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4FB text5 CODE >595:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4FC text5 CODE >596:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4FD text5 CODE >599:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F9 text5 CODE >591:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F9 text5 CODE >593:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4FC text5 CODE >594:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4FD text5 CODE >595:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4FE text5 CODE >596:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4FF text5 CODE >599:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 CBF text4 CODE >414:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 CBF text4 CODE >416:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 CC4 text4 CODE >417:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
@@ -354,18 +349,18 @@ D79 text2 CODE >716:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto
 D7B text2 CODE >717:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 D85 text2 CODE >718:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 D89 text2 CODE >720:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4DE text1 CODE >425:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4DE text1 CODE >426:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4E4 text1 CODE >427:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4EA text1 CODE >428:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4ED text1 CODE >429:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4EE text1 CODE >432:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4EF text1 CODE >433:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F1 text1 CODE >434:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F3 text1 CODE >436:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F4 text1 CODE >439:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F5 text1 CODE >440:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F6 text1 CODE >443:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4E0 text1 CODE >425:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4E0 text1 CODE >426:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4E6 text1 CODE >427:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4EC text1 CODE >428:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4EF text1 CODE >429:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F0 text1 CODE >432:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F1 text1 CODE >433:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F3 text1 CODE >434:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F5 text1 CODE >436:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F6 text1 CODE >439:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F7 text1 CODE >440:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4F8 text1 CODE >443:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 3A maintext CODE >99:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 3A maintext CODE >101:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 3F maintext CODE >107:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
@@ -452,102 +447,102 @@ F7 maintext CODE >152:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyec
 27C maintext CODE >233:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 282 maintext CODE >234:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 284 maintext CODE >235:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-292 maintext CODE >236:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-29A maintext CODE >237:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-29C maintext CODE >239:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2A3 maintext CODE >240:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2A5 maintext CODE >243:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2AB maintext CODE >244:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2AD maintext CODE >245:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2BB maintext CODE >246:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2C3 maintext CODE >247:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2C5 maintext CODE >249:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2CC maintext CODE >250:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2CE maintext CODE >254:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2D4 maintext CODE >255:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2D5 maintext CODE >256:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2D5 maintext CODE >259:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2D6 maintext CODE >263:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2DC maintext CODE >264:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2E5 maintext CODE >265:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2F0 maintext CODE >267:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2F6 maintext CODE >268:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2F7 maintext CODE >270:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-2FC maintext CODE >274:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-302 maintext CODE >275:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-303 maintext CODE >276:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-304 maintext CODE >278:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-30A maintext CODE >279:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-30B maintext CODE >280:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-30C maintext CODE >282:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-312 maintext CODE >284:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-314 maintext CODE >286:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-317 maintext CODE >287:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-318 maintext CODE >288:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-319 maintext CODE >289:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-31A maintext CODE >290:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-328 maintext CODE >291:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-32B maintext CODE >292:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-32C maintext CODE >293:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-32D maintext CODE >294:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-32E maintext CODE >295:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-33C maintext CODE >297:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-351 maintext CODE >302:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-354 maintext CODE >305:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-35A maintext CODE >306:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-35E maintext CODE >308:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-362 maintext CODE >309:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-369 maintext CODE >310:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-36C maintext CODE >311:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-373 maintext CODE >312:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-37C maintext CODE >313:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-383 maintext CODE >315:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-389 maintext CODE >316:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-39C maintext CODE >317:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-3B3 maintext CODE >318:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-3C6 maintext CODE >319:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-3DD maintext CODE >320:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-3E1 maintext CODE >322:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-3EA maintext CODE >323:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-3F9 maintext CODE >324:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-404 maintext CODE >325:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-413 maintext CODE >326:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-41E maintext CODE >327:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-42D maintext CODE >328:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-438 maintext CODE >330:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-43C maintext CODE >331:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-447 maintext CODE >332:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-44C maintext CODE >139:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-452 maintext CODE >340:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-458 maintext CODE >341:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-461 maintext CODE >342:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-465 maintext CODE >353:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-469 maintext CODE >354:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-46D maintext CODE >356:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-477 maintext CODE >357:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-47E maintext CODE >359:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-48B maintext CODE >361:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-494 maintext CODE >362:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-498 maintext CODE >363:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-499 maintext CODE >364:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4A1 maintext CODE >367:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4AC maintext CODE >368:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4B5 maintext CODE >370:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4C2 maintext CODE >372:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4CB maintext CODE >373:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4CF maintext CODE >374:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4D0 maintext CODE >375:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4D8 maintext CODE >378:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-7F7 clrtext CODE >1330:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7F7 clrtext CODE >1331:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7F8 clrtext CODE >1332:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7F8 clrtext CODE >1333:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7F9 clrtext CODE >1334:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7FA clrtext CODE >1335:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7FB clrtext CODE >1336:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7FC clrtext CODE >1337:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7FD clrtext CODE >1338:C:\Users\brand\AppData\Local\Temp\s4t4.s
-7FE clrtext CODE >1339:C:\Users\brand\AppData\Local\Temp\s4t4.s
+293 maintext CODE >236:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+29B maintext CODE >237:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+29D maintext CODE >239:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2A4 maintext CODE >240:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2A6 maintext CODE >243:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2AC maintext CODE >244:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2AE maintext CODE >245:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2BD maintext CODE >246:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2C5 maintext CODE >247:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2C7 maintext CODE >249:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2CE maintext CODE >250:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2D0 maintext CODE >254:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2D6 maintext CODE >255:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2D7 maintext CODE >256:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2D7 maintext CODE >259:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2D8 maintext CODE >263:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2DE maintext CODE >264:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2E7 maintext CODE >265:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2F2 maintext CODE >267:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2F8 maintext CODE >268:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2F9 maintext CODE >270:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+2FE maintext CODE >274:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+304 maintext CODE >275:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+305 maintext CODE >276:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+306 maintext CODE >278:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+30C maintext CODE >279:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+30D maintext CODE >280:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+30E maintext CODE >282:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+314 maintext CODE >284:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+316 maintext CODE >286:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+319 maintext CODE >287:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+31A maintext CODE >288:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+31B maintext CODE >289:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+31C maintext CODE >290:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+32A maintext CODE >291:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+32D maintext CODE >292:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+32E maintext CODE >293:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+32F maintext CODE >294:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+330 maintext CODE >295:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+33E maintext CODE >297:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+353 maintext CODE >302:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+356 maintext CODE >305:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+35C maintext CODE >306:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+360 maintext CODE >308:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+364 maintext CODE >309:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+36B maintext CODE >310:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+36E maintext CODE >311:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+375 maintext CODE >312:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+37E maintext CODE >313:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+385 maintext CODE >315:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+38B maintext CODE >316:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+39E maintext CODE >317:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+3B5 maintext CODE >318:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+3C8 maintext CODE >319:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+3DF maintext CODE >320:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+3E3 maintext CODE >322:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+3EC maintext CODE >323:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+3FB maintext CODE >324:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+406 maintext CODE >325:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+415 maintext CODE >326:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+420 maintext CODE >327:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+42F maintext CODE >328:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+43A maintext CODE >330:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+43E maintext CODE >331:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+449 maintext CODE >332:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+44E maintext CODE >139:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+454 maintext CODE >340:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+45A maintext CODE >341:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+463 maintext CODE >342:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+467 maintext CODE >353:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+46B maintext CODE >354:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+46F maintext CODE >356:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+479 maintext CODE >357:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+480 maintext CODE >359:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+48D maintext CODE >361:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+496 maintext CODE >362:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+49A maintext CODE >363:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+49B maintext CODE >364:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4A3 maintext CODE >367:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4AE maintext CODE >368:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4B7 maintext CODE >370:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4C4 maintext CODE >372:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4CD maintext CODE >373:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4D1 maintext CODE >374:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4D2 maintext CODE >375:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+4DA maintext CODE >378:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
+7F7 clrtext CODE >1330:C:\Users\brand\AppData\Local\Temp\s7as.s
+7F7 clrtext CODE >1331:C:\Users\brand\AppData\Local\Temp\s7as.s
+7F8 clrtext CODE >1332:C:\Users\brand\AppData\Local\Temp\s7as.s
+7F8 clrtext CODE >1333:C:\Users\brand\AppData\Local\Temp\s7as.s
+7F9 clrtext CODE >1334:C:\Users\brand\AppData\Local\Temp\s7as.s
+7FA clrtext CODE >1335:C:\Users\brand\AppData\Local\Temp\s7as.s
+7FB clrtext CODE >1336:C:\Users\brand\AppData\Local\Temp\s7as.s
+7FC clrtext CODE >1337:C:\Users\brand\AppData\Local\Temp\s7as.s
+7FD clrtext CODE >1338:C:\Users\brand\AppData\Local\Temp\s7as.s
+7FE clrtext CODE >1339:C:\Users\brand\AppData\Local\Temp\s7as.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -572,18 +567,18 @@ __Hspace_4 4010 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
 showString@var 44 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_writeToEEPROM 9EE 0 CODE 0 text1 dist/default/production\Proyecto.X.production.o
+__end_of_writeToEEPROM 9F2 0 CODE 0 text1 dist/default/production\Proyecto.X.production.o
 __Lstringtext 0 0 ABS 0 stringtext -
 main@i 4E 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\Proyecto.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\s4t4.o
+___sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\s7as.o
 _flag 52 0 BANK0 1 dataBANK0 dist/default/production\Proyecto.X.production.o
 _leer 7D 0 COMMON 1 dataCOMMON dist/default/production\Proyecto.X.production.o
 _main 74 0 CODE 0 maintext dist/default/production\Proyecto.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Proyecto.X.production.o
-start 18 0 CODE 0 init C:\Users\brand\AppData\Local\Temp\s4t4.o
+start 18 0 CODE 0 init C:\Users\brand\AppData\Local\Temp\s7as.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 ?___wmul 40 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
@@ -592,12 +587,12 @@ __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 _valor_unidades 31 0 BANK0 1 bssBANK0 dist/default/production\Proyecto.X.production.o
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s4t4.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s4t4.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s4t4.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s4t4.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s4t4.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s4t4.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7as.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7as.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7as.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7as.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7as.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7as.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -626,8 +621,8 @@ __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 40 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 __end_of___awdiv 1BE6 0 CODE 0 text11 dist/default/production\Proyecto.X.production.o
 ?_strlen 40 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\s4t4.o
-___stacklo 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\s4t4.o
+___stackhi 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\s7as.o
+___stacklo 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\s7as.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
 __size_of_setup 0 0 ABS 0 - dist/default/production\Proyecto.X.production.o
@@ -638,7 +633,7 @@ _SPBRGH 9A 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __pcstackBANK0 40 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 _readFromEEPROM 19A8 0 CODE 0 text14 dist/default/production\Proyecto.X.production.o
 _IOCB_interrupt 1DAA 0 CODE 0 text13 dist/default/production\Proyecto.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\s4t4.o
+___int_sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\s7as.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -696,10 +691,10 @@ __end_of_IOCB_interrupt 2000 0 CODE 0 text13 dist/default/production\Proyecto.X.
 __HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __end_of_isr FEE 0 CODE 0 text12 dist/default/production\Proyecto.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-_config_reloj 9EE 0 CODE 0 text5 dist/default/production\Proyecto.X.production.o
+_config_reloj 9F2 0 CODE 0 text5 dist/default/production\Proyecto.X.production.o
 __stringtab A00 0 STRCODE 0 stringtext dist/default/production\Proyecto.X.production.o
 _showString 1A6A 0 CODE 0 text2 dist/default/production\Proyecto.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\brand\AppData\Local\Temp\s4t4.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\brand\AppData\Local\Temp\s7as.o
 _config_iocb 1950 0 CODE 0 text6 dist/default/production\Proyecto.X.production.o
 strlen@s 40 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 __pdataBANK0 50 0 BANK0 1 dataBANK0 dist/default/production\Proyecto.X.production.o
@@ -737,7 +732,7 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits C 0 ABS 0 - dist/default/production\Proyecto.X.production.o
-__end_of_config_reloj 9FC 0 CODE 0 text5 dist/default/production\Proyecto.X.production.o
+__end_of_config_reloj A00 0 CODE 0 text5 dist/default/production\Proyecto.X.production.o
 __Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization 6C 0 CODE 0 cinit dist/default/production\Proyecto.X.production.o
@@ -749,13 +744,13 @@ ___awdiv@quotient 47 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.pr
 _valor_decenas 33 0 BANK0 1 bssBANK0 dist/default/production\Proyecto.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-_writeToEEPROM 9BC 0 CODE 0 text1 dist/default/production\Proyecto.X.production.o
+_writeToEEPROM 9C0 0 CODE 0 text1 dist/default/production\Proyecto.X.production.o
 __size_of_strlen 0 0 ABS 0 - dist/default/production\Proyecto.X.production.o
-__ptext1 9BC 0 CODE 0 text1 dist/default/production\Proyecto.X.production.o
+__ptext1 9C0 0 CODE 0 text1 dist/default/production\Proyecto.X.production.o
 __ptext2 1A6A 0 CODE 0 text2 dist/default/production\Proyecto.X.production.o
 __ptext3 19D4 0 CODE 0 text3 dist/default/production\Proyecto.X.production.o
 __ptext4 197E 0 CODE 0 text4 dist/default/production\Proyecto.X.production.o
-__ptext5 9EE 0 CODE 0 text5 dist/default/production\Proyecto.X.production.o
+__ptext5 9F2 0 CODE 0 text5 dist/default/production\Proyecto.X.production.o
 __ptext6 1950 0 CODE 0 text6 dist/default/production\Proyecto.X.production.o
 __ptext7 1BE6 0 CODE 0 text7 dist/default/production\Proyecto.X.production.o
 __ptext8 195C 0 CODE 0 text8 dist/default/production\Proyecto.X.production.o
@@ -776,7 +771,7 @@ _TXSTAbits 98 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __end_of_dec_to_ascii 1DAA 0 CODE 0 text9 dist/default/production\Proyecto.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
 __end_of_data A26 0 STRCODE 0 stringtext dist/default/production\Proyecto.X.production.o
-__end_of_main 9BC 0 CODE 0 maintext dist/default/production\Proyecto.X.production.o
+__end_of_main 9C0 0 CODE 0 maintext dist/default/production\Proyecto.X.production.o
 _CCP2CONbits 1D 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 _EEADR 10D 0 ABS 0 - dist/default/production\Proyecto.X.production.o
@@ -856,7 +851,7 @@ text12 0 760 EC0 A0 2
 text13 0 ED5 1DAA 12B 2
 text14 0 CD4 19A8 16 2
 cstackCOMMON 1 70 70 E 1
-intentry 0 4 8 4FA 2
+intentry 0 4 8 4FC 2
 reset_vec 0 0 0 3 2
 bssBANK0 1 20 20 34 1
 stringtext 0 500 A00 260 2
