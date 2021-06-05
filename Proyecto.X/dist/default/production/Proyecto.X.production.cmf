@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\brand\AppData\Local\Temp\s7so.o
+$C:\Users\brand\AppData\Local\Temp\scgo.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -104,26 +104,26 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Proyecto.X.production.o
-F cinit CODE >1236:C:\Users\brand\AppData\Local\Temp\s7so.s
-F cinit CODE >1239:C:\Users\brand\AppData\Local\Temp\s7so.s
-F cinit CODE >1306:C:\Users\brand\AppData\Local\Temp\s7so.s
-14 cinit CODE >1307:C:\Users\brand\AppData\Local\Temp\s7so.s
-15 cinit CODE >1308:C:\Users\brand\AppData\Local\Temp\s7so.s
-1A cinit CODE >1309:C:\Users\brand\AppData\Local\Temp\s7so.s
-1B cinit CODE >1310:C:\Users\brand\AppData\Local\Temp\s7so.s
-20 cinit CODE >1311:C:\Users\brand\AppData\Local\Temp\s7so.s
-21 cinit CODE >1312:C:\Users\brand\AppData\Local\Temp\s7so.s
-26 cinit CODE >1313:C:\Users\brand\AppData\Local\Temp\s7so.s
-27 cinit CODE >1317:C:\Users\brand\AppData\Local\Temp\s7so.s
-2C cinit CODE >1318:C:\Users\brand\AppData\Local\Temp\s7so.s
-2D cinit CODE >1337:C:\Users\brand\AppData\Local\Temp\s7so.s
-2E cinit CODE >1338:C:\Users\brand\AppData\Local\Temp\s7so.s
-2F cinit CODE >1339:C:\Users\brand\AppData\Local\Temp\s7so.s
-30 cinit CODE >1340:C:\Users\brand\AppData\Local\Temp\s7so.s
-31 cinit CODE >1341:C:\Users\brand\AppData\Local\Temp\s7so.s
-36 cinit CODE >1347:C:\Users\brand\AppData\Local\Temp\s7so.s
-36 cinit CODE >1349:C:\Users\brand\AppData\Local\Temp\s7so.s
-37 cinit CODE >1350:C:\Users\brand\AppData\Local\Temp\s7so.s
+F cinit CODE >1236:C:\Users\brand\AppData\Local\Temp\scgo.s
+F cinit CODE >1239:C:\Users\brand\AppData\Local\Temp\scgo.s
+F cinit CODE >1306:C:\Users\brand\AppData\Local\Temp\scgo.s
+14 cinit CODE >1307:C:\Users\brand\AppData\Local\Temp\scgo.s
+15 cinit CODE >1308:C:\Users\brand\AppData\Local\Temp\scgo.s
+1A cinit CODE >1309:C:\Users\brand\AppData\Local\Temp\scgo.s
+1B cinit CODE >1310:C:\Users\brand\AppData\Local\Temp\scgo.s
+20 cinit CODE >1311:C:\Users\brand\AppData\Local\Temp\scgo.s
+21 cinit CODE >1312:C:\Users\brand\AppData\Local\Temp\scgo.s
+26 cinit CODE >1313:C:\Users\brand\AppData\Local\Temp\scgo.s
+27 cinit CODE >1317:C:\Users\brand\AppData\Local\Temp\scgo.s
+2C cinit CODE >1318:C:\Users\brand\AppData\Local\Temp\scgo.s
+2D cinit CODE >1337:C:\Users\brand\AppData\Local\Temp\scgo.s
+2E cinit CODE >1338:C:\Users\brand\AppData\Local\Temp\scgo.s
+2F cinit CODE >1339:C:\Users\brand\AppData\Local\Temp\scgo.s
+30 cinit CODE >1340:C:\Users\brand\AppData\Local\Temp\scgo.s
+31 cinit CODE >1341:C:\Users\brand\AppData\Local\Temp\scgo.s
+36 cinit CODE >1347:C:\Users\brand\AppData\Local\Temp\scgo.s
+36 cinit CODE >1349:C:\Users\brand\AppData\Local\Temp\scgo.s
+37 cinit CODE >1350:C:\Users\brand\AppData\Local\Temp\scgo.s
 4 intentry CODE >503:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 4E0 text14 CODE >489:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 4E0 text14 CODE >490:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
@@ -544,16 +544,16 @@ F7 maintext CODE >162:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyec
 4D1 maintext CODE >414:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 4D2 maintext CODE >415:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
 4DA maintext CODE >418:C:\Users\brand\MPLABXProjects\Proyecto-final-progra\Proyecto.X\proyecto_final.c
-4F6 clrtext CODE >1324:C:\Users\brand\AppData\Local\Temp\s7so.s
-4F6 clrtext CODE >1325:C:\Users\brand\AppData\Local\Temp\s7so.s
-4F7 clrtext CODE >1326:C:\Users\brand\AppData\Local\Temp\s7so.s
-4F7 clrtext CODE >1327:C:\Users\brand\AppData\Local\Temp\s7so.s
-4F8 clrtext CODE >1328:C:\Users\brand\AppData\Local\Temp\s7so.s
-4F9 clrtext CODE >1329:C:\Users\brand\AppData\Local\Temp\s7so.s
-4FA clrtext CODE >1330:C:\Users\brand\AppData\Local\Temp\s7so.s
-4FB clrtext CODE >1331:C:\Users\brand\AppData\Local\Temp\s7so.s
-4FC clrtext CODE >1332:C:\Users\brand\AppData\Local\Temp\s7so.s
-4FD clrtext CODE >1333:C:\Users\brand\AppData\Local\Temp\s7so.s
+4F6 clrtext CODE >1324:C:\Users\brand\AppData\Local\Temp\scgo.s
+4F6 clrtext CODE >1325:C:\Users\brand\AppData\Local\Temp\scgo.s
+4F7 clrtext CODE >1326:C:\Users\brand\AppData\Local\Temp\scgo.s
+4F7 clrtext CODE >1327:C:\Users\brand\AppData\Local\Temp\scgo.s
+4F8 clrtext CODE >1328:C:\Users\brand\AppData\Local\Temp\scgo.s
+4F9 clrtext CODE >1329:C:\Users\brand\AppData\Local\Temp\scgo.s
+4FA clrtext CODE >1330:C:\Users\brand\AppData\Local\Temp\scgo.s
+4FB clrtext CODE >1331:C:\Users\brand\AppData\Local\Temp\scgo.s
+4FC clrtext CODE >1332:C:\Users\brand\AppData\Local\Temp\scgo.s
+4FD clrtext CODE >1333:C:\Users\brand\AppData\Local\Temp\scgo.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -584,12 +584,12 @@ main@i 43 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\Proyecto.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\s7so.o
+___sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\scgo.o
 _flag 47 0 BANK0 1 dataBANK0 dist/default/production\Proyecto.X.production.o
 _leer 7D 0 COMMON 1 dataCOMMON dist/default/production\Proyecto.X.production.o
 _main 74 0 CODE 0 maintext dist/default/production\Proyecto.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Proyecto.X.production.o
-start 18 0 CODE 0 init C:\Users\brand\AppData\Local\Temp\s7so.o
+start 18 0 CODE 0 init C:\Users\brand\AppData\Local\Temp\scgo.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 ?___wmul 35 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
@@ -598,12 +598,12 @@ __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 _valor_unidades 26 0 BANK0 1 bssBANK0 dist/default/production\Proyecto.X.production.o
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7so.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7so.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7so.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7so.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7so.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\s7so.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\scgo.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\scgo.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\scgo.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\scgo.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\scgo.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\brand\AppData\Local\Temp\scgo.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -632,8 +632,8 @@ __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 35 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 __end_of___awdiv 1BE6 0 CODE 0 text11 dist/default/production\Proyecto.X.production.o
 ?_strlen 35 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\s7so.o
-___stacklo 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\s7so.o
+___stackhi 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\scgo.o
+___stacklo 0 0 ABS 0 - C:\Users\brand\AppData\Local\Temp\scgo.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
 __size_of_setup 0 0 ABS 0 - dist/default/production\Proyecto.X.production.o
@@ -644,7 +644,7 @@ _SPBRGH 9A 0 ABS 0 - dist/default/production\Proyecto.X.production.o
 __pcstackBANK0 35 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 _readFromEEPROM 9C0 0 CODE 0 text14 dist/default/production\Proyecto.X.production.o
 _IOCB_interrupt 1DAA 0 CODE 0 text13 dist/default/production\Proyecto.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\s7so.o
+___int_sp 0 0 STACK 2 stack C:\Users\brand\AppData\Local\Temp\scgo.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -705,7 +705,7 @@ __Lintentry 8 0 CODE 0 intentry -
 _config_reloj 197A 0 CODE 0 text5 dist/default/production\Proyecto.X.production.o
 __stringtab 1000 0 STRING 0 strings dist/default/production\Proyecto.X.production.o
 _showString 1A6A 0 CODE 0 text2 dist/default/production\Proyecto.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\brand\AppData\Local\Temp\s7so.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\brand\AppData\Local\Temp\scgo.o
 _config_iocb 196E 0 CODE 0 text6 dist/default/production\Proyecto.X.production.o
 strlen@s 35 0 BANK0 1 cstackBANK0 dist/default/production\Proyecto.X.production.o
 __pdataBANK0 45 0 BANK0 1 dataBANK0 dist/default/production\Proyecto.X.production.o
